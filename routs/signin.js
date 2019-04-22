@@ -10,23 +10,29 @@ const rout=express.Router();
 const User=require('../models/user');
 // Setting session
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
-//  handling requests from /singIn
+//   getting submitted data from url (as an obj through req.body)
+rout.use(parser.urlencoded({extended : false}));
 
-rout.post('/submit',(req, res, next) => {   // logIn submit
+
+//  handling requests from /singin
+
+rout.post('/login',(req, res, next) => {   // logIn submit
     //must search at emails for a valid email
-
+    console.log(req.body.email,req.body.password,req.body.keepMe);
+    res.redirect('/home');
 });
 
-rout.post('/signUp/submit',(req,res,next)=>{
+rout.post('/signup',(req,res,next)=>{
     //validating email
-    let user=new User(id);
+  
+
+    let user=new User(10);
     user.addUser(req.body.name,req.body.email,req.body.password);
-    //res.redirect('to dashboard')
+
+    res.redirect('/home')
+    
 });
 
-rout.get('/signUp',(req,res,next)=>{
-    res.render('signUp');
-});
 
 rout.get('/',(req,res,next)=>{
     res.render('login');

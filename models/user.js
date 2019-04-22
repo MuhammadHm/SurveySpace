@@ -13,7 +13,7 @@ module.exports=class User{
         this.password=bcrypt.hashSync(password,12);
         this.regDate=Date.now();
         let jsonUser=JSON.stringify(this);
-        fs.writeFile(path.join(__dirname,'..','dataBase','users',`${this.id}.json`),jsonUser);
+        fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${this.id}.json`),jsonUser);
     }
     static editeUser(id,nName,nEmail,nPassword){
         let path1=path.join(__dirname,'..','dataBase','users',`${id}.json`);

@@ -174,47 +174,9 @@
           }
        </style>  
    </head>
-   <body>
-      <!-- NavBar-->
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                  <!-- Item of navbar-->
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <a style="padding-right: 50px;" href="#" class="navbar-brand">Logo</a>
-                  <ul class="navbar-nav mr-auto">
-                          <li class="nav-item">
-                            <a class="nav-link" href="#home">Home</a>
-                          </li>
-                          <li class="nav-item">
-                           
-                            <a class="nav-link" href="#Features">Features & Service</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                          </li>
-                    </ul>
-                       <ul class="navbar-nav ml-auto">
-                          <li class="nav-item">
-                            <a  class="nav-link" href="../html/log-in.html"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i>Sign In</a>
-                          </li>
-                           <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" href="#">English</a>
-                                   <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="#">Arabic</a>
-                          </li>
-                    </ul>
-                </div>
-                <!-- End Item of navbar-->
-            </nav>
-            <!-- End NavBar-->
-            
+   
+   <%- include('layouts/nav.ejs') %>  
+          
    <!-- Start Top Section-->
    <div class="landing">
       <div class="home-wrap">
@@ -285,6 +247,7 @@
       <!-- End Footer-->
    </div>
    <!-- End Top Section-->
+ 
    <!-- Script Source Files -->
          <script src="../script/jquery-3.3.1.js"></script>
         <script src="../script/bootstrap.min.js"></script>
