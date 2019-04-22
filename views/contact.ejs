@@ -1,0 +1,293 @@
+<html>
+   <head>
+    <title>Contact Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1" >
+    <!-- Style Source Files -->
+     <link rel="stylesheet" href="../css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+     <link rel="stylesheet" href="../css/fixed.css">
+     <link rel="stylesheet" href="../css/animate.css">
+    <!-- End of  Style Source Files -->
+      <style>
+          *{
+              box-sizing: border-box;
+          }
+          body{
+              line-height: 1.6;
+              background-color: #262627;
+          }
+          .home-inner{
+              background-image: url(../images/contact.jpg);   
+             
+          }
+          .home-shadow{
+            background-color: rgba(0,0,0,.7);
+            height: 100%;
+          }
+          .caption{
+            color: #FFF;
+            width: 100%;
+            max-width: 100%;
+            position: absolute;
+            top: 45%;
+            left: 7%;
+            z-index: 1;
+          }
+          .caption h1{
+              font-size: 70px;
+              font-weight: bold;
+              letter-spacing: 3px;
+              text-shadow: .1rem .1rem .8rem #03080D;
+          }
+          .container{
+              max-width: 1170px;
+              width: 100%;
+              margin-left: auto;
+              margin-right: auto;
+              padding: 1rem; 
+          }
+          ul{
+              list-style: none;
+              padding: 0;
+          }
+          .wrapper{
+              box-shadow: 0 0 20px 0 rgba(255,255,255,0.3);
+          }
+          .wrapper > *{  /* All element in wrapper*/
+              padding: 1em;
+          }
+          .website-info{
+              background: #262627;
+              color: #FFF;
+          }
+          .website-info h3, .website-info ul{
+              text-align: center;
+              margin: 0 0 1rem 0;
+              padding-bottom: 80px;
+          }
+          .contact{
+              background: #EEE;
+          }
+          .contact form{
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-gap: 20px;
+          }
+          .contact form label{
+              display: block;
+          }
+          .contact form p{
+              margin: 0;
+          }
+          .contact form .full{
+              grid-column: 1/3;
+          }
+          .contact form button, .contact form input, .contact form textarea{
+              width: 100%;
+              padding: 1em;
+              border: 1px solid #c9e6ff;
+          }
+          .contact form button{
+              background: #8999D0;
+              border: 0;
+              text-transform: uppercase;
+          }
+          .contact form button:hover, .contact form button:focus{
+              background: #273B7B;
+              color: #FFF;
+              outline: 0;
+              transition: background-color 1s ease-out;
+          }
+      .footer-icon{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+
+}
+.btn{
+    display: inline-block;
+    width: 90px;height: 90px;
+    background: #141517;
+    margin: 10px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: #3498db;
+    overflow: hidden;
+    position: relative;
+}
+.btn i{
+    line-height: 90px;
+    font-size: 36px;
+    transition: 0.2s linear;
+}
+.btn:hover i{
+    transform: scale(1.3);
+    color: #f1f1f1;
+}
+.btn::before{
+    content: " ";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background:  #3498DB;
+    transform: rotate(45deg);
+    left: -110%;
+    top: 90%;
+}
+.btn:hover::before{
+    animation: aaa 1s 1;
+    top: -10%;
+    left: -10%;
+}
+@keyframes aaa{
+    0%{
+            left: -110%;
+            top: 90%;   
+    }
+    50%{
+        left: 10%;
+        top: -30%;
+    }
+    100%{
+           top: -10%;
+           left: -10%;
+    }
+}
+.footer-icon p{
+    color: #F5F1EA;
+    margin-bottom: 0px;
+    margin-right: 1100px;
+    font-size: 20px;
+}
+          @media(min-width:700px){
+              .wrapper{
+                  display: grid;
+                  grid-template-columns: 1fr 2fr;
+              }
+              .wrapper > *{
+                  padding: 2em;
+              }
+              .website-info h3, .website-info ul{
+                  text-align: left;       
+              }        
+          }
+       </style>  
+   </head>
+   <body>
+      <!-- NavBar-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                  <!-- Item of navbar-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <a style="padding-right: 50px;" href="#" class="navbar-brand">Logo</a>
+                  <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                          </li>
+                          <li class="nav-item">
+                           
+                            <a class="nav-link" href="#Features">Features & Service</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                          </li>
+                    </ul>
+                       <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a  class="nav-link" href="../html/log-in.html"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i>Sign In</a>
+                          </li>
+                           <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="#">English</a>
+                                   <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="#">Arabic</a>
+                          </li>
+                    </ul>
+                </div>
+                <!-- End Item of navbar-->
+            </nav>
+            <!-- End NavBar-->
+            
+   <!-- Start Top Section-->
+   <div class="landing">
+      <div class="home-wrap">
+         <div class="home-inner">
+            <div class="home-shadow"></div>
+         </div>
+      </div>  
+   </div>
+   <div class="caption text-center">
+      <h1>Contact Us</h1>
+       <span  class="animated bounceInRight">Come down to connect with us</span>
+   </div>
+   <div class="container">
+      <div class="wrapper">
+         <div class="website-info"> <!--company-info-->
+            <h3 style="font-size: 50px; max-width: 2000px;">Survey Space Group</h3>
+            <ul>
+               <li style="padding-bottom: 10px;" class="fas fa-map-marker-alt"><span style="padding-left: 5px;">Syria</span></li>
+               <li style=" padding-bottom: 10px;" class="fas fa-university"><span style="padding-left: 5px;">Damscus University - Facutly of ITE</span></li>
+               <li style="padding-bottom: 10px;" class="fas fa-envelope"><a style="color: #FFFFFF ; text-decoration: none ; padding-left: 5px;"  href="#">surveyspace@gmail.com</a></li>
+               <li  class="fas fa-phone"><span style="padding-left: 5px;">+963 944 220 546</span></li>
+            </ul>
+         </div>
+         <div class="contact">
+            <h3>Email Us</h3>
+            <form action="/contact/submitFeedback" method="POST">
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name"  autocomplete="off">
+                </p>
+                <p>
+                    <label>Email</label>
+                    <input type="email" name="email" autocomplete="off">
+                </p>
+                <p>
+                    <label>Subject</label>
+                    <input type="text" name="subject" autocomplete="off">
+                </p>
+                <p class="full">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" ></textarea>
+                </p>
+                <p class="full">
+                    <input type="submit" value="Send">
+                </p>
+            </form>
+         </div>
+      </div>
+            <!-- Start Footer -->
+       <footer>
+                 <div class="footer-icon">
+                  <a class="btn" href="#">
+                     <i class="fab fa-google fa-3x"></i> 
+                  </a>
+                   <a class="btn" href="#">
+                       <i class="fab fa-facebook-f fa-3x"></i>
+                   </a>
+                   <a class="btn" href="#">
+                       <i class="fab fa-twitter fa-3x"></i> 
+                   </a>
+                   <a class="btn"  href="#">
+                      <i class="fab fa-linkedin-in fa-3x"></i>
+                   </a>
+                        <p>© 2019 by The Survey Space Group</p>
+                   </div>
+        </footer>
+      <!-- End Footer-->
+      <!-- End Footer-->
+   </div>
+   <!-- End Top Section-->
+   <!-- Script Source Files -->
+         <script src="../script/jquery-3.3.1.js"></script>
+        <script src="../script/bootstrap.min.js"></script>
+       <!-- End of Script Source Files -->
+   </body>
+</html>
