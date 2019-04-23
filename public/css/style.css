@@ -59,7 +59,7 @@ body{
     color:#CCCCCC;
 }
 .button-efect{
-    cursor: pointer;
+    cursor: pointer !important;
     display: inline-block;
     text-align: center;
     background-color: #D1B385;
