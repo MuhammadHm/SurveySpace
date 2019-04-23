@@ -6,8 +6,10 @@ const parser=require('body-parser');
 const session=require('express-session');
 const bcrypt=require('bcrypt');
 const rout=express.Router();
+const { check,body,validationResult }=require('express-validator/check');
 // External imports
 const User=require('../models/user');
+const signin=require('../controllers/signin');
 // Setting session
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
 //   getting submitted data from url (as an obj through req.body)
@@ -16,26 +18,44 @@ rout.use(parser.urlencoded({extended : false}));
 
 //  handling requests from /singin
 
-rout.post('/login',(req, res, next) => {   // logIn submit
-    //must search at emails for a valid email
-    console.log(req.body.email,req.body.password,req.body.keepMe);
-    res.redirect('/home');
+rout.post('/signup',
+    //validating user Input
+    [      //TODO check if the email alredy used
+        check('email').isEmail().trim().withMessage("Please Enter a valid email"),
+        check('password').isLength({ min: 5 }).withMessage(`Password must be 5 characters at least`),
+        body('confirmPassword').custom((value, {req})=>{
+            if (value !== req.body.password) {
+                throw new Error('Password confirmation does not match password');
+            }
+            return true;
+        })
+    ],signin.signup);
+
+rout.get('/signup',(req,res,next)=>{
+    res.render('signup',{
+        err : false,
+        oldInput :{
+            name : '',
+            email : '',
+            password : '',
+            confirmPassword : ''
+        }
+    });  
 });
 
-rout.post('/signup',(req,res,next)=>{
-    //validating email
-  
-
-    let user=new User(10);
-    user.addUser(req.body.name,req.body.email,req.body.password);
-
-    res.redirect('/home')
-    
-});
-
+rout.post('/login',[
+    check('email').isEmail().trim().withMessage("Please Enter a valid email"),
+    check('password').isLength({ min: 5 }).withMessage(`Password must be 5 characters at least`)
+],signin.login);
 
 rout.get('/',(req,res,next)=>{
-    res.render('login');
+    res.render('signin',{
+        err : false,
+        oldInput : {
+            email : '',
+            password: ''
+        }
+        });
 });
 
 module.exports=rout;

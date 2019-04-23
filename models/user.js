@@ -8,10 +8,11 @@ module.exports=class User{
         this.id=id;
     }
     addUser(name,email,password){
+        let d=new Date();
         this.name=name;
         this.email=email;
         this.password=bcrypt.hashSync(password,12);
-        this.regDate=Date.now();
+        this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         let jsonUser=JSON.stringify(this);
         fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${this.id}.json`),jsonUser);
     }
