@@ -1,19 +1,20 @@
 const fs=require('fs');
 const path=require('path');
 const bcrypt=require('bcrypt');
-
+const userInfo=require('./usersInfo');
 module.exports=class User{
 
-    constructor(id){
-        this.id=id;
+    constructor(){  
     }
     addUser(name,email,password){
+       // if(!userInfo.getUsersInfo(email))
         let d=new Date();
         this.name=name;
         this.email=email;
         this.password=bcrypt.hashSync(password,12);
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         let jsonUser=JSON.stringify(this);
+        userInfo.addUserInfo(email);
         fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${this.id}.json`),jsonUser);
     }
     static editeUser(id,nName,nEmail,nPassword){
@@ -37,5 +38,6 @@ module.exports=class User{
             console.log(`${id} deleted`);
         });
     }
+   
 
 };

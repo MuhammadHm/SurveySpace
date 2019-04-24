@@ -1,7 +1,9 @@
 body{
 	margin:0;
 	color:#EADDDD;
-	background-image: url(../images/contact.jpg);
+	background-image: url(../images/test/myob-exo-business-background.png) ;
+
+	background-color: #F5F1EA;
 
 	font:600 16px/18px 'Open Sans',sans-serif;
 }

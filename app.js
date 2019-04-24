@@ -26,10 +26,8 @@ app.use(session({secret:'my secret' , resave: false, saveUninitialized:false }))
 //  Requests Handlers
 app.use('/home',home);
 
-
 app.use('/signin',singin);
 
-//app.use('/user',userRout);
 
 
 
