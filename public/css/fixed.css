@@ -71,3 +71,25 @@ margin-right: 0px!important;
           transform: translateZ(0);
   will-change: transform;
 }
+/*  Navbar  */
+.navbar {
+  background-color: #262627 !important;
+  font-size: 20px;
+  padding: 10px;
+}
+.dropdown-menu{   background-color:#262627;}
+.dropdown-item{ color: #D1B385}
+.navbar-nav li{
+  padding-right: 15px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #A0A4A9;
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+  color: #D1B385;
+  border-bottom: solid 1px;
+  transition-property: all;
+  transition-duration: .2s;
+  transition-timing-function:linear;
+  transition-delay: 0s;
+}
