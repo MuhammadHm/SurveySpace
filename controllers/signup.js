@@ -45,7 +45,7 @@ exports.validateSignup=[
           throw new Error('Password confirmation does not match password');
       }
       return true;
-  }),
+  })/*,
   body('email').custom((email, {req})=>{
    
     console.log("email",email);
@@ -57,7 +57,7 @@ exports.validateSignup=[
     });
    
 
-})
+})*/
 ]
 
 let validate=(email,cb)=>{

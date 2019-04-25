@@ -17,6 +17,27 @@
               line-height: 1.6;
               background-color: #262627;
           }
+          .navbar {
+                background-color: #262627 !important;
+                font-size: 20px;
+                padding: 10px;
+            }
+            .dropdown-menu{   background-color:#262627;}
+            .dropdown-item{ color: #D1B385}
+            .navbar-nav li{
+                padding-right: 15px;
+            }
+            .navbar-dark .navbar-nav .nav-link {
+                color: #A0A4A9;
+            }
+            .navbar-dark .navbar-nav .nav-link:hover{
+                color: #D1B385;
+                border-bottom: solid 1px;
+                transition-property: all;
+                transition-duration: .2s; 
+                transition-timing-function:linear; 
+                transition-delay: 0s;  
+            }
           .home-inner{
               background-image: url(../images/contact.jpg);   
              
@@ -111,7 +132,7 @@
     background: #141517;
     margin: 10px;
     border-radius: 30px;
-    box-shadow: 0 5px 15px -5px #00000070;
+    box-shadow: 0 5px 15px -5px #000000070;
     color: #3498db;
     overflow: hidden;
     position: relative;
@@ -155,9 +176,8 @@
     }
 }
 .footer-icon p{
-    color: #F5F1EA;
-    margin-bottom: 0px;
-    margin-right: 1100px;
+      color: #F5F1EA;
+    padding-bottom: 10px;
     font-size: 20px;
 }
           @media(min-width:700px){
@@ -174,9 +194,52 @@
           }
        </style>  
    </head>
+<<<<<<< HEAD
+   <body>
+      <!-- NavBar-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                  <!-- Item of navbar-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <a style="padding-right: 50px;" href="#" class="navbar-brand">Logo</a>
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/home/features">Features & Service</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/home/contact">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/home/about">About</a>
+                      </li>
+                    </ul>
+                       <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a  class="nav-link" href="/signin"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i>Sign In</a>
+                          </li>
+                           <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="#">English</a>
+                                   <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="#">Arabic</a>
+                          </li>
+                    </ul>
+                </div>
+                <!-- End Item of navbar-->
+            </nav>
+            <!-- End NavBar-->
+            
+=======
 
    <%- include('layouts/nav.ejs') %>
 
+>>>>>>> 0417c8b707419d07d036491fe1f15f9ed668ed6a
    <!-- Start Top Section-->
    <div class="landing">
       <div class="home-wrap">
@@ -202,7 +265,7 @@
          </div>
          <div class="contact">
             <h3>Email Us</h3>
-            <form action="/contact/submitFeedback" method="POST">
+            <form>
                 <p>
                     <label>Name</label>
                     <input type="text" name="name"  autocomplete="off">
@@ -220,7 +283,7 @@
                     <textarea name="message" rows="5" ></textarea>
                 </p>
                 <p class="full">
-                    <input type="submit" value="Send">
+                    <button>Send</button>
                 </p>
             </form>
          </div>
@@ -244,12 +307,12 @@
                    </div>
         </footer>
       <!-- End Footer-->
+      <!-- End Footer-->
    </div>
    <!-- End Top Section-->
- 
    <!-- Script Source Files -->
-         <script src="../script/jquery-3.3.1.js"></script>
-        <script src="../script/bootstrap.min.js"></script>
+         <script src="../js/jquery-3.3.1.js"></script>
+        <script src="../js/bootstrap.js"></script>
        <!-- End of Script Source Files -->
    </body>
 </html>
