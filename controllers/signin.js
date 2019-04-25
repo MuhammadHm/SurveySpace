@@ -4,6 +4,8 @@ const { validationResult } = require('express-validator/check');
 const parser=require('body-parser');
 const { check,body }=require('express-validator/check');
 const userInfo=require('./../models/usersInfo');
+const session=require('express-session');
+
 
 exports.postLogin = (req, res, next) => {
     // search at emails for a valid email
@@ -17,6 +19,7 @@ exports.postLogin = (req, res, next) => {
             }  
         });
     }
+    req.session.isAuth=true;
     res.redirect('/home');
 }
 

@@ -2,7 +2,8 @@ const User = require('./../models/user');
 const { validationResult } = require('express-validator/check');
 const parser=require('body-parser');
 const { check,body }=require('express-validator/check');
-
+const userInfo=require('./../models/usersInfo');
+const util=require('util');
 
 exports.postSignup = (req, res, next) => {
     const errors = validationResult(req);
@@ -18,7 +19,7 @@ exports.postSignup = (req, res, next) => {
         });
     }
    
-    let user = new User(10);
+    let user = new User();
     user.addUser(req.body.name, req.body.email, req.body.password);
     res.redirect('/home');
 }
@@ -45,11 +46,31 @@ exports.validateSignup=[
       }
       return true;
   }),
-  body('email').custom((value, {req})=>{
-    console.log(value);
-    if (userInfo.getUsersInfo(value)) {
-        throw new Error('Email is already exists !');
-    }
-    return true;
+  body('email').custom((email, {req})=>{
+   
+    console.log("email",email);
+    validate(email,vl=>{
+        console.log(vl);
+        if(vl)
+            return true;
+        throw vl;    
+    });
+   
+
 })
 ]
+
+let validate=(email,cb)=>{
+    let inf;
+    return userInfo.getUsersInfo(email,info=>{
+        console.log("userInfo",info);
+        inf=info;
+        if(info == undefined ){
+            return cb(true);
+            
+        }
+        else
+            return cb(new Error('Email is already exists !'));
+    });
+
+}

@@ -2,43 +2,65 @@ const fs=require('fs');
 const path=require('path');
 const express=require('express');
 const parser=require('body-parser');
+const util=require('util');
 
-exports.getUsersInfo= (userEmail)=>{
+module.exports =class UserInfo {
 
-    fs.readFile(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`),(err,data)=>{
-        let emails=[];
-        emails.push(JSON.parse(data));
-        console.log(emails);
+    constructor (){
+        this.infos=[];
+        this.info={
+            id : 0,
+            email : ''
+        };
+    }
 
-        if(emails)
-        {
-            let userInfo=emails.find(val=>{ return val.email === userEmail });
-            if(userInfo)
-                return userInfo;
-            return false;    
-        }
-    });
+initFile(){
+    this.infos.push(this.info);
+    let inf =JSON.stringify(this.infos);
+    fs.writeFileSync(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`),inf);
+}
+
+ static getUsersInfo(userEmail,cb){
+
+    let read=util.promisify(fs.readFile);
+    read(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`))
+    .then(data=>{
+        let infos=[];
+        infos=JSON.parse(data);
+        let info=infos.find(val=>{ return val.email ===userEmail });
+        console.log('my email',info);
+        cb(info);
+        
+    })
+    .catch(err=>{console.log(err); }); 
+}
+
+static getLastID(cb){
+    let read=util.promisify(fs.readFile);
+    read(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`))
+    .then(data=>{
+        let infos=[];
+        infos=JSON.parse(data);
+        //let info=infos.find(val=>{ return val.email === userEmail });
+        console.log("this infos",infos);
+        cb(infos.length);  
+    })
+    .catch(err=>{console.log(err);});  
     
 }
-exports.addUserInfo=(userEmail)=>{
-    let emails=[];
-    fs.readFileSync(path.join(__dirname,'..','dataBase','emails',`emails.json`),(err,data)=>{
-        emails=[...data];
-        console.log(emails);
-        if (emails === undefined || emails.length == 0) {
-            let userInfo={
-                email: userEmail,
-                id : 0  
+addUserInfo(userEmail){
+    let read=util.promisify(fs.readFile);
+    read(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`))
+    .then((data)=>{
+        this.infos=JSON.parse(data);    
+        this.info  ={
+            id : (this.infos[this.infos.length-1].id)+1 , // get the last id
+            email: userEmail
             }
-            emails.push(userInfo);
-        }
-        else{
-            let userInfo={
-                email: userEmail,
-                id : (emails[emails.length-1].id)+1  // get the last id
-            }
-            emails.push(userInfo);
-        }
-    });
-    fs.writeFileSync(path.join(__dirname,'..','dataBase','emails',`emails.json`),emails);
+        this.infos.push(this.info); 
+        let inf =JSON.stringify(this.infos);
+        fs.writeFileSync(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`),inf);  
+    })
+    .catch(err=>{console.log(err);});
+}
 }
