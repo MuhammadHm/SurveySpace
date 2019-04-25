@@ -9,9 +9,9 @@
 		<div class="login-wrap">
 		<div class="login-html">
 			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">	<a href="/signin">Log In</a></label>
-			<input id="tab-2" type="radio" name="tab" class="sign-up" > <label for="tab-2" class="tab"><a href="/signin/signup">Sign Up</a></label>	
+			<input id="tab-2" type="radio" name="tab" class="sign-up" > <label for="tab-2" class="tab"><a href="/signin/signup">Sign Up</a></label>
 			<!-- Log In Form -->
-			<div class="login-form">	
+			<div class="login-form">
 				<form action="/signin/login" method="POST">
 					<div class="sign-in-htm">
 							<% if(err){ %>
@@ -32,6 +32,7 @@
 						<div class="group">
 							<input type="submit" class="button" value="Log In">
 						</div>
+					</div>
 				</form>
 						<div class="hr"></div>
 						<div class="foot-lnk">

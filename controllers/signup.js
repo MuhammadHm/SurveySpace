@@ -46,31 +46,13 @@ exports.validateSignup=[
       }
       return true;
   }),
-  body('email').custom((email, {req})=>{
-   
-    console.log("email",email);
-    validate(email,vl=>{
-        console.log(vl);
-        if(vl)
-            return true;
-        throw vl;    
-    });
-   
-
+  body('email').custom(async (email, {req}) =>{
+   // console.log("email",email);
+    let info= await userInfo.getUsersInfo(email);
+   // console.log("userInfo",info);
+    if(info === undefined )
+        return true;
+    else
+        throw new Error('Email is already exists !');
 })
 ]
-
-let validate=(email,cb)=>{
-    let inf;
-    return userInfo.getUsersInfo(email,info=>{
-        console.log("userInfo",info);
-        inf=info;
-        if(info == undefined ){
-            return cb(true);
-            
-        }
-        else
-            return cb(new Error('Email is already exists !'));
-    });
-
-}
