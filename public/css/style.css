@@ -59,7 +59,7 @@ body{
     color:#CCCCCC;
 }
 .button-efect{
-    cursor: pointer !important;
+    cursor: pointer;
     display: inline-block;
     text-align: center;
     background-color: #D1B385;
@@ -86,12 +86,27 @@ z-index: 2;
 font-size:20px;
  letter-spacing: 4;
 }
+@media(max-width:600px  ){
+    .caption h1{
+        font-size: 60px;
+        font-weight: 350px;
+    }
+    .caption h3{
+        font-size: 25px;
+    }
+    .button-efect{
+        width: 150px;
+    }       
+    .button-efect.from-left span:last-child{
+        font-size: 15px;
+    }
+}
 
 /* End  Home Page*/
 
 /* Features Page*/
 .features {
-    background-color: #A49AB8;
+    background-color:#A49AB8;
     padding-top:90px;
     padding-bottom: 130px;
 }
@@ -167,59 +182,33 @@ font-size:20px;
 
 /* Service List*/
 .list-service{
-    background-color: #262627;
-    overflow: hidden;
-    padding-top: 70px;
-    padding-bottom: 100px;
-}
-.list-service .item-left{
-  float: left;
-    padding-left: 100px;
-}
-.list-service .item-right{
-    float: right;
-    padding-right: 110px;
-}
-.list-service .item-left p,.list-service .item-right p{
-    max-width: 500px;
-    font-size: 18px;
-    color: #AAAFB4;
-}
-.list-service .item-left h1,.list-service .item-right h1{
+    padding-top: 50px;
+    padding-bottom: 80px;
+    background-color:#262627;
     color: #EADDDD;
-    font-size: 26px;
-    margin-bottom: 20px;
 }
-.list-service .item-left i{
+
+.list-service p{
+    font-size: 18px;
+}
+.item-content i{
     color: #2497FF;
-     margin-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 10px;
 }
-.list-service .item-right i{
-     color: #2497FF;
-     margin-bottom: 20px;
-     padding-top: 25px;
-}
+
 /* End  Service List*/
 
  /* Start Skill Section */
 .skill{
     background-color: #F5F1EA;
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
-.left-skill{
-    float: left;
-    position: relative;
-    left: 5%;
-    top: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 .skill span{
     font-size: 30px;
     color: #2F2E2E;
-    padding-top: 50px;
-    position: relative;
-    bottom: 80px;
+    padding-top: 100px;
+   
 }
 .skill button{
          background-color: #262627;
@@ -237,18 +226,14 @@ font-size:20px;
     background-color: #000000;
     border-color: #000000;
 }
-.right-skill{
-    display: flex;
-    justify-content: flex-end;
-}
 .skill-image{
     position: relative;
-    left: 38%;
+    left: 30%;
 }
 .over-image{
     position: absolute;
      top: 10%;
-    right: 10%;
+     right: 35%;
 }
 /* End Skill Section */
 
@@ -301,7 +286,7 @@ font-size:20px;
     background: #141517;
     margin: 10px;
     border-radius: 30px;
-    box-shadow: 0 5px 15px -5px #00000070;
+    box-shadow: 0 5px 15px -5px #000000070;
     color: #3498db;
     overflow: hidden;
     position: relative;
@@ -346,8 +331,8 @@ font-size:20px;
 }
 .footer-icon p{
     color: #F5F1EA;
-    margin-bottom: 0px;
-    margin-right: 1100px;
+    padding-bottom: 10px;
+
     font-size: 20px;
 }
 /* End footer*/
@@ -355,7 +340,7 @@ font-size:20px;
 /* Start Scroll To Tob Button*/
 #scroll-top{
     width: 60px;
-    height: 70px;
+    height: 90px;
     text-align: center;
     color: #D1B385;
     background-color: #262627;

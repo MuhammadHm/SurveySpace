@@ -13,25 +13,69 @@
         <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
          <!-- End of  Style Source Files -->
     </head>
-    <%-include('layouts/nav.ejs')%>
+    <body data-spy="scroll" data-target="#navbarResponsive">
+        <!-- Start Home Section-->
+        <div id="home">
+            <!-- NavBar-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                  <!-- Item of navbar-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <a style="padding-right: 50px;" href="#" class="navbar-brand">Logo</a>
+                  <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/home/features">Features & Service</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/home/contact">Contact</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/home/about">About</a>
+                          </li>
+                    </ul>
+                       <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a  class="nav-link" href="/signin"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i>Sign In</a>
+                          </li>
+                           <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="/en">English</a>
+                                   <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="/ar">Arabic</a>
+                                      </div>
+                          </li>
+                    </ul>
+                
+                <!-- End Item of navbar-->
+            </nav>
+            <!-- End NavBar-->
+            
             <!-- Start Home Page Section-->
             <div class="landing">
                 <div class="home-wrap">
                     <div class="home-inner">
                     <div class="home-shadow"></div>
-                    </div>
+                        </div>
                 </div>
             </div>
+              
         <div class="caption text-center">
              <h1 class="animated lightSpeedIn">Survey Space</h1>
-            <h3>Creat a survey <span class="typewrite" data-period="1000" data-type='[ "in a many languages.","in minutes."  ]'></span>
+            <h3>Creat a survey <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
             </h3>
             <button class="button-efect from-left">
                 <span></span>
                 <span>Get Start</span>
             </button>
         </div>
-    </div>
+  
+    <div class="clearfix"></div>
     <!-- End Home Page Section-->        
     <!-- Start Features Section-->
         <div class="features">
@@ -44,7 +88,7 @@
                     <h3>Create anything, for anyone.</h3>
                     <p>Survey Space allows you to build a survey form that meets your unique needs. Start creating, designing and analyse your Business ,Educational Forms, Customer Satisfactions Surveys, or any form type you can imagine.</p>
                     <p>With built‑in optimization and responsive, mobile‑ready themes, there’s no limit to who you can reach with your new surveys. Create a simple form for your company or customers around the world—it’s up to you.</p>
-                     <a class="btn btn-outline-dark btn-la "  href="/home/features">Read More</a>
+                     <a class="btn btn-outline-dark btn-la "  href="#">Read More</a>
                 </div>
             </div>
         </div>
@@ -54,7 +98,7 @@
                     <h1>Forms That Fit Your Needs</h1>
                     <p>No matter the size of your needs, Survey Space has a plan that’s right for you. Create a free survey form and get access to professional themes, improvement suggestion, and more.</p>
                     <p>If you need more features, you can choose one of our prepared templates. With each template you’ll get a popular questions suggestions ,pretty designs , and priority support. Some templates also include advanced design customization, useful tools, and the ability to upload custom templates or themes.</p> 
-                     <a class="btn btn-outline-dark btn-la "  href="/home/features">Read More</a>
+                     <a class="btn btn-outline-dark btn-la "  href="#">Read More</a>
                     
                 </div>
                 <div class="ser-image">
@@ -66,48 +110,78 @@
       <!-- End Features Section-->
         
       <!-- Start List Service-->
-       <div class="list-service text-center">
-               <div class="item-left">
+    
+               
+               <div class="list-service ">
+               <div class="row">
+               <div class="col-lg-6 col-md-12">
                <div class="item">
-                   <i class="fab fa-wpforms fa-5x"></i>
+                  <div class="item-content text-center">
+                   <i  class="fab fa-wpforms fa-5x"></i>
                    <h1>Forms & Surveys for the people</h1>
-                   <p>Create different types of Surveys & Forms easily, ex : Educational ,Political ,Customer Feedback ,Quizzes ,etc</p>
+                   <p class="lead">Create different types of Surveys & Forms easily, ex : Educational ,Political ,Customer Feedback ,Quizzes ,etc</p>
+                    </div>
                </div>
+               </div>
+               <div class="col-lg-6 col-md-12">
                <div class="item">
+                  <div class="item-content text-center">
                    <i class="fas fa-bolt fa-5x"></i>
                    <h1>Fast & Easy</h1>
-                   <p>We've done our best to make creating surveys as enjoyable as possible. We've got the fastest and most intuitive user experience on the block. Creating online surveys has never been more fun and hassle-free.</p>
-               </div>
-               <div class="item">
-                   <i class=" fa fa-edit fa-4x"></i>
-                   <h1>Multiple Languages</h1>
-                   <p>Your customers speak more than one language, and so do we. The text on survey buttons, instructions, and opening and closing messages can be presented in English or Arabic.</p>
+                   <p class="lead">We've done our best to make creating surveys as enjoyable as possible. We've got the fastest and most intuitive user experience on the block. Creating online surveys has never been more fun and hassle-free.</p>
+                   </div>
                </div>
                    </div>
-               <div class="item-right">
+                   <div class="clearfix"></div>
+                   
+                <div class="col-lg-6 col-md-12">
                <div class="item">
+                  <div class="item-content text-center">
+                   <i class=" fa fa-edit fa-4x"></i>
+                   <h1>Multiple Languages</h1>
+                   <p class="lead">Your customers speak more than one language, and so do we. The text on survey buttons, instructions, and opening and closing messages can be presented in English or Arabic.</p>
+                   </div>
+               </div>
+                   </div>
+                 
+                <div class="col-lg-6 col-md-12">
+               <div class="item">
+                 <div class="item-content text-center">
                   <i class="far fa-chart-bar fa-5x"></i>
                    <h1>Analyze Results</h1>
-                   <p>Several analyzing methods that fits your surveys results,
+                   <p class="lead">Several analyzing methods that fits your surveys results,
                           with simple analytics gives you quick insights.</p>
+                    </div>
                </div>
+                   </div>
+                   <div class="clearfix"></div>
+                    <div class="col-lg-6 col-md-12">
                <div class="item">
-                    <i style="margin-top: 10px;"  class="fa fa-tint fa-4x"></i>
+                   <div class="item-content text-center">
+                    <i style="margin-top: 20px;"  class="fa fa-tint fa-4x"></i>
                    <h1>Surveys With Style</h1>
-                   <p> Use our easy and customizable survey platform for hundreds of applications,Add your own touch.</p>
+                   <p class="lead"> Use our easy and customizable survey platform for hundreds of applications,Add your own touch.</p>
+                   </div>
                </div>
+                   </div>
+                    <div class="col-lg-6 col-md-12">
                <div class="item">
-                   <i  style="margin-top: 35px;" class="fas fa-mobile-alt fa-5x" ></i>
+                  <div class="item-content text-center">
+                   <i  style="margin-top: 10px;" class="fas fa-mobile-alt fa-5x" ></i>
                    <h1 >Responsive Layout</h1>
-                   <p>Our surveys work on mobile devices, tablets and desktop computers. Before you share your survey, just head into Preview mode to see how it looks on different devices.</p>
+                   <p class="lead">Our surveys work on mobile devices, tablets and desktop computers. Before you share your survey, just head into Preview mode to see how it looks on different devices.</p>
+                   </div>
                </div>
                </div>
-        </div>
+                   </div>
+              
+       
         <!---end list serves-->
+        
         <!-- Start Skill Section-->
         <div class="skill">
-              <div class="left-skill">
-                <div class="container">
+             <div class="row">
+              <div class="col-md-6">
                  <span>Something for every stage of the customer<br> journey</span>
                  <div>
                      <img src="../images/Screenshot%20(16).webp " width="600px;">
@@ -115,19 +189,20 @@
                  <div>
                       <button>Try it Free</button>
                  </div>
-              </div>
-                 </div>
-              <div class="container">
-              <div class="right-skill">
-                 <div class="skill-image">
+                  </div>
+                   <div class="col-md-6 ">
+                 <div class="skill-image hide">
+                   <div class="container">
                     <img src="../images/floor.jpg" width="600px;" height="650px;">
                     <img class="over-image" src="../images/skils.jpeg" width="800px;">
                  </div>
               </div>
-              </div>
-        
-        </div>
+                 </div>
+              </div> 
+               </div>
+              
         <!-- End Skill Section-->
+        
         <!-- Start Contact Section-->
             <div class="contact">
               <div class="container">
@@ -136,10 +211,10 @@
                  <span>We are here to assist. Contact us by phone, email or via our social media<br> channels.</span>
                </div>
                <a href="/home/contact">
-               <div class="contact-button">
-                  <button>Contact Us</button>
-               </div>
-            </a>
+                <div class="contact-buuton">
+                   <button>Contact Us</button>
+                </div>
+               </a>
             </div>
          </div>
         <!-- EndContact Section-->
@@ -160,7 +235,6 @@
                    </a>
                         <p>© 2019 by The Survey Space Group</p>
                    </div>
-              
         </footer>
       <!-- End Footer-->
       <!-- End resource section-->
@@ -169,13 +243,14 @@
       <div id="scroll-top">
          <i class="fa fa-chevron-up fa-3x"></i>    
          <span style="margin-bottom: 10px;">To Top</span>
+         
           
       </div>
       <!-- End Scroll To Tob Button-->
       
       <!-- Script Source Files -->
         <script src="../js/jquery-3.3.1.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
         <script src="../js/MyJavaScript.js"></script>
         <script src="../js/base.js"></script>
         <!-- End of Script Source Files -->
