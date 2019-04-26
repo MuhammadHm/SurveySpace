@@ -12,21 +12,29 @@ rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false })
 //  handling requests from /home
 
 rout.get('/about', (req, res, next) => {
-    res.render('about');
+    res.render('about', { 
+        isAuth : req.session.isAuth
+    });
 });
 
 rout.get('/features', (req, res, next) => {
-    res.render('features');
+    res.render('features', { 
+        isAuth : req.session.isAuth
+    });
 });
 
 rout.get('/contact', (req, res, next) => {
-    res.render('contact');
+    res.render('contact', { 
+        isAuth : req.session.isAuth
+    });
 });
 
 rout.post('/contact/submitFeedback', (req, res, next) => {
     let feedback = req.body;
     fs.writeFile(path.join(__dirname, '..', 'dataBase', 'feedbacks', `${feedback.name}.json`), feedback);
-    res.redirect('/contact');
+    res.redirect('/contact', { 
+        isAuth : req.session.isAuth
+    });
     // printing succeed message (your feedback submitted)
 });
 
