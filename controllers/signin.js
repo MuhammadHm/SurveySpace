@@ -56,7 +56,7 @@ exports.validateLogin = [
         userpassword= bcrypt.compareSync(password, user.password);
     
         if (! userpassword )
-             throw new Error(`Wrong password!`);         
+             throw new Error(`Wrong password !`);         
          return true;
 
     }),
