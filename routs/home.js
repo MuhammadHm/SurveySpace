@@ -41,7 +41,7 @@ rout.post('/contact/submitFeedback', (req, res, next) => {
 rout.get('/', (req, res, next) => {
     res.render('home',
     { 
-        isAuth : req.session.isAuth
+        isAuth : req.session.isAuth,
     });
 });
 

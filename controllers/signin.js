@@ -25,7 +25,7 @@ exports.postLogin = (req, res, next) => {
     }
 
     req.session.isAuth = true;
-    res.status(200).render('home',{ isAuth : true});
+    res.status(200).render('home',{ isAuth : true, path : "/home"});
 }
 exports.getLogin = (req, res, next) => {
     res.render('signin', {
