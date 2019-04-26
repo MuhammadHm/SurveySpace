@@ -40,7 +40,7 @@
                     </ul>
                        <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
-                            <a  class="nav-link" href="/signin"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i>Sign In</a>
+                            <a  class="nav-link" href="/signin"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i><%=  isAuth == true? 'Sign Out' : 'Sign In' %></a>
                           </li>
                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
@@ -69,10 +69,13 @@
              <h1 class="animated lightSpeedIn">Survey Space</h1>
             <h3>Creat a survey <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
             </h3>
+            <a href="<%= !isAuth? '/signin' : '/mysurveys' %>">
             <button class="button-efect from-left">
                 <span></span>
+
                 <span>Get Start</span>
             </button>
+            </a>
         </div>
   
     <div class="clearfix"></div>

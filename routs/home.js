@@ -2,10 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const parser = require('body-parser');
+const session=require('express-session');
 const rout = express.Router();
 
 // for getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({ extended: false }));
+rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
 
 //  handling requests from /home
 
@@ -29,8 +31,10 @@ rout.post('/contact/submitFeedback', (req, res, next) => {
 });
 
 rout.get('/', (req, res, next) => {
-    res.render('home');
-
+    res.render('home',
+    { 
+        isAuth : req.session.isAuth
+    });
 });
 
 
