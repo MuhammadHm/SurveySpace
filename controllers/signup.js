@@ -24,8 +24,6 @@ exports.postSignup = (req, res, next) => {
     res.redirect('/home');
 }
 exports.getSignup=(req,res,next)=>{
-    res.setHeader('Set-Cookie','loggedIn = true ; Expires=1000');
-    console.log(req.get('Cookie').split(';')[0].trim().split('=')[1]);
     res.render('signup',{
         err : false,
         oldInput :{
