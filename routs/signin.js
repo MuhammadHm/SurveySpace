@@ -14,7 +14,7 @@ const signin=require('../controllers/signin');
 const signup=require('../controllers/signup');
 
 // Setting session
-rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
+rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false,cookie: { secure : true} }));
 // getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({extended : false}));
 
