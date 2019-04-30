@@ -1,0 +1,23 @@
+.question{
+    text-align: left;
+    border : solid black;
+    margin: auto;
+    margin-top:  30px;
+    margin-right:  30px;
+    margin-left:  30px;
+    margin-bottom:  30px;
+    background-color: aliceblue;
+    box-shadow: 0 2px 3px #ccc;
+
+}
+.question-text{
+    margin-left:  30px;
+    margin-bottom:  30px;
+}
+.button{
+    background-color : "#eee";
+    padding: 3px 3px 3 px;
+    font-size: 20px;
+     
+    
+  }

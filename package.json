@@ -1,9 +1,11 @@
 {
   "name": "survey-space",
   "version": "1.0.0",
-  "description": "",
+  "description": "Survey manager web app",
   "main": "app.js",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
@@ -23,5 +25,14 @@
     "start": "nodemon app.js"
   },
   "author": "Muhammad Hm,Mohammed Ay",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadHm/SurveySpace.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/MuhammadHm/SurveySpace/issues"
+  },
+  "homepage": "https://github.com/MuhammadHm/SurveySpace#readme"
 }

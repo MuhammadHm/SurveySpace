@@ -26,4 +26,5 @@ rout.get ('/signup',signup.getSignup);
 rout.post('/login',signin.validateLogin,signin.postLogin);
 rout.get('/',signin.getLogin);
 
+
 module.exports=rout;

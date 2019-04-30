@@ -10,9 +10,10 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const util=require('util');
 let info = {};
+let authUser={};
 
-exports.postLogin = (req, res, next) => {
-    // search at emails for a valid email
+exports.postLogin =async (req, res, next) => {
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).render('signin', {
@@ -24,7 +25,16 @@ exports.postLogin = (req, res, next) => {
         });
     }
 
+    // user is Authenticated
     req.session.isAuth = true;
+
+    let id=info.id;
+    let read = util.promisify(fs.readFile);
+    let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
+    let user=JSON.parse(data);
+   
+    authUser = user;
+    exports.authUser=authUser;
     res.status(200).render('home',{ isAuth : true, path : "/home"});
 }
 exports.getLogin = (req, res, next) => {

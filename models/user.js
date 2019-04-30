@@ -12,6 +12,9 @@ module.exports=class User{
         this.email=email;
         this.password=bcrypt.hashSync(password,12);
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        this.surveys=[];
+       
+       
         let userInf=new userInfo();
         userInf.addUserInfo(email); 
         userInfo.getLastID(id=>{
