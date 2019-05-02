@@ -14,7 +14,7 @@ let info = {};
 
 exports.postServey = (req, res, next) => {
     let survey = new servey();
-    survey.addSurvey(7,req.body.title,req.body.question,req.body.design);
+    survey.addSurvey(7,req.body.title,req.body.question,req.body.desgin);
     res.redirect('/home');
 }
 exports.getCreate = (req, res, next) => {

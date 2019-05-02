@@ -20,6 +20,7 @@ module.exports=class Survey{
             else
                 id =1;
             userInfo.addSurvey(id_admin,id);
+            console.log(this);
             let jsonSurvey=JSON.stringify(this);
             fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${id}.json`),jsonSurvey);
         });
