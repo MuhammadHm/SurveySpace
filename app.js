@@ -10,6 +10,7 @@ const app=express();
 const home=require('./routs/home');
 const userRout=require('./routs/userRout');
 const singin=require('./routs/signin');
+const survey=require('./routs/survey');
 
 //  Setting view engine
 app.set('view engine', 'ejs');
@@ -27,6 +28,8 @@ app.use(session({secret:'my secret' , resave: false, saveUninitialized:false }))
 app.use('/home',home);
 
 app.use('/signin',singin);
+app.use('/survey',survey);
+
 
 
 //  Run Server
