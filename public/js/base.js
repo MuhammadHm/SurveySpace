@@ -48,3 +48,9 @@ $(document).ready(function(){
 });
 
 
+
+$(document).ready(function(){
+ $('#My-new-survey').click(function(){
+   $('#Mymodal').modal('show')
+ });
+});

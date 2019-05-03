@@ -29,10 +29,11 @@ app.use(session({secret:'my secret' , resave: false, saveUninitialized:false }))
 app.use('/home',home);
 
 app.use('/signin',singin);
-app.use('/survey',survey);
 
 
 app.use('/mysurveys',mysurveys);
+
+app.use('/survey',survey);
 
 //  Run Server
 app.listen(8080);

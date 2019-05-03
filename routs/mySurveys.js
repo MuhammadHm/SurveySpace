@@ -11,8 +11,9 @@ const rout = express.Router();
 rout.use(parser.json());
 
 rout.get('/',(req,res,next)=>{
-    const user=require('./../controllers/signin').authUser;
-    res.render('mysurveys');
+   // const user=require('./../controllers/signin').authUser;
+    
+    res.render('mysurveys',{surveys : req.session.user.surveys });
     //res.json(user);
 });
 

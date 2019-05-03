@@ -25,14 +25,17 @@ exports.postLogin =async (req, res, next) => {
         });
     }
 
-    // user is Authenticated
-    req.session.isAuth = true;
+    
 
     let id=info.id;
     let read = util.promisify(fs.readFile);
     let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
     let user=JSON.parse(data);
    
+    // user is Authenticated
+    req.session.isAuth = true;
+    req.session.user=user;
+
     authUser = user;
     exports.authUser=authUser;
     res.status(200).render('home',{ isAuth : true, path : "/home"});

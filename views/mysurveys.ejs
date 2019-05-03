@@ -25,25 +25,28 @@
                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Name</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" href="#"> <i class="fas fa-user-alt"></i> Account</a>
+                                   <a class="dropdown-item" href="/account"> <i class="fas fa-user-alt"></i> Account</a>
                                    <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="#"> <i class="fas fa-sign-in-alt"></i> log out</a>
+                                      <a class="dropdown-item" href="/logout"> <i class="fas fa-sign-in-alt"></i> Log out</a>
                             </div>
                           </li>
                     </ul>
                 <!-- End Item of navbar-->
             </nav>
             <!-- End NavBar-->
-               <section class="gallery-block cards-gallery">
+
+            <section class="gallery-block cards-gallery">
                <div class="container text-center">
                   <div class="row">
+                      <!--start of card-->
+                      <% for(let i=0; i < surveys.length ; i++){ %>
                      <div class="col-md-6 col-lg-4">
                        <div class="card border-0 transform-on-hover">
                        <div class="card-header">
-                          <h5>Survey Name</h5>
+                          <h5> <%= surveys[i].title%> </h5>
                        </div>
                        <div class="card-body">
-                          <p>  Responses Since 0</p>
+                          <p>Responses Since 0</p>
                           <p>Responses Today 0 </p>  
                        </div>
                        <div class="card-footer">
@@ -51,38 +54,9 @@
                        </div>
                        </div>
                      </div>
-                     
-                        <div class="col-md-6 col-lg-4">
-                       <div class="card border-0 transform-on-hover">
-                       <div class="card-header">
-                          <h5>Survey Name 1</h5>
-                       </div>
-                       <div class="card-body">
-                          <p>  Responses Since 1</p>
-                          <p>Responses Today 0 </p>  
-                       </div>
-                       <div class="card-footer">
-                          <a class="card-link" href="#"><i class="fas fa-user-cog"></i></a>
-                       </div>
-                       </div>
-                     </div>
-                     
-                     
-                      
-                       <div class="col-md-6 col-lg-4">
-                       <div class="card border-0 transform-on-hover">
-                       <div class="card-header">
-                          <h5>Survey Name 2</h5>
-                       </div>
-                       <div class="card-body">
-                          <p> Responses Since 2</p>
-                          <p> Responses Today 2</p>  
-                       </div>
-                       <div class="card-footer">
-                          <a class="card-link" href="#"><i class="fas fa-user-cog"></i></a>
-                       </div>
-                       </div>
-                     </div>
+                    <% } %>
+                     <!-- end of card -->
+                       
                     <div class="col-md-6 col-lg-4">
                      <div class="card border-0 ">
                      <div class="card-body">
@@ -101,21 +75,22 @@
                      <h4 class="modal-title"> Creat new survey </h4>                                                          
                  </div> 
                  <div class="modal-body">
-                 <form id="MyForm" action="" method="post">
+                 <form id="MyForm" action="/survey/addsurvey" method="post" >
                    <label>Survey Title</label>
-                   <input type="text" autofocus>
+                   <input type="text" name="title" autofocus>
                    <label>Welcome message</label>
-                   <textarea  rows="4"></textarea>
-                 </form>
+                   <textarea  rows="4" name="welcomeMessage"></textarea>
+                 
                  </div>   
                  <div class="modal-footer">
                    <nav>
-                       <button class="btn btn-primary" type="submit">Save</button>
+                       <button class="btn btn-primary" type="submit">Create</button>
                    </nav>                     
-                 </div>
-                 </div>                                                                       
-                 </div>                                      
-                </div>
+              </div>
+            </form>
+              </div>                                                                       
+              </div>                                      
+            </div>
             
      
          
