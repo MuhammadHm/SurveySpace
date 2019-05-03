@@ -23,6 +23,7 @@ exports.postSignup = (req, res, next) => {
     user.addUser(req.body.name, req.body.email, req.body.password);
     res.redirect('/home');
 }
+
 exports.getSignup=(req,res,next)=>{
     res.render('signup',{
         err : false,
@@ -34,6 +35,7 @@ exports.getSignup=(req,res,next)=>{
         }
     });  
 }
+
 exports.validateSignup=[
     //TODO check if the email alredy used
   check('email').isEmail().trim().withMessage("Please Enter a valid email"),
@@ -45,7 +47,6 @@ exports.validateSignup=[
       return true;
     }),
   body('email').custom(async (email, {req}) =>{
-
         let info= await userInfo.getUsersInfo(email);
         if(info === undefined )
             return true;

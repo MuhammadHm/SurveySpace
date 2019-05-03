@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Survey Signup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/log-in-style.css">
+</head>
+<body>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" ><label for="tab-1" class="tab">	<a href="/survey">Create-Survey</a>  </label>
+        <div class="login-form">
+            <form action="/survey/create" method="POST">
+                <div class="login-html">
+                    <div class="group">
+                        <label class="label">title</label>
+                        <input id="title" type="text" class="input" name="title" placeholder="survey title"  >
+                    </div>
+                    <div class="group">
+                        <label for="question" class="label">question </label>
+                        <input id="pass" type="text" class="input" name="question" placeholder="question" >
+                    </div>
+                    <div class="group">
+                        <label for="desgin" class="label">desgin</label>
+                        <input id="desgin" type="text" class="input"  name="desgin" placeholder="desgin" >
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="addSurvey">
+                    </div>
+                    <div class="hr"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

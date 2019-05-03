@@ -11,6 +11,7 @@ module.exports=class User{
         this.name=name;
         this.email=email;
         this.password=bcrypt.hashSync(password,12);
+        this.survey=[];
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         this.surveys=[];
        
@@ -38,6 +39,8 @@ module.exports=class User{
         });
 
     }
+
+    //TODO remove from emailarray file
     static removeUser(id){
         let path1=path.join(__dirname,'..','dataBase','users',`${id}.json`);
         fs.unlink(path1,err => {
