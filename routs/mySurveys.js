@@ -12,11 +12,9 @@ rout.use(parser.json());
 
 rout.get('/',(req,res,next)=>{
     const user=require('./../controllers/signin').authUser;
-
-    res.json(user);
+    res.render('mysurveys');
+    //res.json(user);
 });
-
-
 
 
 

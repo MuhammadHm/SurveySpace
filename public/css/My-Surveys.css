@@ -1,0 +1,69 @@
+.navbar {
+    background-color: #262627 !important;
+    font-size: 15px;
+}
+.dropdown-menu{   
+    background-color:#D1B385;
+}
+.dropdown-item{ color: #262627}
+.navbar-nav li{
+   padding-right:50px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #A0A4A9;
+  
+}
+.btn-secondary{
+    background-color: #D1B385;
+    border-color: #D1B385;
+}
+/* End Navbar*/
+.gallery-block{
+    padding-bottom: 80px;
+    padding-top: 80px;
+    background-color: #F5F1EA;
+}
+
+.card-body:last-child{
+  
+    border: 2px solid gray;
+    height: 220px;
+    cursor: pointer;
+    padding-top: 85px;
+}
+.card-body:last-child:hover{
+    background-color: #262627;
+}
+.card-body a{
+    text-decoration: none;
+}
+
+/* Creat new Survey*/
+#MyForm{
+    margin-left: 20px;
+}
+#MyForm label{
+display: block;  
+} 
+#MyForm input{
+    margin-bottom: 10px;
+    width: 400px;
+     height: 40px;
+}
+#MyForm textarea{
+    width: 400px;
+}
+.modal-header button{
+    position: absolute;
+    top:15px;
+    right: 20px;
+    font-size: 30px;
+}
+.modal-header{
+    padding: 30px;
+}
+.modal-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
