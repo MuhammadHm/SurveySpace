@@ -19,8 +19,8 @@ rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false,co
 // getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({extended : false}));
 
-
-rout.post('/create',survey.postServey);
+// /survey
+rout.post('/addsurvey',survey.postServey);
 rout.get('/',survey.getCreate);
 
 module.exports=rout;

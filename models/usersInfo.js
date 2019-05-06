@@ -57,20 +57,7 @@ module.exports =class UserInfo {
         })
         .catch(err=>{console.log(err);});
     }
-    static addSurvey(id_admin,id_survey){
-        let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
-        let read=util.promisify(fs.readFile);
-        let user;
-        read(path1)
-            .then((data)=>{
-                user=JSON.parse(data);
-                user.survey.push(id_survey);
-                console.log(user.survey);
-                user=JSON.stringify(user);
-                fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
-            })
-            .catch(err=>{console.log(err);});
-    }
+    
     static  deleteSurvey(id_admin,id_survey){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
         let user;
