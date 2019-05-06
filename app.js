@@ -12,7 +12,7 @@ const userRout=require('./routs/userRout');
 const singin=require('./routs/signin');
 const mysurveys=require('./routs/mySurveys');
 const survey=require('./routs/survey');
-
+const logout=require('./controllers/logout');
 //  Setting view engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -30,10 +30,13 @@ app.use('/home',home);
 
 app.use('/signin',singin);
 
+app.get('/logout',logout.logout);
 
 app.use('/mysurveys',mysurveys);
 
 app.use('/survey',survey);
+
+
 
 //  Run Server
 app.listen(8080);

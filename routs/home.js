@@ -38,10 +38,19 @@ rout.post('/contact/submitFeedback', (req, res, next) => {
     // printing succeed message (your feedback submitted)
 });
 
+rout.get('/account', (req, res, next) => {
+    res.render('profile',
+    { 
+        isAuth : req.session.isAuth,
+        user : req.session.user
+    });
+});
+
+
 rout.get('/', (req, res, next) => {
     res.render('home',
     { 
-        isAuth : req.session.isAuth,
+        isAuth : req.session.isAuth     
     });
 });
 

@@ -13,7 +13,7 @@ rout.use(parser.json());
 rout.get('/',(req,res,next)=>{
    // const user=require('./../controllers/signin').authUser;
     
-    res.render('mysurveys',{surveys : req.session.user.surveys });
+    res.render('mysurveys',{surveys : req.session.user.surveys ,user: req.session.user });
     //res.json(user);
 });
 

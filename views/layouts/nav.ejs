@@ -22,7 +22,7 @@
       </ul>
          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a  class="nav-link" href="/signin"><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i><%=  isAuth == true? 'Sign Out' : 'Sign In' %></a>
+              <a  class="nav-link" href="<%= isAuth == true? '/logout' : 'signin' %>" ><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i><%=  isAuth == true? 'Sign Out' : 'Sign In' %></a>
             </li>
              <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
