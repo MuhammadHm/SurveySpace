@@ -1,0 +1,285 @@
+<html>
+    <head>
+       <!-- Style Source Files -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/fixed.css">
+        <link rel="stylesheet" href="../css/animate.css">
+         <!-- End of  Style Source Files -->
+         <style>
+                    .navbar {
+                        background-color: #262627 !important;
+                        font-size: 15px;
+                    }
+                    .dropdown-menu{   
+                        background-color:#D1B385;
+                    }
+                    .dropdown-item{ color: #262627}
+                    .navbar-nav li{
+                       padding-right:50px;
+                    }
+                    .navbar-dark .navbar-nav .nav-link {
+                        color: #A0A4A9;
+
+                    }
+                    .btn-secondary{
+                        background-color: #D1B385;
+                        border-color: #D1B385;
+                    }
+                    /* End Navbar*/
+                    .side-bar{
+                        padding-top:  110px;
+                        background-color: #F5F1EA;
+                        width: 25%;
+                        height: 100%;
+                        float: left;
+                        color: black;
+                    }
+                    .side-bar-info{
+                        margin-left: 30px ;
+                    }
+                    .side-bar-info h3{
+                        padding-bottom: 40px;
+                    }
+                    .nav li{
+                        list-style: none;
+                        padding-bottom: 15px;
+                    }
+                     a{
+                        color: black;
+                    }
+                    a:hover{
+                        text-decoration: none;
+                        color: black
+                    }
+                    .user-info{
+                        padding-top: 80px;
+                        background-color:  #D1B385;
+                        height: 100%;
+                    }
+                    .nav{
+                        padding-left: 7px;
+                    }
+                    .update-form{
+                        padding-top: 30px;
+                    }
+
+                    .btn-success {
+                        background-color: #F5F1EA;
+                        border-color: #F5F1EA;
+                        color: black;
+                    }
+                    .btn-success:hover{
+                         background-color: #A49AB8;
+                        border-color: #A49AB8;
+                        color:aliceblue;
+                    }
+                     /* Creat new Survey*/
+                    #MyForm{
+                        margin-left: 20px;
+                    }
+                    #MyForm label{
+                    display: block;  
+                    } 
+                    #MyForm input{
+                        margin-bottom: 10px;
+                        width: 400px;
+                         height: 40px;
+                    }
+                    #MyForm textarea{
+                        width: 400px;
+                    }
+                    .modal-header button{
+                        position: absolute;
+                        top:15px;
+                        right: 20px;
+                        font-size: 30px;
+                    }
+                    .modal-header{
+                        padding: 30px;
+                    }
+                    .modal-footer{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+
+        
+        
+        </style>
+         
+
+    </head>
+    <body>
+         <!-- NavBar-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                  <!-- Item of navbar-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <a style="padding-right: 50px;" href="/home" class="navbar-brand">Logo</a>
+                       <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a href="/createsurvey"> <button type="button" class="btn btn-secondary" id="My-new-survey"> <i class="fas fa-plus"></i> Creat Survey</button></a>
+                          </li>
+                           <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Name</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="/home/account"> <i class="fas fa-user-alt"></i> Account</a>
+                                   <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="/logout"> <i class="fas fa-sign-in-alt"></i> log out</a>
+                            </div>
+                          </li>
+                    </ul>
+                <!-- End Item of navbar-->
+            </nav>
+            <!-- End NavBar-->
+          
+            <div class="side-bar">
+               <div class="side-bar-info">
+                      <h2><%= user.name %></h2>
+                      <h3><%= user.email %></h3>
+                  <div class="nav">
+                     <ul class="list-group">
+                         <li class="list-group-horizontal">
+                            <i class="fas fa-user-alt"></i><a href="/home/account"> Account </a>
+                         </li>
+                         <li class="list-group-horizontal">
+                            <i class="fas fa-poll-h"></i><a href="/mysurveys"> My Surveys</a>
+                         </li>
+                         <li class="list-group-horizontal">
+                            <i class="fas fa-sign-out-alt"></i><a href="/logout"> Log out</a>
+                             
+                         </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="user-info">
+                 <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="Profile-tab" data-toggle="tab" href="#Profile" role="tab" aria-controls="Profile" aria-selected="true">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="Email-tab" data-toggle="tab" href="#Email" role="tab" aria-controls="Email" aria-selected="false">Email</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="Password-tab" data-toggle="tab" href="#Password" role="tab" aria-controls="Password" aria-selected="false">Password</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="Profile" role="tabpanel" aria-labelledby="Profile-tab">
+                      <form class="update-form">
+                              <div class="row">
+                               <div class="col-lg-12 col-md-12">
+                                  <h2>Profile</h2>
+                                  <h4>Update your profile information</h4>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                  <label> First Name</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                 <label> Last Name</label>
+                                  <input type="text" class="form-control" >
+                                </div>
+                                 <div class="col-lg-6 col-md-12">
+                                 <label> Time Zone</label>
+                                  <input type="text" class="form-control" >
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                 <label> Mobile number</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                   <button type="button" class="btn btn-success">Update account</button>
+                                </div>
+                              </div>
+                            </form>
+                  </div>
+                  <div class="tab-pane fade" id="Email" role="tabpanel" aria-labelledby="Email-tab">
+                        <form class="update-form">
+                            <div class="row">
+                               <div class="col-lg-12 col-md-12">
+                                  <h2>Email</h2>
+                                  <h4>Update the email address on your account</h4>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                  <label> Email</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                  <button type="button" class="btn btn-success">Update Email</button>
+                                </div>
+                              </div>
+                            </form>
+                  </div>
+                  <div class="tab-pane fade" id="Password" role="tabpanel" aria-labelledby="Passwordtab">
+                        <form class="update-form">
+                            <div class="row">
+                               <div class="col-lg-12 col-md-12">
+                                  <h2>Password</h2>
+                                  <h4>Update the password on your account</h4>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                  <label>Password</label>
+                                  <input type="text" class="form-control">
+                                </div><br>
+                                    <div class="col-lg-6 col-md-12">
+                                      <div class="form-group">
+                                        <label>New Password</label>
+                                        <div class="input-group" id="show_hide_password">
+                                          <input class="form-control" type="password">
+                                          <div class="input-group-addon">
+                                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                       <label>Confirm New Password</label>
+                                       <input class="form-control" type="password">  
+                                    </div>
+                                <div class="col-lg-12 col-md-12">
+                                   <button type="button" class="btn btn-success">Update Password</button>
+                                </div>
+                              </div>
+                            </form>
+                </div>
+            </div>
+                <!--Creat new survey-->
+            <div class="modal fade" id="Mymodal">
+                 <div class="modal-dialog">
+                 <div class="modal-content">
+                 <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                     <h4 class="modal-title"> Creat new survey </h4>                                                          
+                 </div> 
+                 <div class="modal-body">
+                 <form id="MyForm" action="" method="post">
+                   <label>Survey Title</label>
+                   <input type="text" autofocus>
+                   <label>Welcome message</label>
+                   <textarea  rows="4"></textarea>
+                 </form>
+                 </div>   
+                 <div class="modal-footer">
+                   <nav>
+                       <button class="btn btn-primary" type="submit">Save</button>
+                   </nav>                     
+                 </div>
+                 </div>                                                                       
+                 </div>                                      
+                </div>
+            
+     
+
+        <!-- Script Source Files -->
+        <script src="../js/jquery-3.3.1.js"></script>
+        <script src="../js/bootstrap.js"></script>
+         <script src="../js/base.js"></script>
+        <!-- End of Script Source Files -->
+
+    </body>
+</html>
