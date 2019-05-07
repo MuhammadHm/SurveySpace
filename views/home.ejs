@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width , initial-scale=1" >
-        <title>Survey Space</title>
+        <title><%=lang.Survey_Space%></title>
         <!-- Style Source Files -->
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -28,13 +28,13 @@
             </div>
               
         <div class="caption text-center">
-             <h1 class="animated lightSpeedIn">Survey Space</h1>
-            <h3>Creat a survey <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
+             <h1 class="animated lightSpeedIn"><%=lang.Survey_Space %></h1>
+            <h3><%=lang.Creat_a_survey%> <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
             </h3>
             <a href="<%= !isAuth? '/signin' : '/mysurveys' %>">
             <button class="button-efect from-left">
                 <span></span>
-                <span>Get Start</span>
+                <span><%=lang.Get_Start %></span>
             </button>
             </a>
         </div>
@@ -48,10 +48,10 @@
                     <img src="../images/features%201.webp">
                 </div>
                 <div class="fea-text">
-                    <h1>OUR FEATURES</h1>
-                    <h3>Create anything, for anyone.</h3>
-                    <p>Survey Space allows you to build a survey form that meets your unique needs. Start creating, designing and analyse your Business ,Educational Forms, Customer Satisfactions Surveys, or any form type you can imagine.</p>
-                    <p>With built‑in optimization and responsive, mobile‑ready themes, there’s no limit to who you can reach with your new surveys. Create a simple form for your company or customers around the world—it’s up to you.</p>
+                    <h1><%=lang.OUR_FEATURES%></h1>
+                    <h3><%=lang.Create_anything%></h3>
+                    <p><%=lang.build_survey%></p>
+                    <p><%=lang.built_in_optimization%></p>
                      <a class="btn btn-outline-dark btn-la "  href="/home/features">Read More</a>
                 </div>
             </div>

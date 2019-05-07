@@ -1,5 +1,7 @@
 body{
     overflow-x: hidden;
+    direction : ltr !important;
+
 }
 /*  Navbar  */
 .navbar {
@@ -203,6 +205,8 @@ font-size:20px;
     background-color: #F5F1EA;
     padding-top: 40px;
     padding-bottom: 40px;
+    direction : ltr !important;
+
 }
 .skill span{
     font-size: 30px;

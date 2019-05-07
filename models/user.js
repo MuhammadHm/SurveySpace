@@ -67,7 +67,7 @@ module.exports=class User{
             .then((data)=>{
                 user=JSON.parse(data);
                 user.surveys.push(array);
-                console.log('users.js',user.survey);
+                console.log('users.js',user.surveys);
                 user=JSON.stringify(user);
                 fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
             })
