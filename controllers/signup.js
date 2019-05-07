@@ -11,7 +11,7 @@ exports.postSignup = (req, res, next) => {
         return res.status(422).render('signup', {
             err: errors.array()[0],
             oldInput:{
-                name : req.body.name,
+                name : req.body.userName,
                 email : req.body.email,
                 password : req.body.password,
                 confirmPassword : req.body.confirmPassword
@@ -20,7 +20,7 @@ exports.postSignup = (req, res, next) => {
     }
    
     let user = new User();
-    user.addUser(req.body.name, req.body.email, req.body.password);
+    user.addUser(req.body.userName, req.body.email, req.body.password);
     res.redirect('/home');
 }
 

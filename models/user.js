@@ -6,9 +6,10 @@ const util=require('util');
 module.exports=class User{
 
     constructor(){ }
-    addUser(name,email,password){
+    async addUser(name,email,password){
         let d=new Date();
         this.name=name;
+        console.log("name in user.js",this.name);
         this.email=email;
         this.password=bcrypt.hashSync(password,12);
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
@@ -17,8 +18,17 @@ module.exports=class User{
        
         let userInf=new userInfo();
         userInf.addUserInfo(email); 
-        userInfo.getLastID(id=>{
+    
+        await fs.readdir(path.join(__dirname,'..','dataBase','users'), (err, files) => {
+            let id=files[files.length-1];  //must be files.length-1
+            if (id !== undefined)
+                {   id =id.split('.');
+                    id= parseInt(id)+1;
+                }
+            else
+                id =1;
             this.id=id;
+            console.log("name in user.js",this);
             let jsonUser=JSON.stringify(this);
             fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id}.json`),jsonUser);
         });
@@ -48,15 +58,16 @@ module.exports=class User{
         });
     }
    
-    static addSurvey(id_admin,id_survey){
+    static addSurvey(id_admin,id_survey,titleSurvey){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
         let read=util.promisify(fs.readFile);
         let user;
+        let array ={id :id_survey,title :titleSurvey}; 
         read(path1)
             .then((data)=>{
                 user=JSON.parse(data);
-                user.surveys.push(id_survey);
-                console.log(user.survey);
+                user.surveys.push(array);
+                console.log('users.js',user.surveys);
                 user=JSON.stringify(user);
                 fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
             })

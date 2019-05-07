@@ -12,15 +12,16 @@ module.exports=class Survey{
         this.welcomeMessage=welcomeMessage;
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         await fs.readdir(path.join(__dirname,'..','dataBase','survey'), (err, files) => {
-            let id=files[files.length-1].split('.');  //must be files.length-1
+            let id=files[files.length-1];  //must be files.length-1
             //console.log('2in syrvey.js',id[0]);
             if (id !== undefined)
-                id= parseInt(id)+1;
+                {   id =id.split('.');
+                    id= parseInt(id)+1;
+                }
             else
                 id =1;
-               
             this.id=id;    
-            user.addSurvey(id_admin,id);
+            user.addSurvey(id_admin,id,this.title);
             console.log(this);
             let jsonSurvey=JSON.stringify(this);
             fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${id}.json`),jsonSurvey);

@@ -4,6 +4,9 @@ const express = require('express');
 const parser = require('body-parser');
 const session=require('express-session');
 const rout = express.Router();
+const infoLogin = require('../controllers/signin');
+const util=require('util');
+
 
 // for getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({ extended: false }));
@@ -45,14 +48,33 @@ rout.get('/account', (req, res, next) => {
         user : req.session.user
     });
 });
-
-
-rout.get('/', (req, res, next) => {
+rout.get('/', async(req, res, next) => {
+    let read = util.promisify(fs.readFile);
+    let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
+    let lang=  JSON.parse(data);
+    console.log(lang.Survey_Space);
     res.render('home',
     { 
-        isAuth : req.session.isAuth     
+        isAuth : req.session.isAuth,
+        lang :  lang    
     });
 });
+
+rout.get('/:language', async(req, res, next) => {
+    let lang="ar";
+    if (req.params.language !== "ar")
+        lang="en";
+    let read = util.promisify(fs.readFile);
+    let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${lang}.json`));
+    lang=  JSON.parse(data);
+    console.log(lang.Survey_Space);
+    res.render('home',
+    { 
+        isAuth : req.session.isAuth,
+        lang :  lang    
+    });
+});
+
 
 
 module.exports = rout;

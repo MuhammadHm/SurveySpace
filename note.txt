@@ -1,2 +1,7 @@
-//create user in primary id;
-//
+//create user in primary id;********
+//in login err in "Don't have account yet?"********
+//my name in profile. *********
+//id survey.********
+//add titleSurvey to userinfo.******
+//problem in mysurvey when reload the page because we lost session info.
+//didn't save session info if go back.
