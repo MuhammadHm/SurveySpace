@@ -4,6 +4,7 @@ const express = require('express');
 const parser = require('body-parser');
 const session=require('express-session');
 const rout = express.Router();
+const infoLogin = require('../controllers/signin');
 
 // for getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({ extended: false }));
@@ -48,6 +49,7 @@ rout.get('/account', (req, res, next) => {
 
 
 rout.get('/', (req, res, next) => {
+    console.log(infoLogin.authUser);
     res.render('home',
     { 
         isAuth : req.session.isAuth     
