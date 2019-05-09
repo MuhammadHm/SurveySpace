@@ -17,10 +17,14 @@ const survey=require('../controllers/survey');
 // Setting session
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false,cookie: { secure : true} }));
 // getting submitted data from url (as an obj through req.body)
-rout.use(parser.urlencoded({extended : false}));
+//rout.use(parser.urlencoded({extended : false}));
+rout.use(parser.json());
 
-// /survey
-rout.post('/addsurvey',survey.postServey);
+//    /survey
+rout.post('/addsurvey',survey.addServey);
+rout.use('/sendsurveyinfo',survey.sendSurveyInfo);
+rout.use('/savesurvey',survey.saveSurvey);
+//rout.use('/savesurvey',survey.saveSurvey);
 rout.get('/',survey.getCreate);
 
 module.exports=rout;

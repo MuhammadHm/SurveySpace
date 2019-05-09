@@ -32,13 +32,18 @@ exports.postLogin =async (req, res, next) => {
     let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
     let user=JSON.parse(data);
    
+    //lang 
+    let ldata=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
+    let lang=  JSON.parse(ldata);
+   
     // user is Authenticated
     req.session.isAuth = true;
     req.session.user=user;
 
     authUser = user;
     exports.authUser=authUser;
-    res.status(200).render('home',{ isAuth : true, path : "/home"});
+    
+    res.status(200).render('home',{ isAuth : true, path : "/home" ,lang : lang});
 }
 exports.getLogin = (req, res, next) => {
     res.render('signin', {

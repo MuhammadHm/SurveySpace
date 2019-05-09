@@ -53,10 +53,14 @@ rout.get('/', async(req, res, next) => {
     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
     let lang=  JSON.parse(data);
     console.log(lang.Survey_Space);
+
+    
+
+    req.session.lang=lang;
     res.render('home',
     { 
         isAuth : req.session.isAuth,
-        lang :  lang    
+        lang :   req.session.lang    
     });
 });
 
@@ -68,10 +72,11 @@ rout.get('/:language', async(req, res, next) => {
     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${lang}.json`));
     lang=  JSON.parse(data);
     console.log(lang.Survey_Space);
+    req.session.lang=lang;
     res.render('home',
     { 
         isAuth : req.session.isAuth,
-        lang :  lang    
+        lang :   req.session.lang    
     });
 });
 

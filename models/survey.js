@@ -5,12 +5,13 @@ const util=require('util');
 module.exports=class Survey{
 
     constructor(){ }
-     async addSurvey (id_admin , title , welcomeMessage ){
+    async addSurvey (user_id , title , welcomeMessage ,questionsArray){
         let d=new Date();
-        this.id_admin=id_admin;
+        this.user_id=user_id;
         this.title=title;
         this.welcomeMessage=welcomeMessage;
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        this.questionsArray=questionsArray;
         await fs.readdir(path.join(__dirname,'..','dataBase','survey'), (err, files) => {
             let id=files[files.length-1];  //must be files.length-1
             //console.log('2in syrvey.js',id[0]);
@@ -21,8 +22,7 @@ module.exports=class Survey{
             else
                 id =1;
             this.id=id;    
-            user.addSurvey(id_admin,id,this.title);
-            console.log(this);
+            user.addSurvey(user_id,id,this.title);
             let jsonSurvey=JSON.stringify(this);
             fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${id}.json`),jsonSurvey);
         });
