@@ -37,7 +37,7 @@ app.use('/mysurveys',mysurveys);
 app.use('/survey',survey);
 
 
-
+/*hello form the other side */
 //  Run Server
 app.listen(8080);
 
