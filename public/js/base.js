@@ -53,7 +53,11 @@ $(document).ready(function(){
    $('#Mymodal').modal('show')
  });
 });
-
+$(document).ready(function(){
+    $('#new-survey').click(function(){
+      $('#Mymodal').modal('show')
+    });
+   });
 
 /* Show and hide password*/
 $(document).ready(function() {
