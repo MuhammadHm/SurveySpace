@@ -41,7 +41,7 @@ app.use('/survey',survey);
 app.use('/results',results);
 
 
-
+/*hello form the other side */
 //  Run Server
 app.listen(8080);
 
