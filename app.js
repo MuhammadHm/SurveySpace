@@ -12,6 +12,8 @@ const userRout=require('./routs/userRout');
 const singin=require('./routs/signin');
 const mysurveys=require('./routs/mySurveys');
 const survey=require('./routs/survey');
+const results=require('./routs/results');
+
 const logout=require('./controllers/logout');
 //  Setting view engine
 app.set('view engine', 'ejs');
@@ -35,6 +37,8 @@ app.get('/logout',logout.logout);
 app.use('/mysurveys',mysurveys);
 
 app.use('/survey',survey);
+
+app.use('/results',results);
 
 
 
