@@ -26,7 +26,6 @@ exports.postLogin =async (req, res, next) => {
     }
 
     
-
     let id=info.id;
     let read = util.promisify(fs.readFile);
     let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));

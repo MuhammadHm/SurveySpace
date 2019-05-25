@@ -5,27 +5,21 @@ const util=require('util');
 module.exports=class Survey{
 
     constructor(){ }
-    async addSurvey (user_id , title , welcomeMessage ,questionsArray){
+    async addSurvey (survey_id , user_id , title , welcomeMessage ,questionsArray){
         let d=new Date();
         this.user_id=user_id;
+        this.id=survey_id;   
         this.title=title;
         this.welcomeMessage=welcomeMessage;
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         this.questionsArray=questionsArray;
-        await fs.readdir(path.join(__dirname,'..','dataBase','survey'), (err, files) => {
-            let id=files[files.length-1];  //must be files.length-1
-            //console.log('2in syrvey.js',id[0]);
-            if (id !== undefined)
-                {   id =id.split('.');
-                    id= parseInt(id)+1;
-                }
-            else
-                id =1;
-            this.id=id;    
-            user.addSurvey(user_id,id,this.title);
-            let jsonSurvey=JSON.stringify(this);
-            fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${id}.json`),jsonSurvey);
-        });
+        
+        user.addSurvey(user_id,this.id,this.title);
+        let jsonSurvey=JSON.stringify(this);
+        console.log("writing survey whith id " ,this.id);
+
+        await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${this.id}.json`),jsonSurvey);
+        
     }
 
     static editeSurvey(id,title ,question ,desgin ){

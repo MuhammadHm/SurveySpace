@@ -1,1 +1,1 @@
-{"regDate":"2019-5-9 4:6:1","id":4}
+{"user_id":1,"id":4,"title":"mhd","welcomeMessage":"asdf","regDate":"2019-5-14 23:32:52","questionsArray":[{"id":1,"body":"hello","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"hi","isRequired":false,"answerType":"mulchoice","answers":[{"body":"a"}]}]}
