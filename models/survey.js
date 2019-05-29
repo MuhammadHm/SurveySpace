@@ -13,10 +13,21 @@ module.exports=class Survey{
         this.welcomeMessage=welcomeMessage;
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         this.questionsArray=questionsArray;
-        
+        let answervisitor=[];
+        //this.ansVisitor_id=[];
+        this.createresultfile();
+        //add ID survey to userinfo
         user.addSurvey(user_id,this.id,this.title);
+        
         let jsonSurvey=JSON.stringify(this);
         console.log("writing survey whith id " ,this.id);
+        
+        //create file for rueslt survey
+        let jsonAnswer=JSON.stringify(answervisitor);
+        console.log(jsonAnswer);
+        await fs.writeFileSync(path.join(__dirname,'..','dataBase','results',`${this.id}.json`),jsonAnswer);
+
+       
 
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${this.id}.json`),jsonSurvey);
         
@@ -58,5 +69,40 @@ module.exports=class Survey{
         let info = JSON.parse(data);
         //console.log("info after find", info);
         return info;
+    }
+
+    async createresultfile(){
+        let result=[];
+         this.questionsArray.forEach( element  =>  {
+            let oneresult ={};
+            oneresult.answerType=element.answerType;
+            oneresult.count=0;
+            console.log(element);
+            if (element.answerType === "textbox" || element.answerType == "essay")
+                  oneresult.report=[];  
+            else if (element.answerType ==="checkbox" || element.answerType ==="mulchoice")  
+                {   oneresult.check ={};
+                    element.answers.forEach(elements =>{
+                        console.log("first");
+                    oneresult.check [elements.body]=0;
+                });
+                }   
+            else if (element.answerType ==="scale")
+                    oneresult.scale=0;
+            else if (element.answerType === "date")
+                    oneresult.date =[]; 
+            result.push(oneresult); 
+        });
+        console.log("survey.js models result", result);
+        // readFileResult 
+        let path1=path.join(__dirname,'..','dataBase','results',`${this.id}.json`);
+        let answerVisitor={
+            result :result,
+            answer:[]
+        };
+        let answerVisitors=JSON.stringify(answerVisitor);
+        console.log( "2",answerVisitors);
+        fs.writeFileSync(path1,answerVisitor);
+           
     }
 };

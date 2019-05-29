@@ -1,26 +1,22 @@
 const fs=require('fs');
 const path=require('path');
+const survey=require('./survey');
 
 module.exports=class Result{
 
     constructor(){ }
 
-    async addResult (survey_id , user_id , answers){
-       
-        // getting id 
-        let files =await fs.readdirSync(path.join(__dirname,'..','dataBase','results'));
-        let id = files.length+1;  
-
+    async addanswer (survey_id , user_id , answers){
         //Attributes    
-        this.survey_id=survey_id;
-        this.user_id = user_id;
         this.answers = answers;
-        this.id = id;
-        
-        let jsonResult=JSON.stringify(this);
-        fs.writeFileSync(path.join(__dirname,'..','dataBase','results',`${this.id}.json`),jsonResult);
-
+        // readFileResult 
+        let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
+        let answerVisitor=[];
+        fs.readFile(path1,(err,content)=>{
+            answerVisitor=JSON.parse(content);
+            answerVisitor.answer.push(this);
+            answerVisitor=JSON.stringify(answerVisitor);
+            fs.writeFileSync(path1,answerVisitor);
+            });
     }
-
-
 }

@@ -53,6 +53,8 @@ rout.get('/', async(req, res, next) => {
     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
     let lang=  JSON.parse(data);
     console.log(lang.Survey_Space);
+    
+   
 
     
 

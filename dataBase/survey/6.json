@@ -1,1 +1,0 @@
-{"user_id":1,"id":6,"title":"x","welcomeMessage":"","regDate":"2019-5-15 10:33:10","questionsArray":[{"id":1,"body":"a","isRequired":false,"answerType":"mulchoice","answers":[{"body":"1"},{"body":"2"}]},{"id":2,"body":"b","isRequired":false,"answerType":"checkbox","answers":[{"body":"3"},{"body":"4"}]}]}
