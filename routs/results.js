@@ -14,7 +14,7 @@ rout.use('/submit',(req,res,next)=>{
     
     let result=new Result();
     if(req.body.survey_id !== undefined)
-        result.addResult(req.body.survey_id ,req.body.user_id ,req.body.answers);
+        result.addanswer(req.body.survey_id ,req.body.user_id ,req.body.answers);
     
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
