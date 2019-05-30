@@ -17,6 +17,6 @@ module.exports=class Result{
             answerVisitor.answer.push(this);
             answerVisitor=JSON.stringify(answerVisitor);
             fs.writeFileSync(path1,answerVisitor);
-            });
+        });
     }
 }
