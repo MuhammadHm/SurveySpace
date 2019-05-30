@@ -85,7 +85,7 @@ module.exports=class Survey{
                     element.answers.forEach(elements =>{
                         console.log("first");
                     oneresult.check [elements.body]=0;
-                });
+                    });
                 }   
             else if (element.answerType ==="scale")
                     oneresult.scale=0;
@@ -102,7 +102,8 @@ module.exports=class Survey{
         };
         let answerVisitors=JSON.stringify(answerVisitor);
         console.log( "2",answerVisitors);
-        fs.writeFileSync(path1,answerVisitor);
+
+       await fs.writeFileSync(path1,answerVisitor);
            
     }
 };

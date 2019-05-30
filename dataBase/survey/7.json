@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"regDate":"2019-5-17 0:54:5","id":7}
-=======
-{"user_id":1,"id":7,"title":"test","welcomeMessage":"","regDate":"2019-5-16 23:33:22","questionsArray":[{"id":1,"body":"mul","isRequired":false,"answerType":"mulchoice","answers":[{"body":"a"},{"body":"b"},{"body":"c"}]},{"id":2,"body":"check","isRequired":false,"answerType":"checkbox","answers":[{"body":"1"},{"body":"2"},{"body":"3"}]},{"id":3,"body":"text","isRequired":false,"answerType":"textbox"},{"id":4,"body":"essay","isRequired":false,"answerType":"essay"},{"id":5,"body":"scale","isRequired":false,"answerType":"scale","answers":{"min":"1","max":10,"step":1,"value":0}},{"id":6,"body":"date","isRequired":false,"answerType":"date"}]}
->>>>>>> 9c8dc996dfc3e7b102663dac324c4a27149252c8
+{"user_id":1,"id":7,"title":"adfsgew","welcomeMessage":"wefe","regDate":"2019-5-30 1:44:20","questionsArray":[{"id":1,"body":"asdf","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"wefwr","isRequired":false,"answerType":""}]}
