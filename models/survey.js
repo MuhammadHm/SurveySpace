@@ -96,17 +96,10 @@ module.exports=class Survey{
             result :result,
             answer:[]
         };
-<<<<<<< HEAD
         
         answerVisitor=JSON.stringify(answerVisitor);
         console.log( "2",answerVisitor);
         fs.writeFileSync(path1,answerVisitor);
-=======
-        let answerVisitors=JSON.stringify(answerVisitor);
-        console.log( "2",answerVisitors);
-
-       await fs.writeFileSync(path1,answerVisitor);
->>>>>>> 7dbb7c599d4de07e2102af368cee5ebebae9c10e
            
     }
 };
