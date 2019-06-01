@@ -22,8 +22,7 @@ module.exports=class Survey{
         let jsonSurvey=JSON.stringify(this);
         console.log("writing survey whith id " ,this.id);
         
-       
-
+    
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${this.id}.json`),jsonSurvey);
         
     }
@@ -80,7 +79,7 @@ module.exports=class Survey{
                     element.answers.forEach(elements =>{
                         console.log("first");
                     oneresult.check [elements.body]=0;
-                });
+                    });
                 }   
             else if (element.answerType ==="scale")
                     oneresult.scale=0;
@@ -88,13 +87,14 @@ module.exports=class Survey{
                     oneresult.date =[]; 
             result.push(oneresult); 
         });
-        console.log("survey.js models result", result);
+       // console.log("survey.js models result", result);
         // readFileResult 
         let path1=path.join(__dirname,'..','dataBase','results',`${this.id}.json`);
         let answerVisitor={
             result :result,
             answer:[]
         };
+        
         answerVisitor=JSON.stringify(answerVisitor);
         console.log( "2",answerVisitor);
         fs.writeFileSync(path1,answerVisitor);

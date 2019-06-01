@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 {"user_id":6,"title":" ak survey","welcomeMessage":"","regDate":"2019-5-17 0:54:5","questionsArray":[{"id":1,"body":"whats your name ?","isRequired":false,"answerType":"textbox","answers":""}],"id":8}
-=======
-{"user_id":1,"id":8,"title":"haha","welcomeMessage":"hoho","regDate":"2019-5-18 1:23:32","questionsArray":[{"id":1,"body":"whats your name ? ","isRequired":false,"answerType":"mulchoice","answers":[{"body":"a"},{"body":"b"},{"body":"c"}]},{"id":2,"body":"how are you ? ","isRequired":false,"answerType":"textbox"}]}
->>>>>>> 9c8dc996dfc3e7b102663dac324c4a27149252c8

@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 {"user_id":6,"id":5,"title":"feedback","welcomeMessage":"","regDate":"2019-5-30 1:42:50","questionsArray":[{"id":1,"body":"whats your name","isRequired":false,"answerType":"textbox","answers":""}]}
+=======
+<<<<<<< HEAD
+{"user_id":7,"id":5,"title":"qq","welcomeMessage":"a","regDate":"2019-5-30 11:20:17","questionsArray":[{"id":1,"body":"a","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"b","isRequired":false,"answerType":"essay"}]}
+=======
+{"user_id":1,"id":5,"title":"asdfgweg","welcomeMessage":"adf","regDate":"2019-5-30 1:12:47","questionsArray":[{"id":1,"body":"sdfdsg","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"werrw","isRequired":false,"answerType":""}]}
+>>>>>>> 7dbb7c599d4de07e2102af368cee5ebebae9c10e
+>>>>>>> cdc83f782b2044fbb3dcb6477c57a5bb936ac8e5
