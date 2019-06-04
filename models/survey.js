@@ -61,7 +61,6 @@ module.exports=class Survey{
         let read = util.promisify(fs.readFile);
         let data = await read(path.join(__dirname, '..', 'dataBase', 'survey', id));
         let info = JSON.parse(data);
-        //console.log("info after find", info);
         return info;
     }
 
@@ -71,13 +70,11 @@ module.exports=class Survey{
             let oneresult ={};
             oneresult.answerType=element.answerType;
             oneresult.count=0;
-            console.log(element);
             if (element.answerType === "textbox" || element.answerType == "essay")
                   oneresult.report=[];  
             else if (element.answerType ==="checkbox" || element.answerType ==="mulchoice")  
                 {   oneresult.check ={};
                     element.answers.forEach(elements =>{
-                        console.log("first");
                     oneresult.check [elements.body]=0;
                     });
                 }   
@@ -87,16 +84,13 @@ module.exports=class Survey{
                     oneresult.date =[]; 
             result.push(oneresult); 
         });
-       // console.log("survey.js models result", result);
-        // readFileResult 
+        // writeFileResult 
         let path1=path.join(__dirname,'..','dataBase','results',`${this.id}.json`);
         let answerVisitor={
             result :result,
             answer:[]
-        };
-        
+        };        
         answerVisitor=JSON.stringify(answerVisitor);
-        console.log( "2",answerVisitor);
         fs.writeFileSync(path1,answerVisitor);
            
     }
