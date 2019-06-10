@@ -54,7 +54,12 @@ $(document).ready(function(){
  });
 });
 $(document).ready(function(){
-    $('#new-survey').click(function(){
+    $('#new-survey').click(function(){               
+      $('#Mymodal').modal('show')
+    });
+   });
+   $(document).ready(function(){
+    $('#n-survey').click(function(){               
       $('#Mymodal').modal('show')
     });
    });

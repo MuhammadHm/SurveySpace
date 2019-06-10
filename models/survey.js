@@ -22,13 +22,7 @@ module.exports=class Survey{
         let jsonSurvey=JSON.stringify(this);
         console.log("writing survey whith id " ,this.id);
         
-        //create file for rueslt survey
-        let jsonAnswer=JSON.stringify(answervisitor);
-        console.log(jsonAnswer);
-        await fs.writeFileSync(path.join(__dirname,'..','dataBase','results',`${this.id}.json`),jsonAnswer);
-
-       
-
+    
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${this.id}.json`),jsonSurvey);
         
     }
@@ -67,7 +61,6 @@ module.exports=class Survey{
         let read = util.promisify(fs.readFile);
         let data = await read(path.join(__dirname, '..', 'dataBase', 'survey', id));
         let info = JSON.parse(data);
-        //console.log("info after find", info);
         return info;
     }
 
@@ -77,13 +70,11 @@ module.exports=class Survey{
             let oneresult ={};
             oneresult.answerType=element.answerType;
             oneresult.count=0;
-            console.log(element);
             if (element.answerType === "textbox" || element.answerType == "essay")
                   oneresult.report=[];  
             else if (element.answerType ==="checkbox" || element.answerType ==="mulchoice")  
                 {   oneresult.check ={};
                     element.answers.forEach(elements =>{
-                        console.log("first");
                     oneresult.check [elements.body]=0;
                     });
                 }   
@@ -93,17 +84,14 @@ module.exports=class Survey{
                     oneresult.date =[]; 
             result.push(oneresult); 
         });
-        console.log("survey.js models result", result);
-        // readFileResult 
+        // writeFileResult 
         let path1=path.join(__dirname,'..','dataBase','results',`${this.id}.json`);
         let answerVisitor={
             result :result,
             answer:[]
-        };
-        let answerVisitors=JSON.stringify(answerVisitor);
-        console.log( "2",answerVisitors);
-
-       await fs.writeFileSync(path1,answerVisitor);
+        };        
+        answerVisitor=JSON.stringify(answerVisitor);
+        fs.writeFileSync(path1,answerVisitor);
            
     }
 };

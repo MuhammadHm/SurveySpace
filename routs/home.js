@@ -6,6 +6,7 @@ const session=require('express-session');
 const rout = express.Router();
 const infoLogin = require('../controllers/signin');
 const util=require('util');
+const Result=require('../models/results');
 
 
 // for getting submitted data from url (as an obj through req.body)
@@ -53,7 +54,8 @@ rout.get('/', async(req, res, next) => {
     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
     let lang=  JSON.parse(data);
     console.log(lang.Survey_Space);
-    
+    result =new Result();
+    result.createReport(9);
    
 
     
