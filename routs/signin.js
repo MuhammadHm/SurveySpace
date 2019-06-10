@@ -7,11 +7,11 @@ const session=require('express-session');
 const bcrypt=require('bcrypt');
 const rout=express.Router();
 const { check,body,validationResult }=require('express-validator/check');
-
 // External imports
 const User=require('../models/user');
 const signin=require('../controllers/signin');
 const signup=require('../controllers/signup');
+
 
 // Setting session
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false,cookie: { secure : true} }));
