@@ -10,7 +10,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const util=require('util');
 let info = {};
-let authUser={};
 
 exports.postLogin =async (req, res, next) => {
 
@@ -39,8 +38,6 @@ exports.postLogin =async (req, res, next) => {
     req.session.isAuth = true;
     req.session.user=user;
 
-    authUser = user;
-    exports.authUser=authUser;
     
     res.status(200).render('home',{ isAuth : true, path : "/home" ,lang : lang});
 }
