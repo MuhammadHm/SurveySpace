@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
          <!-- End of  Style Source Files -->
     </head>
-    <body data-spy="scroll" data-target="#navbarResponsive" style=" direction: rtl;">
+    <body data-spy="scroll" data-target="#navbarResponsive" >
         <!-- Start Home Section-->
         <div id="home">
            
@@ -28,7 +28,7 @@
             </div>
               
         <div class="caption text-center">
-             <h1 class="animated lightSpeedIn"><%=lang.Survey_Space %></h1>
+             <h1 class="animated lightSpeedIn" ><%=lang.Survey_Space %></h1>
             <h3><%=lang.Creat_a_survey%> <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
             </h3>
             <a href="<%= !isAuth? '/signin' : '/mysurveys' %>">
@@ -42,12 +42,12 @@
     <div class="clearfix"></div>
     <!-- End Home Page Section-->        
     <!-- Start Features Section-->
-        <div class="features">
+        <div class="features"  >
             <div class="col-md-12">
-                <div class="fea-image">
+                <div class="fea-image <%= language === 'ar' ? 'ar-float' : '' %>">
                     <img src="../images/features%201.webp">
                 </div>
-                <div class="fea-text">
+                <div class="fea-text <%= language === 'ar' ? 'ar-rtl' : '' %>" >
                     <h1><%=lang.OUR_FEATURES%></h1>
                     <h3><%=lang.Create_anything%></h3>
                     <p><%=lang.build_survey%></p>
