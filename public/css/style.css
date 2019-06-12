@@ -1,6 +1,5 @@
 body{
     overflow-x: hidden;
-    direction : ltr !important;
 
 }
 /*  Navbar  */
@@ -102,6 +101,13 @@ font-size:20px;
     .button-efect.from-left span:last-child{
         font-size: 15px;
     }
+}
+.ar-rtl{
+    direction: rtl !important;
+    text-align: right !important;
+}
+.ar-float{
+    float: right !important;
 }
 
 /* End  Home Page*/
@@ -290,7 +296,7 @@ font-size:20px;
     background: #141517;
     margin: 10px;
     border-radius: 30px;
-    box-shadow: 0 5px 15px -5px #000000070;
+    box-shadow: 0 5px 15px -5px #000070;
     color: #3498db;
     overflow: hidden;
     position: relative;

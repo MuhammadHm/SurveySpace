@@ -64,7 +64,9 @@ rout.get('/', async(req, res, next) => {
     res.render('home',
     { 
         isAuth : req.session.isAuth,
-        lang :   req.session.lang    
+        lang :   req.session.lang  ,
+        language : req.params.language 
+  
     });
 });
 
@@ -80,7 +82,8 @@ rout.get('/:language', async(req, res, next) => {
     res.render('home',
     { 
         isAuth : req.session.isAuth,
-        lang :   req.session.lang    
+        lang :   req.session.lang  ,
+        language : req.params.language 
     });
 });
 
