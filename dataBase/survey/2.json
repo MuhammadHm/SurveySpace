@@ -1,1 +1,0 @@
-{"user_id":1,"id":2,"title":"hi","welcomeMessage":"asdf","regDate":"2019-6-10 13:4:9","questionsArray":[{"id":1,"body":"name ","isRequired":false,"answerType":"mulchoice","answers":[{"body":"a"},{"body":"b"}]},{"id":2,"body":"welcome ","isRequired":false,"answerType":"checkbox","answers":[{"body":"w"},{"body":"3"}]},{"id":3,"body":"xyz","isRequired":false,"answerType":"essay"}]}
