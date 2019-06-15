@@ -10,30 +10,33 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const util = require('util');
-let surveyInfo = {};
+let user=new User();
 
 
 
 //  /survey
 exports.addServeyInfo =async (req, res, next) => {
 
-    await fs.readdir(path.join(__dirname,'..','dataBase','survey'),async (err, files) => {
+    let files=await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'))
         
-        let id=files.length+1;  
-        
-         surveyInfo = {
-            survey_id: id, 
-            user_id: req.session.user.id,
-            title: req.body.title,
-            welcomeMessage: req.body.welcomeMessage
-        };   
-
-    });
-    res.redirect('http://localhost:3000/createsurvey');
+    let survey_id=files.length+1;  
+    User.addSurvey(req.session.user.id ,survey_id ,req.body.title , req.body.welcomeMessage); 
+    user=req.session.user;
+       
+    res.redirect(`http://localhost:3000/createsurvey`);
 
 }
-exports.sendSurveyInfo = (req, res, next) => {
-   
+exports.sendSurveyInfo =async (req, res, next) => {
+    
+    let Info =await User.getLastSurvey();
+    let surveyInfo={
+          survey_id: Info.surveyInfo.id,
+          user_id : Info.id,
+          title : Info.surveyInfo.title,
+          welcomeMessage : Info.surveyInfo.welcomeMessage
+    }
+
+    console.log("survey info",surveyInfo)
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -83,6 +86,7 @@ exports.publishSurvey =async ( req , res )=>{
     res.json({ survey_id :  id });    
 
 }
+
 
 
 
