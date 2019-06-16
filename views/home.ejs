@@ -28,13 +28,13 @@
             </div>
               
         <div class="caption text-center">
-             <h1 class="animated lightSpeedIn" ><%=lang.Survey_Space %></h1>
-            <h3><%=lang.Creat_a_survey%> <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
+             <h1 class="animated lightSpeedIn <%= language === 'ar' ? 'captionHeader' : '' %>" ><%=lang.Survey_Space %></h1>
+            <h3>Creat a survey<span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
             </h3>
             <a href="<%= !isAuth? '/signin' : '/mysurveys' %>">
             <button class="button-efect from-left">
                 <span></span>
-                <span><%=lang.Get_Start %></span>
+                <span class="<%= language === 'ar' ? 'captionHeader' : '' %>"><%=lang.Get_Start %></span>
             </button>
             </a>
         </div>
@@ -42,7 +42,7 @@
     <div class="clearfix"></div>
     <!-- End Home Page Section-->        
     <!-- Start Features Section-->
-        <div class="features"  >
+        <div class="features">
             <div class="col-md-12">
                 <div class="fea-image <%= language === 'ar' ? 'ar-float' : '' %>">
                     <img src="../images/features%201.webp">
@@ -52,20 +52,20 @@
                     <h3><%=lang.Create_anything%></h3>
                     <p><%=lang.build_survey%></p>
                     <p><%=lang.built_in_optimization%></p>
-                     <a class="btn btn-outline-dark btn-la "  href="/home/features">Read More</a>
+                     <a class="btn btn-outline-dark btn-la "  href="/home/features"><span><%=lang.ReadMore%></span> </a>
                 </div>
             </div>
         </div>
         <div class="service">
             <div class="col-md-12">
-                <div class="ser-text">
-                    <h1>Forms That Fit Your Needs</h1>
-                    <p>No matter the size of your needs, Survey Space has a plan that’s right for you. Create a free survey form and get access to professional themes, improvement suggestion, and more.</p>
-                    <p>If you need more features, you can choose one of our prepared templates. With each template you’ll get a popular questions suggestions ,pretty designs , and priority support. Some templates also include advanced design customization, useful tools, and the ability to upload custom templates or themes.</p> 
-                     <a class="btn btn-outline-dark btn-la "  href="/home/features">Read More</a>
+                <div class="ser-text <%= language === 'ar' ? 'ar-rtl' : '' %>">
+                    <h1><%=lang.ServiceHeader%></h1>
+                    <p><%=lang.Serviceparagraph%></p>
+                    <p><%=lang.Serviceparagraph1%></p> 
+                     <a class="btn btn-outline-dark btn-la "  href="/home/features"><span><%=lang.ReadMore%></span></a>
                     
                 </div>
-                <div class="ser-image">
+                <div class="ser-image <%= language === 'ar' ? 'ar-float' : '' %>"></div>">
                     <img src="../images/features2.webp">
                 </div>
             </div>
@@ -82,17 +82,17 @@
                <div class="item">
                   <div class="item-content text-center">
                    <i  class="fab fa-wpforms fa-5x"></i>
-                   <h1>Forms & Surveys for the people</h1>
-                   <p class="lead">Create different types of Surveys & Forms easily, ex : Educational ,Political ,Customer Feedback ,Quizzes ,etc</p>
-                    </div>
+                   <h1><%=lang.ItemHeader%></h1>
+                   <p class="lead"><%=lang.Itemparagraph%></p>
+                  </div>
                </div>
                </div>
                <div class="col-lg-6 col-md-12">
                <div class="item">
                   <div class="item-content text-center">
                    <i class="fas fa-bolt fa-5x"></i>
-                   <h1>Fast & Easy</h1>
-                   <p class="lead">We've done our best to make creating surveys as enjoyable as possible. We've got the fastest and most intuitive user experience on the block. Creating online surveys has never been more fun and hassle-free.</p>
+                   <h1><%=lang.ItemHeader1%></h1>
+                   <p class="lead"><%=lang.Itemparagraph1%></p>
                    </div>
                </div>
                    </div>
@@ -102,8 +102,8 @@
                <div class="item">
                   <div class="item-content text-center">
                    <i class=" fa fa-edit fa-4x"></i>
-                   <h1>Multiple Languages</h1>
-                   <p class="lead">Your customers speak more than one language, and so do we. The text on survey buttons, instructions, and opening and closing messages can be presented in English or Arabic.</p>
+                   <h1><%=lang.ItemHeader2%></h1>
+                   <p class="lead"><%=lang.Itemparagraph2%></p>
                    </div>
                </div>
                    </div>
@@ -112,9 +112,8 @@
                <div class="item">
                  <div class="item-content text-center">
                   <i class="far fa-chart-bar fa-5x"></i>
-                   <h1>Analyze Results</h1>
-                   <p class="lead">Several analyzing methods that fits your surveys results,
-                          with simple analytics gives you quick insights.</p>
+                   <h1><%=lang.ItemHeader3%></h1>
+                   <p class="lead"><%=lang.Itemparagraph3%></p>
                     </div>
                </div>
                    </div>
@@ -123,8 +122,8 @@
                <div class="item">
                    <div class="item-content text-center">
                     <i style="margin-top: 20px;"  class="fa fa-tint fa-4x"></i>
-                   <h1>Surveys With Style</h1>
-                   <p class="lead"> Use our easy and customizable survey platform for hundreds of applications,Add your own touch.</p>
+                   <h1><%=lang.ItemHeader4%></h1>
+                   <p class="lead"><%=lang.Itemparagraph4%> </p>
                    </div>
                </div>
                    </div>
@@ -132,8 +131,8 @@
                <div class="item">
                   <div class="item-content text-center">
                    <i  style="margin-top: 10px;" class="fas fa-mobile-alt fa-5x" ></i>
-                   <h1 >Responsive Layout</h1>
-                   <p class="lead">Our surveys work on mobile devices, tablets and desktop computers. Before you share your survey, just head into Preview mode to see how it looks on different devices.</p>
+                   <h1 ><%=lang.ItemHeader5%></h1>
+                   <p class="lead"><%=lang.Itemparagraph5%></p>
                    </div>
                </div>
                </div>
@@ -146,12 +145,12 @@
         <div class="skill">
              <div class="row">
               <div class="col-md-6">
-                 <span>Something for every stage of the customer<br> journey</span>
+                 <span class="skillSpan"><%=lang.SkillSpan%></span>
                  <div>
                      <img src="../images/Screenshot%20(16).webp " width="600px;">
                  </div>
                  <div>
-                      <button>Try it Free</button>
+                      <button><span><%=lang.Tryit%></span></button>
                  </div>
                   </div>
                    <div class="col-md-6 ">
@@ -171,12 +170,12 @@
             <div class="contact">
               <div class="container">
                <div class="contact-text">
-                 <span>Need more details? Contact us </span>
-                 <span>We are here to assist. Contact us by phone, email or via our social media<br> channels.</span>
+                 <span><%=lang.ContactSpan%></span>
+                 <span><%=lang.ContactSpan1%></span>
                </div>
                <a href="/home/contact">
                 <div class="contact-buuton">
-                   <button>Contact Us</button>
+                   <button><b class="contactB"><%=lang.Contact%></b></button>
                 </div>
                </a>
             </div>
@@ -205,10 +204,7 @@
        
       <!-- Start Scroll To Tob Button-->
       <div id="scroll-top">
-         <i class="fa fa-chevron-up fa-3x"></i>    
-         <span style="margin-bottom: 10px;">To Top</span>
-         
-          
+         <i class="fa fa-chevron-up fa-3x"></i>              
       </div>
       <!-- End Scroll To Tob Button-->
       

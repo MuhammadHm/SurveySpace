@@ -111,7 +111,7 @@
     background: #141517;
     margin: 10px;
     border-radius: 30px;
-    box-shadow: 0 5px 15px -5px #000000070;
+    box-shadow: 0 5px 15px -5px #00000007;
     color: #3498db;
     overflow: hidden;
     position: relative;
@@ -172,6 +172,21 @@
                   text-align: left;       
               }        
           }
+           /* Start Scroll To Tob Button*/
+           #scroll-top{
+                border-radius: 30%;
+                padding: 5px;
+                text-align: center;
+                color: #262627;
+                background-color: #E8ECF8;
+                cursor: pointer;
+                position: fixed;
+                right: 15px;
+                bottom: 10px;
+                z-index: 9999;
+                display: none; 
+            }
+          /* End Scroll To Tob Button*/
        </style>  
    </head>
    <body>
@@ -285,9 +300,15 @@
       <!-- End Footer-->
    </div>
    <!-- End Top Section-->
+     <!-- Start Scroll To Tob Button-->
+     <div id="scroll-top">
+        <i class="fa fa-chevron-up fa-3x"></i>              
+     </div>
+     <!-- End Scroll To Tob Button-->
    <!-- Script Source Files -->
          <script src="../script/jquery-3.3.1.js"></script>
         <script src="../script/bootstrap.min.js"></script>
+        <script src="../js/base.js"></script>
        <!-- End of Script Source Files -->
    </body>
 </html>

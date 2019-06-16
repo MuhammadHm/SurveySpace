@@ -27,17 +27,37 @@ rout.get('/features', (req, res, next) => {
     });
 });
 
-rout.get('/contact', (req, res, next) => {
+rout.get('/contact', async(req, res, next) => {
+    let read = util.promisify(fs.readFile);
+    let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
+    let lang=  JSON.parse(data);
     res.render('contact', { 
-        isAuth : req.session.isAuth
+        isAuth : req.session.isAuth,
+        lang : lang,
+        language : "en"
     });
+});
+rout.get('/contact/:language',async(req,res,next)=>{
+    let language="ar";
+    if(req.params.language !== "ar")
+     language="en";
+     let read = util.promisify(fs.readFile);
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${lang}.json`));
+     let lang=  JSON.parse(data);
+     res.render('contact',{
+        isAuth : req.session.isAuth,
+        lang :  lang,
+        language : language
+     });
 });
 
 rout.post('/contact/submitFeedback', (req, res, next) => {
     let feedback = req.body;
     fs.writeFile(path.join(__dirname, '..', 'dataBase', 'feedbacks', `${feedback.name}.json`), feedback);
     res.redirect('/contact', { 
-        isAuth : req.session.isAuth
+        isAuth : req.session.isAuth,
+        
+        
     });
     // printing succeed message (your feedback submitted)
 });

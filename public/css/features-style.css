@@ -200,18 +200,17 @@ border-width: 5px;
 
 /* Start Scroll To Tob Button*/
 #scroll-top{
-    width: 65px;
-    height:90px;
+    border-radius: 30%;
+    padding: 5px;
     text-align: center;
-    color: #D1B385;
-    background-color: #262627;
+    color: #262627;
+    background-color: #E8ECF8;
     cursor: pointer;
     position: fixed;
     right: 15px;
     bottom: 10px;
     z-index: 9999;
-    display: none;
-    
+    display: none; 
 }
 /* End Scroll To Tob Button*/
 

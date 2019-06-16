@@ -211,3 +211,18 @@
     font-size: 20px;
 }
 /* End footer*/
+/* Start Scroll To Tob Button*/
+#scroll-top{
+    border-radius: 30%;
+    padding: 5px;
+    text-align: center;
+    color: #262627;
+    background-color: #E8ECF8;
+    cursor: pointer;
+    position: fixed;
+    right: 15px;
+    bottom: 10px;
+    z-index: 9999;
+    display: none; 
+}
+/* End Scroll To Tob Button*/
