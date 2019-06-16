@@ -39,7 +39,10 @@ exports.postLogin =async (req, res, next) => {
     req.session.user=user;
 
     
-    res.status(200).render('home',{ isAuth : true, path : "/home" ,lang : lang});
+    res.status(200).render('home',{ isAuth : true, path : "/home" ,
+    lang : lang,
+    language : "en"
+    });
 }
 exports.getLogin = (req, res, next) => {
     res.render('signin', {

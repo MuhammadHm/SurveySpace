@@ -78,8 +78,6 @@ rout.get('/', async(req, res, next) => {
     result.createReport(9);
    
 
-    
-
     req.session.lang=lang;
     res.render('home',
     { 

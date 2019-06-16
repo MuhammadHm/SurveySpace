@@ -17,7 +17,8 @@ module.exports=class Survey{
         //this.ansVisitor_id=[];
         this.createresultfile();
         //add ID survey to userinfo
-        user.addSurvey(user_id,this.id,this.title);
+        
+        //user.addSurvey(user_id,this.id,this.title,this.welcomeMessage);
         
         let jsonSurvey=JSON.stringify(this);
         console.log("writing survey whith id " ,this.id);
