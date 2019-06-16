@@ -39,9 +39,10 @@ exports.postLogin =async (req, res, next) => {
     req.session.user=user;
 
     
-    res.status(200).render('home',{ isAuth : true, path : "/home" ,lang : lang});
+    res.status(200).render('home',{ isAuth : true, path : "/home" ,lang : lang,language :req.session.language});
 }
 exports.getLogin = (req, res, next) => {
+    console.log("signin.js controller  " + req.params);
     res.render('signin', {
         err: false,
         oldInput: {
