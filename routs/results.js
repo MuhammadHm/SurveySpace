@@ -6,6 +6,7 @@ const session=require('express-session');
 const bcrypt=require('bcrypt');
 const rout=express.Router();
 const Result=require('../models/results');
+const util=require('util');
 
 //  /results    
 rout.use(parser.json());
@@ -22,6 +23,16 @@ rout.use('/submit',(req,res,next)=>{
     res.json({done : true});
 
 });
+rout.use("/getresult/:id",async (req,res,next)=>{
+    id=req.params.id;
+    let path1=path.join(__dirname,'..','dataBase','results',`${id}.json`);
+    let read=util.promisify(fs.readFile);
+    let result=await read(path1)
+    result=JSON.parse(result)
+    console.log(result)
+
+
+})
 
 
 

@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-{"user_id":7,"id":4,"title":"adf","welcomeMessage":"wer","regDate":"2019-6-9 20:45:30","questionsArray":[{"id":1,"body":"fdsgg","isRequired":false,"answerType":"textbox","answers":""}]}
-=======
-{"user_id":7,"id":4,"title":"hello","welcomeMessage":"hi","regDate":"2019-5-30 11:11:4","questionsArray":[{"id":1,"body":"abc","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"aks","isRequired":false,"answerType":"essay"}]}
->>>>>>> 12d5d882a7e4998faabaa6762754f7be18078dc7

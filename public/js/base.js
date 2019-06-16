@@ -15,7 +15,7 @@ $(document).ready(function(){
     var scrollButton = $("#scroll-top");
     $(window).scroll(function(){
         console.log($(this).scrollTop());
-        if( $(this).scrollTop() >= 1000)
+        if( $(this).scrollTop() >= 700)
                  scrollButton.show();   
         else
                 scrollButton.hide();

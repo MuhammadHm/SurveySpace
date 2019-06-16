@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width , initial-scale=1" >
     <!-- Style Source Files -->
-     <link rel="stylesheet" href="../css/bootstrap.min.css">
+     <link rel="stylesheet" href="../../css/bootstrap.min.css">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-     <link rel="stylesheet" href="../css/fixed.css">
-     <link rel="stylesheet" href="../css/animate.css">
+     <link rel="stylesheet" href="../../css/fixed.css">
+     <link rel="stylesheet" href="../../css/animate.css">
     <!-- End of  Style Source Files -->
       <style>
           *{
@@ -39,7 +39,7 @@
                 transition-delay: 0s;  
             }
           .home-inner{
-              background-image: url(../images/contact.jpg);   
+              background-image: url(../../images/contact.jpg);   
              
           }
           .home-shadow{
@@ -192,6 +192,21 @@
                   text-align: left;       
               }        
           }
+          /* Start Scroll To Tob Button*/
+            #scroll-top{
+                border-radius: 30%;
+                padding: 5px;
+                text-align: center;
+                color: #262627;
+                background-color: #E8ECF8;
+                cursor: pointer;
+                position: fixed;
+                right: 15px;
+                bottom: 10px;
+                z-index: 9999;
+                display: none; 
+            }
+          /* End Scroll To Tob Button*/
        </style>  
    </head>
 
@@ -206,7 +221,7 @@
       </div>  
    </div>
    <div class="caption text-center">
-      <h1>Contact Us</h1>
+      <h1><%=lang.ContactHeader%></h1> 
        <span  class="animated bounceInRight">Come down to connect with us</span>
    </div>
    <div class="container">
@@ -267,9 +282,15 @@
       <!-- End Footer-->
    </div>
    <!-- End Top Section-->
+    <!-- Start Scroll To Tob Button-->
+     <div id="scroll-top">
+        <i class="fa fa-chevron-up fa-3x"></i>              
+     </div>
+     <!-- End Scroll To Tob Button-->
    <!-- Script Source Files -->
-         <script src="../js/jquery-3.3.1.js"></script>
-        <script src="../js/bootstrap.js"></script>
+         <script src="../../js/jquery-3.3.1.js"></script>
+        <script src="../../js/bootstrap.js"></script>
+        <script src="../../js/base.js"></script>
        <!-- End of Script Source Files -->
    </body>
 </html>

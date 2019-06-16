@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-{"user_id":7,"id":3,"title":"heoqer","welcomeMessage":"asdfa","regDate":"2019-6-9 20:43:52","questionsArray":[{"id":1,"body":"hio","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"wqr","isRequired":false,"answerType":"textbox"}]}
-=======
-{"user_id":7,"id":3,"title":"asdfe","welcomeMessage":"wef","regDate":"2019-5-30 11:4:3","questionsArray":[{"id":1,"body":"aa ","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"wewf","isRequired":false,"answerType":"checkbox"},{"id":3,"body":"wewf","isRequired":false,"answerType":"essay"}]}
->>>>>>> 12d5d882a7e4998faabaa6762754f7be18078dc7

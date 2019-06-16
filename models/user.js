@@ -58,20 +58,33 @@ module.exports=class User{
         });
     }
    
-    static addSurvey(id_admin,id_survey,titleSurvey){
+    static addSurvey(id_admin,id_survey,titleSurvey,welcomeMessage){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
         let read=util.promisify(fs.readFile);
         let user;
-        let array ={id :id_survey,title :titleSurvey}; 
+        let array ={id :id_survey,title :titleSurvey , welcomeMessage : welcomeMessage }; 
         read(path1)
             .then((data)=>{
                 user=JSON.parse(data);
                 user.surveys.push(array);
-                console.log('users.js',user.surveys);
                 user=JSON.stringify(user);
                 fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
             })
             .catch(err=>{console.log(err);});
     }
+    static async getLastSurvey(){
+        
+        let files =await fs.readdirSync(path.join(__dirname,'..','dataBase','users'))
+        let id=files.length; 
 
+
+        let read=util.promisify(fs.readFile);    
+        let user =await read(path.join(__dirname,'..','dataBase','users',`${id}.json`));
+        user=JSON.parse(user);
+
+        let surveyInfo=user.surveys[user.surveys.length-1]
+        
+        return {id ,surveyInfo};
+           
+    }
 };

@@ -56,7 +56,7 @@ body{
     font-size: 41px;
     text-shadow: .1rem .1rem .5rem black;
     padding-bottom: 1.2rem;
-     font-family:bree-w01-thin-oblique,sans-serif;
+    font-family:bree-w01-thin-oblique,sans-serif;
     color:#CCCCCC;
 }
 .button-efect{
@@ -102,14 +102,6 @@ font-size:20px;
         font-size: 15px;
     }
 }
-.ar-rtl{
-    direction: rtl !important;
-    text-align: right !important;
-}
-.ar-float{
-    float: right !important;
-}
-
 /* End  Home Page*/
 
 /* Features Page*/
@@ -214,10 +206,11 @@ font-size:20px;
     direction : ltr !important;
 
 }
-.skill span{
+.skill .skillSpan{
     font-size: 30px;
     color: #2F2E2E;
-    padding-top: 100px;
+    padding-top: 140px;
+    padding-bottom: 100px;
    
 }
 .skill button{
@@ -281,6 +274,9 @@ font-size:20px;
     background-color: #8E3AAB;
     color: #FFF;
 }
+.contact-buuton .contactB{
+    color: none;
+}
 /*  End Contact Section*/
 
 /* Start footer*/
@@ -296,7 +292,6 @@ font-size:20px;
     background: #141517;
     margin: 10px;
     border-radius: 30px;
-    box-shadow: 0 5px 15px -5px #000070;
     color: #3498db;
     overflow: hidden;
     position: relative;
@@ -349,19 +344,31 @@ font-size:20px;
 
 /* Start Scroll To Tob Button*/
 #scroll-top{
-    width: 60px;
-    height: 90px;
+    border-radius: 30%;
+    padding: 5px;
     text-align: center;
-    color: #D1B385;
-    background-color: #262627;
+    color: #262627;
+    background-color: #E8ECF8;
     cursor: pointer;
     position: fixed;
     right: 15px;
     bottom: 10px;
     z-index: 9999;
-    display: none;
-    
+    display: none; 
 }
 /* End Scroll To Tob Button*/
 
-
+/*  Style Arabic Page*/
+.ar-rtl{
+    direction: rtl !important;
+    text-align: right !important;
+    
+    
+}
+.ar-float{
+    float: right !important;
+    padding-right: 20px !important;
+}
+.captionHeader{
+    letter-spacing: 0ch !important;
+}
