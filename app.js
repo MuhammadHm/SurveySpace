@@ -14,7 +14,7 @@ const mysurveys=require('./routs/mySurveys');
 const survey=require('./routs/survey');
 const results=require('./routs/results');
 const back = require('./routs/back');
-const logout=require('./controllers/logout');
+const logout=require('./routs/logout');
 //  Setting view engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -32,7 +32,7 @@ app.use('/home',home);
 
 app.use('/signin',singin);
 
-app.get('/logout',logout.logout);
+app.use('/logout',logout);
 
 app.use('/mysurveys',mysurveys);
 

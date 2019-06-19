@@ -17,13 +17,14 @@ rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false,co
 //rout.use(parser.urlencoded({extended : false}));
 rout.use(parser.json());
 
-
-//    /survey
+//   handling  '/survey'
 rout.post('/addsurvey',survey.addServeyInfo);    // getting survey title and welcome message
 rout.use('/sendsurveyinfo',survey.sendSurveyInfo);  //sending survey title and welcome message to FE app
 rout.use('/savesurvey',survey.saveSurvey);      // saving survey in database
 rout.use('/sendsurvey/:id',survey.sendSurvey);   //sending survey data to previw 
 rout.use('/publish',survey.publishSurvey);
+rout.use('/saveastemplate',survey.saveAsTemplate) 
+rout.use('/editsurvey',survey.editSurvey)   // saving the edited survey
 
 
 module.exports=rout;
