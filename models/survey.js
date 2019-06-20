@@ -69,6 +69,7 @@ module.exports=class Survey{
         let result=[];
          this.questionsArray.forEach( element  =>  {
             let oneresult ={};
+            oneresult.questionbody=element.body;
             oneresult.answerType=element.answerType;
             oneresult.count=0;
             if (element.answerType === "textbox" || element.answerType == "essay")

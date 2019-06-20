@@ -27,13 +27,16 @@
              <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="/home/en">English</a>
+                <form action="/home/Language" method="POST">     
+                  <input type="submit" class="dropdown-item" name="Language" value="English">
                      <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/home/ar">Arabic</a>
-                        </div>
+                   <input type="submit" class="dropdown-item" name="Language" value="Arabic">
+                   </form>                
+              </div>
+
             </li>
       </ul>
-  </div>div>
+  </div>
   <!-- End Item of navbar-->
 </nav>
 <!-- End NavBar-->
