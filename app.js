@@ -42,9 +42,6 @@ app.use('/results',results);
 
 app.use('/back',back);
 
-
-/*hello form the other side */
-//  Run Server
 app.listen(8080);
 
 

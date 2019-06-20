@@ -25,6 +25,6 @@ rout.use('/sendsurvey/:id',survey.sendSurvey);   //sending survey data to previw
 rout.use('/publish',survey.publishSurvey);
 rout.use('/saveastemplate',survey.saveAsTemplate) 
 rout.use('/editsurvey',survey.editSurvey)   // saving the edited survey
-
+rout.use('/delete/:id',survey.delete)
 
 module.exports=rout;

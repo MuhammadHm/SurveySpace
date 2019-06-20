@@ -17,7 +17,7 @@
                 </button>
                   <!-- Item of navbar-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <a style="padding-right: 50px;" href="#" class="navbar-brand">Logo</a>
+                  <a style="padding-right: 50px;" href="/home" class="navbar-brand">Logo</a>
                        <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
                              <button type="button" class="btn btn-secondary" id="My-new-survey"> <i class="fas fa-plus"></i> Create Survey</button>
@@ -50,8 +50,11 @@
                           <p>Responses Today 0 </p>  
                        </div>
                        <div class="card-footer">
-                          <a class="card-link" href="http://localhost:3000/edit/<%= surveys[i].id %>"><i class="fas fa-user-cog"></i></a>
-                       </div>
+                          <a class="card-link" href="http://localhost:3000/edit/<%= surveys[i].id %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
+                          <a class="card-link" href="/survey/delete/<%= surveys[i].id %>"><i class="fa fa-trash" title="Delete survey"></i></a>
+
+                        </div>
+                       
                        </div>
                      </div>
                     <% } %>

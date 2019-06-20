@@ -100,6 +100,29 @@ exports.editSurvey = async (req,res)=>{
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.json({done : true});
 }
+exports.delete = async (req,res)=>{
+
+    let id = req.params.id;
+    //deleting file
+    let path1=path.join(__dirname,'..','dataBase','survey',`${id}.json`);
+    fs.unlinkSync(path1);
+    fs.unlinkSync(path.join(__dirname,'..','dataBase','results',`${id}.json`));
+    //delete from user file
+    let user_id = req.session.user.id;
+    let read = util.promisify(fs.readFile);
+    let user = await read(path.join(__dirname,'..','dataBase','users',`${user_id}.json`));
+    user = JSON.parse(user);
+    for( let i = 0; i < user.surveys.length; i++){ 
+        if ( user.surveys[i].id == id) {
+            user.surveys.splice(i, 1); 
+        }
+    }
+    req.session.user = user;
+    let json=JSON.stringify(user);
+    await fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${user_id}.json`),json); 
+   
+    res.redirect("/mysurveys")
+}
 
 
 
