@@ -14,8 +14,8 @@ module.exports=class User{
         this.password=bcrypt.hashSync(password,12);
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         this.surveys=[];
-       
-       
+        this.templates=[];
+     
         let userInf=new userInfo();
         userInf.addUserInfo(email); 
     
@@ -33,7 +33,6 @@ module.exports=class User{
             fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id}.json`),jsonUser);
         });
     }
-    
     static editeUser(id,nName,nEmail,nPassword){
         let path1=path.join(__dirname,'..','dataBase','users',`${id}.json`);
         let user;
@@ -49,15 +48,22 @@ module.exports=class User{
         });
 
     }
-
-    //TODO remove from emailarray file
-    static removeUser(id){
+    static async deleteUser(id){
+        //deleting file
         let path1=path.join(__dirname,'..','dataBase','users',`${id}.json`);
-        fs.unlink(path1,err => {
-            console.log(`${id} deleted`);
-        });
-    }
-   
+        fs.unlink(path1);
+        //delete from usersInfo file
+        let read = util.promisify(fs.readFile);
+        let data = await read(path.join(__dirname,'..','dataBase','emails','usersInfo.json'));
+        let info = JSON.parse(data);
+        for(let i = info.length - 1; i >= 0; i--) {
+            if(info[i].id === id) {
+               info.splice(i, 1);
+            }
+        }   
+        let json=JSON.stringify(info);
+        await fs.writeFileSync(path.join(__dirname,'..','dataBase','emails','usersInfo.json'),json);  
+    }  
     static addSurvey(id_admin,id_survey,titleSurvey,welcomeMessage){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
         let read=util.promisify(fs.readFile);
@@ -87,4 +93,19 @@ module.exports=class User{
         return {id ,surveyInfo};
            
     }
+    static addTemplate(id_admin,id_template,titleSurvey,welcomeMessage){
+        let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
+        let read=util.promisify(fs.readFile);
+        let user;
+        let template = {id : id_template,title : titleSurvey , welcomeMessage : welcomeMessage }; 
+        read(path1)
+            .then((data)=>{
+                user=JSON.parse(data);
+                user.templates.push(template);
+                user=JSON.stringify(user);
+                fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
+            })
+            .catch(err=>{console.log(err);});
+    }
+    
 };

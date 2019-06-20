@@ -93,7 +93,6 @@ rout.get('/account',async (req, res, next) => {
     });
 });
 rout.get('/', async(req, res, next) => {
-    console.log(req.client);
     let language=cookie.parse(req.headers.cookie || '').Language;
     if(language === "Arabic")
         language="ar";
