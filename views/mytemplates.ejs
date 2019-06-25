@@ -20,8 +20,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                   <a style="padding-right: 50px;" href="/home" class="navbar-brand">Logo</a>
                   
-                  <input id="tab-1" type="radio" name="tab"  checked><label for="tab-1" class="tab">	<a href="/mysurveys">My Surveys</a></label>
-                  <input id="tab-2" type="radio" name="tab"  > <label for="tab-2" class="tab"><a href="/mysurveys/mytemplates">My Templates</a></label>
+                  <input id="tab-1" type="radio" name="tab"  ><label for="tab-1" class="tab">	<a href="/mysurveys">My Surveys</a></label>
+                  <input id="tab-2" type="radio" name="tab" checked > <label for="tab-2" class="tab"><a href="/mysurveys/mytemplates">My Templates</a></label>
                
                        <ul class="navbar-nav ml-auto">
                        
@@ -45,19 +45,19 @@
                <div class="container text-center">
                   <div class="row">
                       <!--start of card-->
-                      <% for(let i=0; i < surveys.length ; i++){ %>
+                      <% for(let i=0; i < templates.length ; i++){ %>
                      <div class="col-md-6 col-lg-4">
                        <div class="card border-0 transform-on-hover">
                        <div class="card-header">
-                          <h5> <%= surveys[i].title%> </h5>
+                          <h5> <%= templates[i].title%> </h5>
                        </div>
                        <div class="card-body">
                           <p>Responses Since 0</p>
                           <p>Responses Today 0 </p>  
                        </div>
                        <div class="card-footer">
-                          <a class="card-link" href="http://localhost:3000/edit/<%= surveys[i].id %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
-                          <a class="card-link" href="/survey/delete/<%= surveys[i].id %>"><i class="fa fa-trash" title="Delete survey"></i></a>
+                          <a class="card-link" href="http://localhost:3000/edit/<%= templates[i].id %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
+                          <a class="card-link" href="/survey/delete/<%= templates[i].id %>"><i class="fa fa-trash" title="Delete survey"></i></a>
 
                         </div>
                        
@@ -69,7 +69,7 @@
                     <div class="col-md-6 col-lg-4">
                      <div class="card border-0 ">
                      <div class="card-body">
-                      <a  href="#" id="new-survey"> <h3 ><i class="fas fa-plus"></i> New Survey </h3></a>                     </div>  
+                      <a  href="#" id="new-survey"> <h3 ><i class="fas fa-plus"></i> New Template </h3></a>      </div>  
                      </div>
                   </div>    
                </div>  

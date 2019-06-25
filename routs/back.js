@@ -27,7 +27,6 @@ rout.use("/home/:id",async (req,res,next)=>{
     // user is Authenticated
     req.session.isAuth = true;
     req.session.user=user;
-    
     res.render('home',{
         isAuth : true, 
         path : "/home" ,

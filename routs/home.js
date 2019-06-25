@@ -9,8 +9,6 @@ const util=require('util');
 const Result=require('../models/results');
 const cookie = require('cookie');
 
-
-
 // for getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({ extended: false }));
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
@@ -48,7 +46,6 @@ rout.get('/features', async(req, res, next) => {
         language : language
     });
 });
-
 
 rout.get('/contact',async(req,res,next)=>{
     let language=cookie.parse(req.headers.cookie || '').Language;
