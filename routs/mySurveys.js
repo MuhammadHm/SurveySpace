@@ -10,6 +10,13 @@ const rout = express.Router();
 // /mysurveys
 rout.use(parser.json());
 
+rout.get('/mytemplates',(req,res,next)=>{
+    console.log("templates")
+    res.render('mytemplates',{templates : req.session.user.templates ,user: req.session.user });
+
+
+})
+
 rout.get('/',(req,res,next)=>{
    // const user=require('./../controllers/signin').authUser;
     

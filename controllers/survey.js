@@ -12,15 +12,15 @@ const bcrypt = require('bcrypt');
 const util = require('util');
 let user=new User();
 
-
-
-//  /survey
+//  '/survey'
 exports.addServeyInfo =async (req, res, next) => {
 
     let files=await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'))
         
     let survey_id=files.length+1;  
-    User.addSurvey(req.session.user.id ,survey_id ,req.body.title , req.body.welcomeMessage); 
+    User.addSurvey(req.session.user.id ,survey_id ,req.body.title , req.body.welcomeMessage);
+    let survey = new Survey();
+    survey.addSurvey(survey_id,req.session.user.id  ,req.body.title , req.body.welcomeMessage,[]) ;
     user=req.session.user;
        
     res.redirect(`http://localhost:3000/createsurvey`);
@@ -36,7 +36,6 @@ exports.sendSurveyInfo =async (req, res, next) => {
           welcomeMessage : Info.surveyInfo.welcomeMessage
     }
 
-    console.log("survey info",surveyInfo)
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -58,13 +57,6 @@ exports.sendSurvey =async (req,res,next)=>{
     
     //for previewing survey with certain id to users 
     let survey_id=req.params.id; 
-
-    //for previewing the last saved survey (if preview clicked from the creating nav)
-    if(survey_id === 'id'){
-        let files =await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'));
-        survey_id = files.length;        
-    }
-
     let read = util.promisify(fs.readFile);
     let data=await read(path.join(__dirname, '..', 'dataBase', 'survey', `${survey_id}.json`));
     let survey=JSON.parse(data);
@@ -85,6 +77,51 @@ exports.publishSurvey =async ( req , res )=>{
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.json({ survey_id :  id });    
 
+}
+exports.saveAsTemplate = async(req , res )=>{
+    let survey = new Survey();
+
+    if(req.body.survey_id != undefined)
+         survey.saveAsTemplate(req.body.survey_id ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
+    
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.json({done : true});
+}
+exports.editSurvey = async (req,res)=>{
+    
+
+    if(req.body.survey_id != undefined)
+         Survey.editSurvey(req.body.survey_id ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
+    
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.json({done : true});
+}
+exports.delete = async (req,res)=>{
+
+    let id = req.params.id;
+    //deleting file
+    let path1=path.join(__dirname,'..','dataBase','survey',`${id}.json`);
+    fs.unlinkSync(path1);
+    fs.unlinkSync(path.join(__dirname,'..','dataBase','results',`${id}.json`));
+    //delete from user file
+    let user_id = req.session.user.id;
+    let read = util.promisify(fs.readFile);
+    let user = await read(path.join(__dirname,'..','dataBase','users',`${user_id}.json`));
+    user = JSON.parse(user);
+    for( let i = 0; i < user.surveys.length; i++){ 
+        if ( user.surveys[i].id == id) {
+            user.surveys.splice(i, 1); 
+        }
+    }
+    req.session.user = user;
+    let json=JSON.stringify(user);
+    await fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${user_id}.json`),json); 
+   
+    res.redirect("/mysurveys")
 }
 
 
