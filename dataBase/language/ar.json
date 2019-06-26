@@ -29,12 +29,36 @@
     "ContactSpan1":" نحن هنا للمساعدة. اتصل بنا عبر الهاتف أو البريد الإلكتروني أو عبر قنوات التواصل الاجتماعي الخاصة بنا",
     "Contact":" اتصل",
     "ContactHeader":"تواصل معنا",
-    "Contact-Span":"  للتواصل معنا انزل للأسفل",
+    "ContactSpanC":"  للتواصل معنا انزل للأسفل",
     "websiteInfoHeader":"فضاء ",
     "websiteInfoList1":"سوريا",
     "websiteInfoList2":"جامعة دمشق - كلية الهندسة المعلوماتية ",
-    "Contact-FormHeader":"راسلنا",
-    "Contact-Form-Label1":"الاسم"
+    "ContactFormHeader":"راسلنا",
+    "ContactFormLabel1":"الاسم",
+    "ContactFormLabel2":"الايميل",
+    "ContactFormLabel3":"الموضوع",
+    "ContactFormLabel4":"رسالة",
+    "ContactButton":"ارسال",
+    "CaptionHeader":"معلومات عنا",
+    "Captionparagraph":"المزيد من المعلومات عنا",
+    "AboutTextparagraph":"طلاب السنة الثالثة في كلية هندسة المعلوماتية في جامعة دمشق",
+    "headingHeader":"فريقنا",
+    "featurHeader":"الميزات والخدمات",
+    "NewSectionSpan":"إنشاء أنواع مختلفة من الدراسات الاستقصائية بسهولة",
+    "NewSectionSummary":"قراءة المزيد",
+    "NewSectionparagraph":" على سبيل المثال: (التعليمية ، السياسية ، ملاحظات العملاء ، مسابقات ، إلخ)",
+    "NewSectionSpan1":"التصميم",
+    "NewSectionparagraph1":" أدوات التصميم لعرض المسح",
+    "NewSectionSpan2":"دعم العديد من الطرق لنشر الاستطلاع",
+    "NewSectionparagraph2":" دعم العديد من الطرق لنشر الاستطلاع للأشخاص المعنيين ، والقدرة على ملء ما إذا كانوا متصلين / غير متصلين بالإنترنت",
+    "NewSectionSpan3":"التحليل",
+    "NewSectionparagraph3":"تحليل النتائج بعدة طرق",
+    "NewSectionSpan4":"تقارير عن التحليلات",
+    "NewSectionparagraph4":" تصدير التحليلات كملفات (pdf ، docx ، ..",
+    "NewSectionSpan5":"حفظ المستخدمين",
+    "NewSectionparagraph5":" حفظ بيانات المستخدمين والملفات الشخصية"
+
+
    
 
 

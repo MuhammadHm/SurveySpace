@@ -1,10 +1,13 @@
+body{
+    height: 100%;
+}
 .navbar {
     background-color: #262627 !important;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 8px;
 }
 .dropdown-menu{   background-color:#262627;}
-.dropdown-item{ color: #D1B385}
+.dropdown-item{ color: #D1B385;font-size: 18px;}
 .navbar-nav li{
     padding-right: 15px;
 }
@@ -162,7 +165,7 @@
     background: #141517;
     margin: 10px;
     border-radius: 30px;
-    box-shadow: 0 5px 15px -5px #000000070;
+    box-shadow: 0 5px 15px -5px #00000007;
     color: #3498db;
     overflow: hidden;
     position: relative;
