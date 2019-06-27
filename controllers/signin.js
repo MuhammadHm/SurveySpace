@@ -9,6 +9,9 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const util=require('util');
+const cookie = require('cookie');
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey');
 let info = {};
 
 exports.postLogin =async (req, res, next) => {
@@ -30,16 +33,14 @@ exports.postLogin =async (req, res, next) => {
     let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
     let user=JSON.parse(data);
    
-    //lang 
-    let ldata=await read(path.join(__dirname, '..', 'dataBase', 'language', `en.json`));
-    let lang=  JSON.parse(ldata);
-   
     // user is Authenticated
     req.session.isAuth = true;
     req.session.user=user;
-
-    
-    res.status(200).render('home',{ isAuth : true, path : "/home" ,lang : lang,language :req.session.language});
+    if (req.body.keepMe === "on")
+        res.cookie("user",cryptr.encrypt(id),{maxAge :2592000000});
+    else
+        res.cookie("user",cryptr.encrypt(id));    
+    res.redirect("/home");
 }
 exports.getLogin = (req, res, next) => {
     res.render('signin', {

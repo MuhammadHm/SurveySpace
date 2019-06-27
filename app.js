@@ -27,7 +27,6 @@ app.use(parser.urlencoded({extended : false}));
 //   using sessions
 app.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
 
-
 //  Requests Handlers
 app.use('/home',home);
 

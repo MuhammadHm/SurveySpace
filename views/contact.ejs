@@ -16,14 +16,15 @@
           body{
               line-height: 1.6;
               background-color: #262627;
+              height: 100%;
           }
           .navbar {
                 background-color: #262627 !important;
-                font-size: 20px;
-                padding: 10px;
+                font-size: 18px;
+                padding: 8px;
             }
             .dropdown-menu{   background-color:#262627;}
-            .dropdown-item{ color: #D1B385}
+            .dropdown-item{ color: #D1B385;font-size: 18px;}
             .navbar-nav li{
                 padding-right: 15px;
             }
@@ -207,6 +208,13 @@
                 display: none; 
             }
           /* End Scroll To Tob Button*/
+          .infoList{
+              float: right !important;
+              direction: rtl !important;
+          }
+          .sendHeader{
+              float: right !important;
+          }
        </style>  
    </head>
 
@@ -222,40 +230,40 @@
    </div>
    <div class="caption text-center">
       <h1><%=lang.ContactHeader%></h1> 
-       <span  class="animated bounceInRight">Come down to connect with us</span>
+       <span  class="animated bounceInRight"><%=lang.ContactSpanC%></span>
    </div>
    <div class="container">
       <div class="wrapper">
-         <div class="website-info"> <!--company-info-->
+         <div class="website-info "> 
             <h3 style="font-size: 50px; max-width: 2000px;">Survey Space Group</h3>
-            <ul>
-               <li style="padding-bottom: 10px;" class="fas fa-map-marker-alt"><span style="padding-left: 5px;">Syria</span></li>
-               <li style=" padding-bottom: 10px;" class="fas fa-university"><span style="padding-left: 5px;">Damscus University - Facutly of ITE</span></li>
+            <ul >
+               <li style="padding-bottom: 10px;" class="fas fa-map-marker-alt"><span style="padding-left: 5px;"><%=lang.websiteInfoList1%></span></li>
+               <li style=" padding-bottom: 10px;" class="fas fa-university"><span style="padding-left: 5px;"><%=lang.websiteInfoList2%></span></li>
                <li style="padding-bottom: 10px;" class="fas fa-envelope"><a style="color: #FFFFFF ; text-decoration: none ; padding-left: 5px;"  href="#">surveyspace@gmail.com</a></li>
                <li  class="fas fa-phone"><span style="padding-left: 5px;">+963 944 220 546</span></li>
             </ul>
          </div>
-         <div class="contact">
-            <h3>Email Us</h3>
-            <form>
+         <div class="contact ">
+            <h3 class="<%= language === 'ar' ? 'sendHeader' : '' %>" ><%=lang.ContactFormHeader%></h3>
+            <form class="<%= language === 'ar' ? 'infoList' : '' %> ">
                 <p>
-                    <label>Name</label>
+                    <label class="<%= language === 'ar' ? 'infoList' : '' %>"><%=lang.ContactFormLabel1%></label>
                     <input type="text" name="name"  autocomplete="off">
                 </p>
                 <p>
-                    <label>Email</label>
+                    <label class="<%= language === 'ar' ? 'infoList' : '' %>"><%=lang.ContactFormLabel2%></label>
                     <input type="email" name="email" autocomplete="off">
                 </p>
                 <p>
-                    <label>Subject</label>
+                    <label class="<%= language === 'ar' ? 'infoList' : '' %>"><%=lang.ContactFormLabel3%></label>
                     <input type="text" name="subject" autocomplete="off">
                 </p>
                 <p class="full">
-                    <label>Message</label>
+                    <label class="<%= language === 'ar' ? 'infoList' : '' %>"><%=lang.ContactFormLabel4%></label>
                     <textarea name="message" rows="5" ></textarea>
                 </p>
                 <p class="full">
-                    <button>Send</button>
+                    <button><span><%=lang.ContactButton%></span></button>
                 </p>
             </form>
          </div>
@@ -289,6 +297,7 @@
      <!-- End Scroll To Tob Button-->
    <!-- Script Source Files -->
          <script src="../../js/jquery-3.3.1.js"></script>
+         <script src="../js/jquery.nicescroll.min.js"></script>
         <script src="../../js/bootstrap.js"></script>
         <script src="../../js/base.js"></script>
        <!-- End of Script Source Files -->

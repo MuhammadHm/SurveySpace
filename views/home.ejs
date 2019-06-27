@@ -17,7 +17,7 @@
         <!-- Start Home Section-->
         <div id="home">
            
-            <%- include('Layouts/nav.ejs')%>
+            <%- include('Layouts/nav.ejs',{lang : lang})%>
             <!-- Start Home Page Section-->
             <div class="landing">
                 <div class="home-wrap">
@@ -29,7 +29,7 @@
               
         <div class="caption text-center">
              <h1 class="animated lightSpeedIn <%= language === 'ar' ? 'captionHeader' : '' %>" ><%=lang.Survey_Space %></h1>
-            <h3>Creat a survey<span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
+            <h3>Creat a survey <span class="typewrite" data-period="1000" data-type='[ "in  different languages","in  minutes"  ]'></span>
             </h3>
             <a href="<%= !isAuth? '/signin' : '/mysurveys' %>">
             <button class="button-efect from-left">
@@ -169,10 +169,12 @@
         <!-- Start Contact Section-->
             <div class="contact">
               <div class="container">
+                 
                <div class="contact-text">
                  <span><%=lang.ContactSpan%></span>
                  <span><%=lang.ContactSpan1%></span>
                </div>
+              
                <a href="/home/contact">
                 <div class="contact-buuton">
                    <button><b class="contactB"><%=lang.Contact%></b></button>
@@ -210,9 +212,11 @@
       
       <!-- Script Source Files -->
         <script src="../js/jquery-3.3.1.js"></script>
+        <script src="../js/jquery.nicescroll.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/MyJavaScript.js"></script>
         <script src="../js/base.js"></script>
+       
         <!-- End of Script Source Files -->
     </body>
 </html>
