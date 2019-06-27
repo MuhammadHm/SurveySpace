@@ -1,5 +1,8 @@
 {
-   
+    "home":"الرئيسية",
+    "features":"ميزات & خدمات",
+    "contact":"تواصل معنا",
+    "about":"حول",
     "Survey_Space" :"Survey Space",
     "Creat_a_survey" :"إنشاء استطلاع",
     "Get_Start" : "ابدأ",
