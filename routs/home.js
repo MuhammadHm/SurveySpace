@@ -12,8 +12,6 @@ const User = require('./../models/user');
 
 
 
-
-
 // for getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({ extended: false }));
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false }));
@@ -66,7 +64,6 @@ rout.get('/features', async(req, res, next) => {
         language : language
     });
 });
-
 
 rout.get('/contact',async(req,res,next)=>{
     await User.IsAuthUser(req,res);

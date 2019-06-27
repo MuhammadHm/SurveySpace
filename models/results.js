@@ -52,35 +52,6 @@ module.exports=class Result{
                     report.WeMe=s.welcomeMessage;
                     report.regDate=s.regDate;
                     report.result=r.result;
-
-                    /*report="Username is "+user.name+"\n"+"Survey Title is "+s.title+
-                    "\n"+"WelcomeMessage  :"+s.welcomeMessage+"\n"+"regDate in :"+s.regDate+"\n";
-                    for (let i=0;i<s.questionsArray.length;i++)
-                        {   report+=(i+1)+"-question:"+s.questionsArray[i].body+".\n answer : \t";
-                        if (r.result[i].count > 0 )
-                        {   if (r.result[i].answerType === "textbox" || r.result[i].answerType == "essay")
-                                {   let j=1;
-                                    r.result[i].report.forEach(element =>{
-                                    report+=j+"-"+element+"\n";
-                                    j++;
-                                });
-                                }        
-                            else if (r.result[i].answerType ==="checkbox" || r.result[i].answerType ==="mulchoice")  
-                            {   s.questionsArray[i].answers.forEach(elements =>{
-                                       report+=elements.body+" : "+r.result[i].check[elements.body]+
-                                       "   persent      "+((r.result[i].check[elements.body]/r.result[i].count)*100)+"%\n";
-                            });    
-                            }   
-                            else if (r.result[i].answerType ==="scale")
-                                     report+= r.result[i].scale/r.result[i].count+"\n";
-                            else if (r.result[i].answerType === "date")
-                                        r.result[i].date.forEach(elements =>{
-                                        report+="day  "+elements.day +"  month  "+elements.month +"  year  "+elements.year+"\n"
-                                    });
-                        }
-                        }
-                        report+="End of Report"
-                        */
                        console.log("m.result.js  "+report.username);
                        console.log("m.result.js  "+report.title);
                        console.log("m.result.js  "+report.WeMe);

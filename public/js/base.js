@@ -79,3 +79,10 @@ $(document).ready(function() {
         }
     });
 });
+
+// nice scroll
+$(document).ready(function() { 
+    $("html").niceScroll({
+        cursorcolor:'#272726',
+    });
+});

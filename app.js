@@ -19,6 +19,7 @@ const logout=require('./routs/logout');
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+
 //   defining public folder
 app.use(express.static(path.join(__dirname,'public')));
 //   getting submitted data from url (as an obj through req.body)
@@ -41,9 +42,6 @@ app.use('/results',results);
 
 app.use('/back',back);
 
-
-/*hello form the other side */
-//  Run Server
 app.listen(8080);
 
 

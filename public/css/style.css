@@ -1,15 +1,14 @@
 body{
-    overflow-x: hidden;
-
+    height: 100%;
 }
 /*  Navbar  */
 .navbar {
     background-color: #262627 !important;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 8px;
 }
 .dropdown-menu{   background-color:#262627;}
-.dropdown-item{ color: #D1B385}
+.dropdown-item{ color: #D1B385;font-size: 18px;}
 .navbar-nav li{
     padding-right: 15px;
 }
@@ -277,6 +276,11 @@ font-size:20px;
 .contact-buuton .contactB{
     color: none;
 }
+body {
+    background-color:#343434
+  }
+  
+
 /*  End Contact Section*/
 
 /* Start footer*/
@@ -362,8 +366,6 @@ font-size:20px;
 .ar-rtl{
     direction: rtl !important;
     text-align: right !important;
-    
-    
 }
 .ar-float{
     float: right !important;

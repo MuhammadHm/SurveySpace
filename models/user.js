@@ -54,7 +54,7 @@ module.exports=class User{
     static async deleteUser(id){
         //deleting file
         let path1=path.join(__dirname,'..','dataBase','users',`${id}.json`);
-        fs.unlink(path1);
+        fs.unlinkSync(path1);
         //delete from usersInfo file
         let read = util.promisify(fs.readFile);
         let data = await read(path.join(__dirname,'..','dataBase','emails','usersInfo.json'));
@@ -85,7 +85,6 @@ module.exports=class User{
         
         let files =await fs.readdirSync(path.join(__dirname,'..','dataBase','users'))
         let id=files.length; 
-
 
         let read=util.promisify(fs.readFile);    
         let user =await read(path.join(__dirname,'..','dataBase','users',`${id}.json`));
