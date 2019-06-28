@@ -8,6 +8,9 @@ const infoLogin = require('../controllers/signin');
 const util=require('util');
 const Result=require('../models/results');
 const cookie = require('cookie');
+const User = require('./../models/user');
+
+
 
 // for getting submitted data from url (as an obj through req.body)
 rout.use(parser.urlencoded({ extended: false }));
@@ -15,12 +18,28 @@ rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false })
 
 //  handling requests from /home
 
+rout.get('/', async(req, res, next) => {
+    await User.IsAuthUser(req,res);
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+        language=cookie.parse(req.headers.cookie || '').Language;
+     let read = util.promisify(fs.readFile);
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
+     let lang=  JSON.parse(data);
+    res.render('home',
+    { 
+        isAuth : req.session.isAuth,
+        lang :  lang,
+        language : language
+  
+    });
+});
+
 rout.get('/about', async(req, res, next) => {
-    let language=cookie.parse(req.headers.cookie || '').Language;
-    if(language === "Arabic")
-        language="ar";
-    else 
-        language="en";
+    await User.IsAuthUser(req,res);
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+        language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
@@ -32,11 +51,10 @@ rout.get('/about', async(req, res, next) => {
 });
 
 rout.get('/features', async(req, res, next) => {
-    let language=cookie.parse(req.headers.cookie || '').Language;
-    if(language === "Arabic")
-        language="ar";
-    else 
-        language="en";
+    await User.IsAuthUser(req,res);
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+        language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
@@ -48,11 +66,10 @@ rout.get('/features', async(req, res, next) => {
 });
 
 rout.get('/contact',async(req,res,next)=>{
-    let language=cookie.parse(req.headers.cookie || '').Language;
-    if(language === "Arabic")
-        language="ar";
-    else 
-        language="en";
+    await User.IsAuthUser(req,res);
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+        language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
@@ -73,11 +90,10 @@ rout.post('/contact/submitFeedback', (req, res, next) => {
 });
 
 rout.get('/account',async (req, res, next) => {
-    let language=cookie.parse(req.headers.cookie || '').Language;
-    if(language === "Arabic")
-        language="ar";
-    else 
-        language="en";
+    await User.IsAuthUser(req);
+     let language="en";
+     if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+        language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
@@ -89,27 +105,14 @@ rout.get('/account',async (req, res, next) => {
         language : language
     });
 });
-rout.get('/', async(req, res, next) => {
-    let language=cookie.parse(req.headers.cookie || '').Language;
-    if(language === "Arabic")
-        language="ar";
-    else 
-        language="en";
-     let read = util.promisify(fs.readFile);
-     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
-     let lang=  JSON.parse(data);
-    res.render('home',
-    { 
-        isAuth : req.session.isAuth,
-        lang :  lang,
-        language : language
-  
-    });
-});
+
 
 rout.post('/Language',(req,res,next) => {
-    res.cookie("Language",req.body.Language);
+    if (req.body.Language === "Arabic")
+        res.cookie("Language","ar",{maxAge :2592000000});
+    else
+        res.cookie("Language","en",{maxAge :2592000000});
     res.redirect(req.headers.referer);
 });
 
-module.exports = rout;
+module.exports = rout; 

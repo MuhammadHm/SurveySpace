@@ -3,6 +3,9 @@ const path=require('path');
 const bcrypt=require('bcrypt');
 const userInfo=require('./usersInfo');
 const util=require('util');
+const cookie = require('cookie');
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey'); 
 module.exports=class User{
 
     constructor(){ }
@@ -105,6 +108,20 @@ module.exports=class User{
                 fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
             })
             .catch(err=>{console.log(err);});
+    }
+    static async IsAuthUser(req,res){
+       if (req.session.user === undefined && cookie.parse(req.headers.cookie || '').user !== undefined )
+            {
+                let id =cryptr.decrypt(cookie.parse(req.headers.cookie || '').user);
+                let read = util.promisify(fs.readFile);
+                let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
+                let user=JSON.parse(data);
+                // user is Authenticated
+                req.session.isAuth = true;
+                req.session.user=user;
+                res.cookie("user",cryptr.encrypt(id),{maxAge :2592000000});
+             }
+
     }
     
 };

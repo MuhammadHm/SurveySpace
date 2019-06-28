@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"user_id":"","id":"","title":"","welcomeMessage":" ","regDate":"2019-6-28 1:41:44","questionsArray":[{"id":1,"body":"as","isRequired":false,"answerType":"essay","answers":""}]}
+=======
+{"user_id":"","id":"","title":"","welcomeMessage":" ","regDate":"2019-6-27 3:25:9","questionsArray":[{"id":1,"body":"asdawq","isRequired":false,"answerType":"textbox","answers":""},{"id":2,"body":"asdasdfeqq","isRequired":false,"answerType":"essay"}]}
+>>>>>>> 70b33735e9d8b33c225be75d30ecddc1fefc1e1d
