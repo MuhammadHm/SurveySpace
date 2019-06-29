@@ -36,7 +36,7 @@ module.exports=class Result{
             });
     }
     
-    async  createReport(survey_id){
+    async createReport(survey_id){
         let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
         let path2=path.join(__dirname,'..','dataBase','survey',`${survey_id}.json`);
         let report ={};

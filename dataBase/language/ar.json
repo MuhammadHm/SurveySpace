@@ -59,7 +59,16 @@
     "NewSectionSpan4":"تقارير عن التحليلات",
     "NewSectionparagraph4":" تصدير التحليلات كملفات (pdf ، docx ، ..",
     "NewSectionSpan5":"حفظ المستخدمين",
-    "NewSectionparagraph5":" حفظ بيانات المستخدمين والملفات الشخصية"
+    "NewSectionparagraph5":" حفظ بيانات المستخدمين والملفات الشخصية",
+    "dataType":"بمختلف اللغات",
+    "dataType1":"في دقائق",
+    "dataTypeHeader":"انشاء استطلاع",
+    "Home":"الرئيسية",
+    "Features":"ميزاتنا",
+    "ContactNav":"تواصل معنا",
+    "About":"حول",
+    "Language":"اللغة",
+    "Profile":"الصفجة الشخصية"
 
 
    

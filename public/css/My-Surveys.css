@@ -17,11 +17,30 @@
     background-color: #D1B385;
     border-color: #D1B385;
 }
+input[type=radio]{
+    display: none;
+}
+.mySurvey{
+    color: #A0A4A9;
+    font-size: 20px;
+    padding-right:25px;
+    padding-bottom: 12px; 
+}
+.mySurvey:hover{
+    text-decoration: none;
+    color: #D1B385;
+    border-bottom: solid 1px;
+    transition-property: all;
+    transition-duration: .2s; 
+    transition-timing-function:linear; 
+    transition-delay: 0s;
+}
 /* End Navbar*/
 .gallery-block{
     padding-bottom: 80px;
     padding-top: 80px;
     background-color: #F5F1EA;
+    height: 100%;
 }
 
 .card-body:last-child{
