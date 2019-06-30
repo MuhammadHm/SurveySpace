@@ -12,7 +12,6 @@ module.exports=class User{
     async addUser(name,email,password){
         let d=new Date();
         this.name=name;
-        console.log("name in user.js",this.name);
         this.email=email;
         this.password=bcrypt.hashSync(password,12);
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
@@ -81,18 +80,14 @@ module.exports=class User{
             })
             .catch(err=>{console.log(err);});
     }
-    static async getLastSurvey(){
+    static async getLastSurvey(user_id){
         
-        let files =await fs.readdirSync(path.join(__dirname,'..','dataBase','users'))
-        let id=files.length; 
-
         let read=util.promisify(fs.readFile);    
-        let user =await read(path.join(__dirname,'..','dataBase','users',`${id}.json`));
+        let user =await read(path.join(__dirname,'..','dataBase','users',`${user_id}.json`));
         user=JSON.parse(user);
-
         let surveyInfo=user.surveys[user.surveys.length-1]
         
-        return {id ,surveyInfo};
+        return surveyInfo;
            
     }
     static addTemplate(id_admin,id_template,titleSurvey,welcomeMessage){
