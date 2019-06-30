@@ -21,7 +21,7 @@ rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false })
 rout.get('/', async(req, res, next) => {
     await User.IsAuthUser(req,res);
     let language="en";
-    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
@@ -38,7 +38,7 @@ rout.get('/', async(req, res, next) => {
 rout.get('/about', async(req, res, next) => {
     await User.IsAuthUser(req,res);
     let language="en";
-    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
@@ -53,7 +53,7 @@ rout.get('/about', async(req, res, next) => {
 rout.get('/features', async(req, res, next) => {
     await User.IsAuthUser(req,res);
     let language="en";
-    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
@@ -68,7 +68,7 @@ rout.get('/features', async(req, res, next) => {
 rout.get('/contact',async(req,res,next)=>{
     await User.IsAuthUser(req,res);
     let language="en";
-    if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
@@ -92,7 +92,7 @@ rout.post('/contact/submitFeedback', (req, res, next) => {
 rout.get('/account',async (req, res, next) => {
     await User.IsAuthUser(req);
      let language="en";
-     if (cookie.parse(req.headers.cookie || '').Language === ("ar" || "en"))
+     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
      let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
@@ -109,9 +109,9 @@ rout.get('/account',async (req, res, next) => {
 
 rout.post('/Language',(req,res,next) => {
     if (req.body.Language === "Arabic")
-        res.cookie("Language","ar",{maxAge :2592000000});
+        res.cookie("Language","ar", {maxAge :2592000000});
     else
-        res.cookie("Language","en",{maxAge :2592000000});
+        res.cookie("Language","en", {maxAge :2592000000});
     res.redirect(req.headers.referer);
 });
 
