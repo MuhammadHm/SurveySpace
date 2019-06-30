@@ -229,3 +229,10 @@ body{
     display: none; 
 }
 /* End Scroll To Tob Button*/
+.captionHeader{
+    letter-spacing: 0ch !important;
+}
+.ar-rtl{
+    direction: rtl !important;
+    text-align: right !important;
+}

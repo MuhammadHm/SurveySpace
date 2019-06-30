@@ -57,13 +57,35 @@
 "NewSectionparagraph4":"Exporting analyzes As files(pdf , docx ,..) ",
 "NewSectionSpan5":"Saving users ",
 "NewSectionparagraph5":"Saving users Data & profiles",
-"dataType":"in a different languages",
-"dataType1":"in a minutes",
+"dataType":"in  different languages",
+"dataType1":"in  minutes",
 "dataTypeHeader":"Creat a survey",
 "Home":"Home",
 "Features":"Features & Service",
 "ContactNav":"Contact",
 "About":"About",
-"Language":"Language"
+"Language":"Language",
+"Profile":"Profile",
+"UpdateProfile":"Update the email address on your account",
+"LName":"Last Name",
+"EProfile":"Email",
+"PasswordProfile":"Password",
+"UpdatePasswordProfile":"Update the password on your account",
+"NewPasswordProfile":"New Password",
+"ConfirmNewPasswordProfile":"Confirm New Password",
+"UpdatePassword":"Update Password",
+"UpdateEmail":"Update Email",
+"LogOut":"Log Out",
+"DeleteAccount":"Delete Account",
+"Survey":"My Surveys"
+
+
+
+
+
+
+
+
+
 
 }

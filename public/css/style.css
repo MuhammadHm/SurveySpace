@@ -374,3 +374,7 @@ body {
 .captionHeader{
     letter-spacing: 0ch !important;
 }
+.ar-float-typeright{
+    direction: rtl !important;
+    text-align: right !important;
+}

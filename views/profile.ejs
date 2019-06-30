@@ -102,10 +102,6 @@
                         display: flex;
                         justify-content: space-between;
                     }
-
-
-        
-        
         </style>
          
 
@@ -143,16 +139,16 @@
                   <div class="nav">
                      <ul class="list-group">
                          <li class="list-group-horizontal">
-                            <i class="fas fa-user-alt"></i><a href="/home/account"> Account </a>
+                            <i class="fas fa-user-alt"></i><a href="/home/account"> <%=lang.Profile%> </a>
                          </li>
                          <li class="list-group-horizontal">
-                            <i class="fas fa-poll-h"></i><a href="/mysurveys"> My Surveys</a>
+                            <i class="fas fa-poll-h"></i><a href="/mysurveys"> <%=lang.Survey%></a>
                          </li>
                          <li class="list-group-horizontal">
-                            <i class="fas fa-sign-out-alt"></i><a href="/logout"> Log out</a>                  
+                            <i class="fas fa-sign-out-alt"></i><a href="/logout"><%=lang.LogOut%></a>                  
                          </li>
                          <li class="list-group-horizontal">
-                          <i class="fas fa-sign-out-alt"></i><a href="/logout/deleteaccount"> Delete Account</a>                  
+                          <i class="fas fa-sign-out-alt"></i><a href="/logout/deleteaccount"><%=lang.DeleteAccount%></a>                  
                        </li>
                      </ul>
                   </div>
@@ -161,13 +157,13 @@
             <div class="user-info">
                  <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="Profile-tab" data-toggle="tab" href="#Profile" role="tab" aria-controls="Profile" aria-selected="true">Profile</a>
+                    <a class="nav-link active" id="Profile-tab" data-toggle="tab" href="#Profile" role="tab" aria-controls="Profile" aria-selected="true"><%=lang.Profile%></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="Email-tab" data-toggle="tab" href="#Email" role="tab" aria-controls="Email" aria-selected="false">Email</a>
+                    <a class="nav-link" id="Email-tab" data-toggle="tab" href="#Email" role="tab" aria-controls="Email" aria-selected="false"><%=lang.EProfile%></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="Password-tab" data-toggle="tab" href="#Password" role="tab" aria-controls="Password" aria-selected="false">Password</a>
+                    <a class="nav-link" id="Password-tab" data-toggle="tab" href="#Password" role="tab" aria-controls="Password" aria-selected="false"><%=lang.PasswordProfile%></a>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -175,20 +171,19 @@
                       <form class="update-form">
                               <div class="row">
                                <div class="col-lg-12 col-md-12">
-                                  <h2>Profile</h2>
-                                  <h4>Update your profile information</h4>
+                                  <h2><%=lang.Profile%></h2>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                  <label> First Name</label>
+                                  <label> <%=lang.FName%></label>
                                   <input type="text" class="form-control">
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                 <label> Last Name</label>
+                                 <label><%=lang.LName%></label>
                                   <input type="text" class="form-control" >
                                 </div>
 
                                 <div class="col-lg-6 col-md-12">
-                                   <button type="button" class="btn btn-success">Update account</button>
+                                   <button type="button" class="btn btn-success"><%=lang.UpdateEmail%></button>
                                 </div>
                               </div>
                             </form>
@@ -197,15 +192,15 @@
                         <form class="update-form">
                             <div class="row">
                                <div class="col-lg-12 col-md-12">
-                                  <h2>Email</h2>
-                                  <h4>Update the email address on your account</h4>
+                                  <h2><%=lang.EProfile%></h2>
+                                  <h4><%=lang.UpdateProfile%></h4>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                  <label> Email</label>
+                                  <label><%=lang.EProfile%></label>
                                   <input type="text" class="form-control">
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                  <button type="button" class="btn btn-success">Update Email</button>
+                                  <button type="button" class="btn btn-success"><%=lang.UpdateEmail%></button>
                                 </div>
                               </div>
                             </form>
@@ -214,16 +209,16 @@
                         <form class="update-form">
                             <div class="row">
                                <div class="col-lg-12 col-md-12">
-                                  <h2>Password</h2>
-                                  <h4>Update the password on your account</h4>
+                                  <h2><%=lang.PasswordProfile%></h2>
+                                  <h4><%=lang.UpdatePasswordProfile%></h4>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                  <label>Password</label>
+                                  <label><%=lang.PasswordProfile%></label>
                                   <input type="text" class="form-control">
                                 </div><br>
                                     <div class="col-lg-6 col-md-12">
                                       <div class="form-group">
-                                        <label>New Password</label>
+                                        <label><%=lang.NewPasswordProfile%></label>
                                         <div class="input-group" id="show_hide_password">
                                           <input class="form-control" type="password">
                                           <div class="input-group-addon">
@@ -233,11 +228,11 @@
                                       </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
-                                       <label>Confirm New Password</label>
+                                       <label><%=lang.ConfirmNewPasswordProfile%></label>
                                        <input class="form-control" type="password">  
                                     </div>
                                 <div class="col-lg-12 col-md-12">
-                                   <button type="button" class="btn btn-success">Update Password</button>
+                                   <button type="button" class="btn btn-success"><%=lang.UpdatePassword%></button>
                                 </div>
                               </div>
                             </form>
