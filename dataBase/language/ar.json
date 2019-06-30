@@ -49,7 +49,7 @@
     "featurHeader":"الميزات والخدمات",
     "NewSectionSpan":"إنشاء أنواع مختلفة من الدراسات الاستقصائية بسهولة",
     "NewSectionSummary":"قراءة المزيد",
-    "NewSectionparagraph":" على سبيل المثال: (التعليمية ، السياسية ، ملاحظات العملاء ، مسابقات ، إلخ)",
+    "NewSectionparagraph":" على سبيل المثال: (التعليمية ، السياسية ، ملاحظات العملاء ، مسابقات ، إلخ",
     "NewSectionSpan1":"التصميم",
     "NewSectionparagraph1":" أدوات التصميم لعرض المسح",
     "NewSectionSpan2":"دعم العديد من الطرق لنشر الاستطلاع",
@@ -57,7 +57,7 @@
     "NewSectionSpan3":"التحليل",
     "NewSectionparagraph3":"تحليل النتائج بعدة طرق",
     "NewSectionSpan4":"تقارير عن التحليلات",
-    "NewSectionparagraph4":" تصدير التحليلات كملفات (pdf ، docx ، ..",
+    "NewSectionparagraph4":" (pdf ، docx ، ..) تصدير التحليلات كملفات ",
     "NewSectionSpan5":"حفظ المستخدمين",
     "NewSectionparagraph5":" حفظ بيانات المستخدمين والملفات الشخصية",
     "dataType":"بمختلف اللغات",
@@ -68,7 +68,21 @@
     "ContactNav":"تواصل معنا",
     "About":"حول",
     "Language":"اللغة",
-    "Profile":"الصفجة الشخصية"
+    "Profile":"الصفحة الشخصية",
+    "UpdateProfile":"تحديث عنوان البريد الإلكتروني على حسابك",
+    "FName":"الاسم الأول",
+    "LName":"الاسم الأخير",
+    "EProfile":"البريد الالكتروني",
+    "PasswordProfile":"كلمة المرور",
+    "UpdatePasswordProfile":"تحديث كلمة المرور على حسابك",
+    "NewPasswordProfile":"كلمة المرور الجديدة",
+    "ConfirmNewPasswordProfile":"تأكيد كلمة المرور الجديدة",
+    "UpdatePassword":"تحديث كلمة السر",
+    "UpdateEmail":"تحديث البريد الالكتروني",
+    "LogOut":"تسجيل الخروج",
+    "DeleteAccount":"حذف الحساب",
+    "Survey":"استبياناتي"
+    
 
 
    

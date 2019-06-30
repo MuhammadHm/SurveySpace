@@ -19,72 +19,72 @@
              <div class="feturs-shadow"></div>
         </div>
         <div class="caption text-center">
-                <h1 class="animated lightSpeedIn">FEATURES & SERVICES</h1>
+                <h1 class="animated lightSpeedIn  <%= language === 'ar' ? 'captionHeader' : '' %>"><%=lang.featurHeader%></h1>
         </div>
-        <div class=" newsction"> 
+        <div class=" newsction <%= language === 'ar' ? 'ar-rtl-fea' : '' %>"> 
             <div class="container">
                <div class="row">
                 <div class="col-lg-12 col-md-12" id="lines">
                   <img id="img3" src="../images/mony2.jpg.png" width="100px"   height="100px"  leight="5px"   />
-                  <span> Creating different types of Surveys easily </span>       
+                  <span> <%=lang.NewSectionSpan%> </span>       
                   <details id="det">
                      <Summary>
-                        Read more
+                        <%=lang.NewSectionSummary%>
                      </Summary> 
                      <p style="padding: 20px;"> 
-                        ex:(Educational , Political , Customer Feedback , Quizzes , etc.)      
+                        <%=lang.NewSectionparagraph%>      
                      </p>         
                   </details> 
                </div>
                <div class="col-lg-12 col-md-12" id="lines">
                   <img id="img3" src="../images/mony2.jpg.png" width="100px"   height="100px"  leight="5px"   /> 
-                  <span> Design</span>       
+                  <span>  <%=lang.NewSectionSpan1%></span>       
                   <details id="det">
                   <Summary>
-                        Read more
+                     <%=lang.NewSectionSummary%>
                   </Summary> 
-                  <p style="padding: 20px;"> Designing tools for survey presentation.</p>                  
+                  <p style="padding: 20px;"> <%=lang.NewSectionparagraph1%></p>                  
                   </details> 
                </div>  
                <div class="col-lg-12 col-md-12" id="lines">      
                      <img id="img3" src="../images/mony2.jpg.png" width="100px"   height="100px"  leight="5px"   />   
-                     <span> Supporting many ways for publishing survey </span>       
+                     <span> <%=lang.NewSectionSpan2%> </span>       
                      <details id="det">
                      <Summary>  
-                           Read more
+                        <%=lang.NewSectionSummary%>
                      </Summary> 
-                     <p style="padding: 20px;"> Supporting many ways for publishing survey to the involved people, and ability to filling it whether they were online/offline.       
+                     <p style="padding: 20px;"> <%=lang.NewSectionparagraph2%>       
                      </p>    
                      </details>  
                </div>  
                <div class="col-lg-12 col-md-12" id="lines">
                   <img id="img3" src="../images/mony2.jpg.png" width="100px"   height="100px"  leight="5px"   /> 
-                  <span> Analyzing </span> 
+                  <span> <%=lang.NewSectionSpan3%> </span> 
                   <details id="det">
                   <Summary>
-                        Read more
+                     <%=lang.NewSectionSummary%>
                   </Summary> 
-                     <p style="padding: 20px;"> Analyzing results with several methods.</p>  
+                     <p style="padding: 20px;"> <%=lang.NewSectionparagraph3%></p>  
                   </details>  
                </div>    
                <div class="col-lg-12 col-md-12" id="lines">                    
                   <img id="img3" src="../images/mony2.jpg.png" width="100px"   height="100px"  leight="5px"   /> 
-                  <span> Exporting analyzes </span>
+                  <span> <%=lang.NewSectionSpan4%> </span>
                   <details id="det">
                   <Summary>
-                        Read more
+                     <%=lang.NewSectionSummary%>
                   </Summary> 
-                     <p style="padding: 20px;"> Exporting analyzes As files(pdf , docx ,..) </p>   
+                     <p style="padding: 20px;"> <%=lang.NewSectionparagraph4%> </p>   
                   </details>       
                </div> 
                <div class="col-lg-12 col-md-12" id="lines">                         
                   <img id="img3" src="../images/mony2.jpg.png" width="100px"   height="100px"  leight="5px"   /> 
-                  <span> Saving users </span>
+                  <span> <%=lang.NewSectionSpan5%> </span>
                   <details id="det">
                   <Summary>
-                        Read more
+                     <%=lang.NewSectionSummary%>
                   </Summary> 
-                     <p style="padding: 20px;">  Saving users Data & profiles </p>                    
+                     <p style="padding: 20px;">  <%=lang.NewSectionparagraph5%> </p>                    
                   </details> 
                </div>          
             </div>
@@ -93,19 +93,21 @@
               
    
           <!-- Start Contact Section-->
-            <div class="contact">
-              <div class="container">
-               <div class="contact-text">
-                 <span>Need more details? Contact us </span>
-                 <span>We are here to assist. Contact us by phone, email or via our social media<br> channels.</span>
-               </div>
-               <a href="/home/contact"> 
-               <div class="contact-buuton">
-                  <button>Contact Us</button>
-               </div>
-               </a>
-            </div>
-         </div>
+          <div class="contact">
+            <div class="container">
+               
+             <div class="contact-text">
+               <span><%=lang.ContactSpan%></span>
+               <span><%=lang.ContactSpan1%></span>
+             </div>
+            
+             <a href="/home/contact">
+              <div class="contact-buuton">
+                 <button><b class="contactB"><%=lang.Contact%></b></button>
+              </div>
+             </a>
+          </div>
+       </div>
         <!-- EndContact Section-->
       <!-- Start Footer -->
       <footer>
