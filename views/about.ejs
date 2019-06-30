@@ -19,14 +19,14 @@
                </div>
             </div>
             <div class="caption text-center">
-                 <h1 class="animated rollOut"><%=lang.CaptionHeader %></h1>
+                 <h1 class="animated rollOut <%= language === 'ar' ? 'captionHeader' : '' %>"><%=lang.CaptionHeader %></h1>
                  <p style="font-size: 20px;"><%=lang.Captionparagraph %> <i class="fas fa-arrow-down"></i></p>
             </div>
             
             <div class="about-text">
             <div class="container">
                 <h1>The Survey Space Group</h1>
-                <p> <%=lang.AboutTextparagraph %>  </p>
+                <p class="<%= language === 'ar' ? 'ar-rtl' : '' %>"> <%=lang.AboutTextparagraph %>  </p>
             </div>
             </div>
             
