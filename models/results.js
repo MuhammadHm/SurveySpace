@@ -20,10 +20,11 @@ module.exports=class Result{
                                 answerVisitor.result[i].report.push(answers[i].answer);
                             else if (answers[i].questionType ==="checkbox" || answers[i].questionType ==="mulchoice")  
                             {   
-                                answers[i].answer.forEach(element =>{
-                                    if(element.checked === true)
-                                        answerVisitor.result[i].check[element.body]++; 
-                                });
+                                for (let j=0;j<answers[i].answer.length;j++)
+                                {
+                                    if(answers[i].answer[j].checked === true)
+                                        answerVisitor.result[i].check[j].count++; 
+                                }
                             }   
                             else if (answers[i].questionType ==="scale")
                                     answerVisitor.result[i].scale+=parseInt(answers[i].answer.value);
@@ -31,6 +32,7 @@ module.exports=class Result{
                                     answerVisitor.result[i].date.push(answers[i].answer);       
                         }
                     }   
+                    console.log(answerVisitor);
             answerVisitor=JSON.stringify(answerVisitor);
             fs.writeFileSync(path1,answerVisitor);
             });

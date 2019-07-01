@@ -6,6 +6,8 @@ const util=require('util');
 const cookie = require('cookie');
 const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotalySecretKey'); 
+const read=util.promisify(fs.readFile);
+
 module.exports=class User{
 
     constructor(){ }
@@ -69,7 +71,6 @@ module.exports=class User{
     }  
     static addSurvey(id_admin,id_survey,titleSurvey,welcomeMessage){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
-        let read=util.promisify(fs.readFile);
         let user;
         let array ={id :id_survey,title :titleSurvey , welcomeMessage : welcomeMessage }; 
         read(path1)
@@ -97,7 +98,6 @@ module.exports=class User{
     }
     static addTemplate(id_admin,id_template,titleSurvey,welcomeMessage){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
-        let read=util.promisify(fs.readFile);
         let user;
         let template = {id : id_template,title : titleSurvey , welcomeMessage : welcomeMessage }; 
         read(path1)

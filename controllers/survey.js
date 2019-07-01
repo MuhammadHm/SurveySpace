@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const util = require('util');
+const read = util.promisify(fs.readFile);
 let user=new User();
 
 //  '/survey'
@@ -57,7 +58,6 @@ exports.sendSurvey =async (req,res,next)=>{
     
     //for previewing survey with certain id to users 
     let survey_id=req.params.id; 
-    let read = util.promisify(fs.readFile);
     let data=await read(path.join(__dirname, '..', 'dataBase', 'survey', `${survey_id}.json`));
     let survey=JSON.parse(data);
 
@@ -109,7 +109,6 @@ exports.delete = async (req,res)=>{
     fs.unlinkSync(path.join(__dirname,'..','dataBase','results',`${id}.json`));
     //delete from user file
     let user_id = req.session.user.id;
-    let read = util.promisify(fs.readFile);
     let user = await read(path.join(__dirname,'..','dataBase','users',`${user_id}.json`));
     user = JSON.parse(user);
     for( let i = 0; i < user.surveys.length; i++){ 

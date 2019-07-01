@@ -88,9 +88,12 @@ module.exports=class Survey{
             if (element.answerType === "textbox" || element.answerType == "essay")
                   oneresult.report=[];  
             else if (element.answerType ==="checkbox" || element.answerType ==="mulchoice")  
-                {   oneresult.check ={};
+                {   oneresult.check =[];
                     element.answers.forEach(elements =>{
-                    oneresult.check [elements.body]=0;
+                        let choice={};
+                        choice["questionBody"]=elements.body;
+                        choice["count"]=0;
+                        oneresult.check.push(choice);
                     });
                 }   
             else if (element.answerType ==="scale")
