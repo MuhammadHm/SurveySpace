@@ -5,25 +5,21 @@ const parser = require('body-parser');
 const session=require('express-session');
 //const user=require('./../models/user');
 const rout = express.Router();
-
-
-// /mysurveys
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey');
+const util=require('util');
+const cookieUser=require("./../controllers/cookieUser")
 rout.use(parser.json());
 
+// /mysurveys
+
 rout.get('/mytemplates',(req,res,next)=>{
-    console.log("templates")
     res.render('mytemplates',{templates : req.session.user.templates ,user: req.session.user });
-
-
 })
-
-rout.get('/',(req,res,next)=>{
-   // const user=require('./../controllers/signin').authUser;
-    
-    res.render('mysurveys',{surveys : req.session.user.surveys ,user: req.session.user });
-    //res.json(user);
+rout.get('/',async (req,res,next)=>{
+    let user=await cookieUser.getUser(req);
+    res.render('mysurveys',{surveys : user.surveys ,user: user });
 });
-
 
 
 

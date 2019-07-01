@@ -12,29 +12,36 @@ const bcrypt = require('bcrypt');
 const util = require('util');
 const read = util.promisify(fs.readFile);
 let user=new User();
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotalySecretKey');
+const cookieUser=require("./cookieUser");
+const Results=require("./../models/results")
 
-//  '/survey'
-exports.addServeyInfo =async (req, res, next) => {
+//  handle '/survey'
 
-    let files=await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'))
-        
-    let survey_id=files.length+1;  
-    User.addSurvey(req.session.user.id ,survey_id ,req.body.title , req.body.welcomeMessage);
+exports.addServeyInfo =async(req, res, next) => {
+
+    let files=await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'))        
+    let survey_id=files.length+1; 
+
+    let user_id =await cookieUser.getUserID(req);
+    User.addSurvey(user_id ,survey_id ,req.body.title , req.body.welcomeMessage);
+
     let survey = new Survey();
-    survey.addSurvey(survey_id,req.session.user.id  ,req.body.title , req.body.welcomeMessage,[]) ;
-    user=req.session.user;
-       
+    await survey.addSurvey(survey_id , user_id , req.body.title , req.body.welcomeMessage,[]) ;
+     
     res.redirect(`http://localhost:3000/createsurvey`);
-
 }
+
 exports.sendSurveyInfo =async (req, res, next) => {
-    
-    let Info =await User.getLastSurvey();
+
+    let user_id=cryptr.decrypt(req.params.user_id);
+    let Info =await User.getLastSurvey(user_id);
     let surveyInfo={
-          survey_id: Info.surveyInfo.id,
-          user_id : Info.id,
-          title : Info.surveyInfo.title,
-          welcomeMessage : Info.surveyInfo.welcomeMessage
+          survey_id: Info.id,
+          user_id : user_id,
+          title : Info.title,
+          welcomeMessage : Info.welcomeMessage
     }
 
     res.header('Access-Control-Allow-Origin', "*");
@@ -56,7 +63,6 @@ exports.saveSurvey =async (req,res,next)=>{
 }
 exports.sendSurvey =async (req,res,next)=>{
     
-    //for previewing survey with certain id to users 
     let survey_id=req.params.id; 
     let data=await read(path.join(__dirname, '..', 'dataBase', 'survey', `${survey_id}.json`));
     let survey=JSON.parse(data);
@@ -121,6 +127,16 @@ exports.delete = async (req,res)=>{
     await fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${user_id}.json`),json); 
    
     res.redirect("/mysurveys")
+}
+exports.report = async (req,res)=>{
+
+    let survey_id=req.params.id; 
+    let report=await Results.createReport(survey_id)
+    console.log(report)
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.json(report);
 }
 
 

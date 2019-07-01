@@ -201,3 +201,11 @@ body{
 }
 /* End Scroll To Tob Button*/
 
+.captionHeader{
+    letter-spacing: 0ch !important;
+}
+.ar-rtl-fea{
+    direction: rtl !important;
+    text-align: right !important;
+    margin-right:10px !important; 
+}
