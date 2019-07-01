@@ -15,9 +15,8 @@ module.exports=class Survey{
         this.questionsArray=questionsArray;
         let answervisitor=[];
         //this.ansVisitor_id=[];
-        this.createresultfile();
+        Survey.createresultfile(questionsArray,survey_id)
         
-        //user.addSurvey(user_id,this.id,this.title,this.welcomeMessage);
         let jsonSurvey=JSON.stringify(this);
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${this.id}.json`),jsonSurvey);
         
@@ -55,6 +54,7 @@ module.exports=class Survey{
         survey.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         survey.questionsArray=questionsArray;
         //TODO add create result file
+        Survey.createresultfile(questionsArray,survey_id)
         let jsonSurvey=JSON.stringify(survey);
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${survey_id}.json`),jsonSurvey);
 
@@ -78,9 +78,9 @@ module.exports=class Survey{
         let info = JSON.parse(data);
         return info;
     }
-    async createresultfile(){
+    static async createresultfile(questionsArray,survey_id){
         let result=[];
-         this.questionsArray.forEach( element  =>  {
+        questionsArray.forEach( element  =>  {
             let oneresult ={};
             oneresult.questionbody=element.body;
             oneresult.answerType=element.answerType;
@@ -103,7 +103,7 @@ module.exports=class Survey{
             result.push(oneresult); 
         });
         // writeFileResult 
-        let path1=path.join(__dirname,'..','dataBase','results',`${this.id}.json`);
+        let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
         let answerVisitor={
             result :result,
             answer:[]

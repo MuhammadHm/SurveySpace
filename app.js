@@ -8,7 +8,6 @@ const app=express();
 
 // External imports
 const home=require('./routs/home');
-const userRout=require('./routs/userRout');
 const singin=require('./routs/signin');
 const mysurveys=require('./routs/mySurveys');
 const survey=require('./routs/survey');

@@ -32,7 +32,6 @@ exports.addServeyInfo =async(req, res, next) => {
      
     res.redirect(`http://localhost:3000/createsurvey`);
 }
-
 exports.sendSurveyInfo =async (req, res, next) => {
 
     let user_id=cryptr.decrypt(req.params.user_id);
@@ -66,7 +65,7 @@ exports.sendSurvey =async (req,res,next)=>{
     let survey_id=req.params.id; 
     let data=await read(path.join(__dirname, '..', 'dataBase', 'survey', `${survey_id}.json`));
     let survey=JSON.parse(data);
-
+    console.log("send survey : ",survey)
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -97,10 +96,10 @@ exports.saveAsTemplate = async(req , res )=>{
 }
 exports.editSurvey = async (req,res)=>{
     
-
     if(req.body.survey_id != undefined)
          Survey.editSurvey(req.body.survey_id ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
     
+
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');

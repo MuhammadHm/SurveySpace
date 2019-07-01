@@ -17,7 +17,7 @@ module.exports=class Result{
                     {  if (answers[i].answer != undefined)
                         {   
                             answerVisitor.result[i].count++;
-                            if (answers[i].questionType === "textbox" || answers[i].questionType == "essay")
+                            if (answers[i].questionType === "textbox" || answers[i].questionType == "essay" && answerVisitor.result[i].report !=undefined )
                                 answerVisitor.result[i].report.push(answers[i].answer);
                             else if (answers[i].questionType ==="checkbox" || answers[i].questionType ==="mulchoice")  
                             {   
