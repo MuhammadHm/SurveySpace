@@ -16,15 +16,18 @@ const survey=require('../controllers/survey');
 rout.use(session({secret:'my secret' , resave: false, saveUninitialized:false,cookie: { secure : true} }));
 //rout.use(parser.urlencoded({extended : false}));
 rout.use(parser.json());
+rout.use(require('cookie-parser')());
 
 //   handling  '/survey'
 rout.post('/addsurvey',survey.addServeyInfo);    // getting survey title and welcome message
-rout.use('/sendsurveyinfo',survey.sendSurveyInfo);  //sending survey title and welcome message to FE app
+rout.use('/sendsurveyinfo/:user_id',survey.sendSurveyInfo);  //sending survey title and welcome message to FE app
 rout.use('/savesurvey',survey.saveSurvey);      // saving survey in database
 rout.use('/sendsurvey/:id',survey.sendSurvey);   //sending survey data to previw 
 rout.use('/publish',survey.publishSurvey);
 rout.use('/saveastemplate',survey.saveAsTemplate) 
 rout.use('/editsurvey',survey.editSurvey)   // saving the edited survey
 rout.use('/delete/:id',survey.delete)
+rout.use('/report/:id',survey.report) 
+
 
 module.exports=rout;

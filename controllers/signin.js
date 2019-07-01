@@ -12,6 +12,7 @@ const util=require('util');
 const cookie = require('cookie');
 const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotalySecretKey');
+const  read = util.promisify(fs.readFile);
 let info = {};
 
 exports.postLogin =async (req, res, next) => {
@@ -29,7 +30,6 @@ exports.postLogin =async (req, res, next) => {
 
     
     let id=info.id;
-    let read = util.promisify(fs.readFile);
     let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
     let user=JSON.parse(data);
    
@@ -40,7 +40,7 @@ exports.postLogin =async (req, res, next) => {
         res.cookie("user",cryptr.encrypt(id),{maxAge :2592000000});
     else
         res.cookie("user",cryptr.encrypt(id));    
-    res.redirect("/home");
+    res.redirect("/mysurveys");
 }
 exports.getLogin = (req, res, next) => {
     res.render('signin', {
@@ -65,7 +65,6 @@ exports.validateLogin = [
         let id = info.id;
         let user={};
         let userpassword;
-        let read = util.promisify(fs.readFile);
         let data=await read(path.join(__dirname, '..', 'dataBase', 'users', `${id}.json`));
         user =  JSON.parse(data);
         userpassword= bcrypt.compareSync(password, user.password);

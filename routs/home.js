@@ -9,7 +9,7 @@ const util=require('util');
 const Result=require('../models/results');
 const cookie = require('cookie');
 const User = require('./../models/user');
-
+const read = util.promisify(fs.readFile);
 
 
 // for getting submitted data from url (as an obj through req.body)
@@ -23,7 +23,6 @@ rout.get('/', async(req, res, next) => {
     let language="en";
     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
-     let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
     res.render('home',
@@ -40,7 +39,6 @@ rout.get('/about', async(req, res, next) => {
     let language="en";
     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
-     let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
     res.render('about', { 
@@ -55,7 +53,6 @@ rout.get('/features', async(req, res, next) => {
     let language="en";
     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
-     let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
     res.render('features', { 
@@ -70,7 +67,6 @@ rout.get('/contact',async(req,res,next)=>{
     let language="en";
     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
-     let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
      res.render('contact',{
@@ -94,7 +90,6 @@ rout.get('/account',async (req, res, next) => {
      let language="en";
      if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
-     let read = util.promisify(fs.readFile);
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
     res.render('profile',
