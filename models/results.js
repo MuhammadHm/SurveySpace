@@ -15,7 +15,8 @@ module.exports=class Result{
             answerVisitor.answer.push(answers);
                 for (let i=0;i<answers.length;i++)
                     {  if (answers[i].answer != undefined)
-                        {   answerVisitor.result[i].count++;
+                        {   
+                            answerVisitor.result[i].count++;
                             if (answers[i].questionType === "textbox" || answers[i].questionType == "essay")
                                 answerVisitor.result[i].report.push(answers[i].answer);
                             else if (answers[i].questionType ==="checkbox" || answers[i].questionType ==="mulchoice")  
@@ -48,10 +49,12 @@ module.exports=class Result{
         let data3 = fs.readFileSync(path3);
         let user=JSON.parse(data3);
         report.username=user.name;
+        report.user_id=s.user_id;
         report.title=s.title;
         report.WeMe=s.welcomeMessage;
         report.regDate=s.regDate;
         report.result=r.result;
+        report.answer=r.answer;
         //console.log(report);
         
         return report;
