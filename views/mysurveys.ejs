@@ -19,14 +19,14 @@
                   <!-- Item of navbar-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                   <a style="padding-right: 50px;" href="/home" class="navbar-brand">Logo</a>
-                  
-                  <input id="tab-1" type="radio" name="tab"  checked><label for="tab-1" class="tab">	<a class="mySurvey" href="/mysurveys"><%=lang.Home%></a></label>
-                  <input id="tab-2" type="radio" name="tab"  > <label for="tab-2" class="tab"><a class="mySurvey" href="/mysurveys/mytemplates">My Templates</a></label>
-               
+                  <ul class="navbar-nav mr-auto">
+                  <input id="tab-1" type="radio" name="tab"  checked><label for="tab-1" class="tab">	<a class="mySurvey" href="/mysurveys"><%=lang.MySurvey%></a></label>
+                  <input id="tab-2" type="radio" name="tab"  > <label for="tab-2" class="tab"><a class="mySurvey" href="/mysurveys/mytemplates"><%=lang.Template%></a></label>
+                  </ul>
                        <ul class="navbar-nav ml-auto">
                        
                           <li class="nav-item">
-                             <button type="button" class="btn btn-secondary" id="My-new-survey"> <i class="fas fa-plus"></i> Create Survey</button>
+                             <button type="button" class="btn btn-secondary" id="My-new-survey"> <i class="fas fa-plus"></i> <%=lang.CreatSurvey%></button>
                           </li>
                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= user.name%></a>
@@ -69,7 +69,7 @@
                     <div class="col-md-6 col-lg-4">
                      <div class="card border-0 ">
                      <div class="card-body">
-                      <a  href="#" id="new-survey"> <h3 ><i class="fas fa-plus"></i> New Survey </h3></a>                     </div>  
+                      <a  href="#" id="new-survey"> <h3 ><i class="fas fa-plus"></i> <%=lang.CreatSurvey%> </h3></a>                     </div>  
                      </div>
                   </div>    
                </div>  
@@ -80,19 +80,19 @@
                  <div class="modal-content">
                  <div class="modal-header">
                  <button type="button" class="close" data-dismiss="modal">&times;</button> 
-                     <h4 class="modal-title"> Creat new survey </h4>                                                          
+                     <h4 class="modal-title"> <%=lang.CreatSurvey%> </h4>                                                          
                  </div> 
                  <div class="modal-body">
                  <form id="MyForm" action="/survey/addsurvey" method="post" >
-                   <label>Survey Title</label>
+                   <label><%=lang.SurveyTitle%></label>
                    <input type="text" name="title" autofocus>
-                   <label>Welcome message</label>
+                   <label><%=lang.WelcomeMessage%></label>
                    <textarea  rows="4" name="welcomeMessage"></textarea>
                  
                  </div>   
                  <div class="modal-footer">
                    <nav>
-                       <button class="btn btn-primary" type="submit">Create</button>
+                       <button class="btn btn-primary" type="submit"><%=lang.Creat%></button>
                    </nav>                     
               </div>
             </form>

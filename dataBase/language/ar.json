@@ -83,7 +83,14 @@
     "DeleteAccount":"حذف الحساب",
     "Survey":"استبياناتي",
     "SignIn":"تسجيل الدخول",
-    "SignOut":"تسجيل الخروج"
+    "SignOut":"تسجيل الخروج",
+    "MySurvey":"استبياناتي",
+    "Template":"القوالب",
+    "CreatSurvey":"انشاء استبيان",
+    "SurveyTitle":"عنوان الاستبيان",
+    "WelcomeMessage":"رسالة الترحيب",
+    "Creat":"انشاء"
+    
     
 
 
