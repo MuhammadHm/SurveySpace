@@ -76,6 +76,8 @@ rout.get('/contact',async(req,res,next)=>{
      });
 });
 
+
+
 rout.post('/contact/submitFeedback', (req, res, next) => {
     let feedback = req.body;
     fs.writeFile(path.join(__dirname, '..', 'dataBase', 'feedbacks', `${feedback.name}.json`), feedback);

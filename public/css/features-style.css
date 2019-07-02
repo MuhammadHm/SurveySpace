@@ -209,3 +209,12 @@ body{
     text-align: right !important;
     margin-right:10px !important; 
 }
+.navItem{
+    padding-left: 750px !important;
+    margin-right: 0px !important;
+}
+.navItem1{
+    direction: rtl !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
