@@ -2,7 +2,7 @@ const fs=require('fs');
 const path=require('path');
 const util=require('util');
 module.exports=class question{
-    //TODO reconstructor
+    
     constructor(){
         this.id = null;
         this.content = null;

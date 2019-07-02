@@ -13,13 +13,11 @@ module.exports =class UserInfo {
             email : ''
         };
     }
-
     initFile(){
         this.infos.push(this.info);
         let inf =JSON.stringify(this.infos);
         fs.writeFileSync(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`),inf);
     }
-
     static async getUsersInfo(userEmail) {
 
             let read = util.promisify(fs.readFile);
@@ -30,8 +28,7 @@ module.exports =class UserInfo {
             });
             //console.log("info after find", info);
             return info;
-    }
-    
+    }   
     static getLastID(cb){
         let read=util.promisify(fs.readFile);
         read(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`))
@@ -41,7 +38,6 @@ module.exports =class UserInfo {
         })
         .catch(err=>{console.log(err);});    
     }
-
     addUserInfo(userEmail){
         let read=util.promisify(fs.readFile);
         read(path.join(__dirname,'..','dataBase','emails',`usersInfo.json`))
@@ -57,7 +53,6 @@ module.exports =class UserInfo {
         })
         .catch(err=>{console.log(err);});
     }
-    
     static  deleteSurvey(id_admin,id_survey){
         let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
         let user;
