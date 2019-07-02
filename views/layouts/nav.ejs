@@ -1,5 +1,5 @@
  <!-- NavBar-->
- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top <%= language === 'ar' ? 'navItem1' : '' %> ">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     
     <a style="padding-right: 50px;" href="/home" class="navbar-brand"></a>
-    <ul class="navbar-nav mr-auto ">
+    <ul class="navbar-nav mr-auto <%= language === 'ar' ? 'navItem' : '' %> ">
             <li class="nav-item">
               <a class="nav-link" href="/home"><%=lang.Home%></a>
             </li>
@@ -21,9 +21,9 @@
               <a class="nav-link" href="/home/about"><%=lang.About%></a>
             </li>
       </ul>
-         <ul class="navbar-nav ml-auto">
+         <ul class="navbar-nav ml-auto <%= language === 'ar' ? 'navItem1' : '' %>">
             <li class="nav-item">
-              <a  class="nav-link" href="<%= isAuth == true? '/logout' : '/signin' %>" ><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i><%=  isAuth == true? 'Sign Out' : 'Sign In' %></a>
+              <a  class="nav-link" href="<%= isAuth == true? '/logout' : '/signin' %>" ><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i><%=  isAuth == true? lang.SignOut : lang.SignIn %></a>
             </li>
              <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=lang.Language%></a>
