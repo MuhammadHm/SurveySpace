@@ -23,10 +23,10 @@
       </ul>
          <ul class="navbar-nav ml-auto <%= language === 'ar' ? 'navItem1' : '' %>">
             <li class="nav-item">
-              <a  class="nav-link" href="<%= isAuth == true? '/logout' : '/signin' %>" ><i style="padding-right:  10px;" class="fas fa-sign-in-alt fa-1x"></i><%=  isAuth == true? lang.SignOut : lang.SignIn %></a>
+              <a  class="nav-link" href="<%= isAuth == true? '/logout' : '/signin' %>" ><i style="padding-right:  12px;" class="fas fa-sign-in-alt fa-1x"></i><%=   isAuth == true?   lang.SignOut  :  lang.SignIn  %></a>
             </li>
              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=lang.Language%></a>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%=lang.Language%> </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <form action="/home/Language" method="POST">     
                   <input type="submit" class="dropdown-item" name="Language" value="English">
