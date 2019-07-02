@@ -33,7 +33,7 @@ exports.addServeyInfo =async(req, res, next) => {
     res.redirect(`http://localhost:3000/createsurvey`);
 }
 exports.sendSurveyInfo =async (req, res, next) => {
-
+    console.log("info")
     let user_id=cryptr.decrypt(req.params.user_id);
     let Info =await User.getLastSurvey(user_id);
     let surveyInfo={
