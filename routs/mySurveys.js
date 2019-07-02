@@ -6,19 +6,35 @@ const session=require('express-session');
 //const user=require('./../models/user');
 const rout = express.Router();
 const Cryptr = require('cryptr');
+const cookie = require('cookie');
 const cryptr = new Cryptr('myTotalySecretKey');
 const util=require('util');
+const  read = util.promisify(fs.readFile);
 const cookieUser=require("./../controllers/cookieUser")
 rout.use(parser.json());
 
 // /mysurveys
 
-rout.get('/mytemplates',(req,res,next)=>{
-    res.render('mytemplates',{templates : req.session.user.templates ,user: req.session.user });
+rout.get('/mytemplates',async(req,res,next)=>{
+    let user=await cookieUser.getUser(req);
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
+        language=cookie.parse(req.headers.cookie || '').Language;
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
+     let lang=  JSON.parse(data);
+    res.render('mytemplates',{templates : user.templates ,user: user,lang:lang });
 })
 rout.get('/',async (req,res,next)=>{
     let user=await cookieUser.getUser(req);
-    res.render('mysurveys',{surveys : user.surveys ,user: user });
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
+        language=cookie.parse(req.headers.cookie || '').Language;
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
+     let lang=  JSON.parse(data);
+    res.render('mysurveys',
+    {   surveys : user.surveys,
+        user: user,
+        lang:lang });
 });
 
 

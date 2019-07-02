@@ -32,3 +32,12 @@ exports.getUserID=async (req)=>{
     }
     return user_id;
 }
+exports.getLanguage=async (req)=>{
+    let cookies=req.get("Cookie").trim().split(";");
+    let lang;
+    for(let i=0;i<cookies.length;i++){
+        if(cookies[i].trim().split('=')[0] =='Language')
+             lang=cookies[i].trim().split('=')[1];
+    }
+    return lang;
+}

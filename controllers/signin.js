@@ -42,13 +42,19 @@ exports.postLogin =async (req, res, next) => {
         res.cookie("user",cryptr.encrypt(id));    
     res.redirect("/mysurveys");
 }
-exports.getLogin = (req, res, next) => {
+exports.getLogin = async(req, res, next) => {
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
+        language=cookie.parse(req.headers.cookie || '').Language;
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
+     let lang=  JSON.parse(data);
     res.render('signin', {
         err: false,
         oldInput: {
             email: '',
             password: ''
-        }
+        },
+        lang :lang 
     });
 }
 exports.validateLogin = [

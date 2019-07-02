@@ -7,6 +7,7 @@ module.exports=class Result{
     constructor(){ }
 
     async addanswer (survey_id , user_id , answers){
+        console.log(answers);
         // readFileResult 
         let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
         let answerVisitor=[];
@@ -37,8 +38,7 @@ module.exports=class Result{
             answerVisitor=JSON.stringify(answerVisitor);
             fs.writeFileSync(path1,answerVisitor);
             });
-    }
-    
+    }   
     static async createReport(survey_id){
         let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
         let path2=path.join(__dirname,'..','dataBase','survey',`${survey_id}.json`);
@@ -60,8 +60,6 @@ module.exports=class Result{
         //console.log(report);
         
         return report;
-
-
     }
 
 

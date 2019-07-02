@@ -4,6 +4,8 @@ const parser=require('body-parser');
 const { check,body }=require('express-validator/check');
 const userInfo=require('./../models/usersInfo');
 const util=require('util');
+const cookie = require('cookie');
+
 
 exports.postSignup = (req, res, next) => {
     const errors = validationResult(req);
@@ -24,14 +26,20 @@ exports.postSignup = (req, res, next) => {
     res.redirect('/home');
 }
 
-exports.getSignup=(req,res,next)=>{
+exports.getSignup=async(req,res,next)=>{
+    let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
+        language=cookie.parse(req.headers.cookie || '').Language;
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
+     let lang=  JSON.parse(data);
     res.render('signup',{
         err : false,
         oldInput :{
             name : '',
             email : '',
             password : '',
-            confirmPassword : ''
+            confirmPassword : '',
+            lang :lang
         }
     });  
 }

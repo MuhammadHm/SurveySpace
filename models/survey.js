@@ -13,10 +13,7 @@ module.exports=class Survey{
         this.welcomeMessage=welcomeMessage;
         this.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         this.questionsArray=questionsArray;
-        let answervisitor=[];
-        //this.ansVisitor_id=[];
-        Survey.createresultfile(questionsArray,survey_id)
-        
+        Survey.createResultFile(questionsArray,survey_id)        
         let jsonSurvey=JSON.stringify(this);
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${this.id}.json`),jsonSurvey);
         
@@ -54,7 +51,7 @@ module.exports=class Survey{
         survey.regDate= d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate() +" "+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         survey.questionsArray=questionsArray;
         //TODO add create result file
-        Survey.createresultfile(questionsArray,survey_id)
+        Survey.createResultFile(questionsArray,survey_id)
         let jsonSurvey=JSON.stringify(survey);
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','survey',`${survey_id}.json`),jsonSurvey);
 
@@ -78,7 +75,7 @@ module.exports=class Survey{
         let info = JSON.parse(data);
         return info;
     }
-    static async createresultfile(questionsArray,survey_id){
+    static async createResultFile(questionsArray,survey_id){
         let result=[];
         questionsArray.forEach( element  =>  {
             let oneresult ={};

@@ -9,8 +9,6 @@
     <body>
       
       <%- include('Layouts/nav.ejs')%>
-
-       
             <div class="landing">
                <div class="home-wrap">
                   <div class="home-inner">
@@ -19,7 +17,7 @@
                </div>
             </div>
             <div class="caption text-center">
-                 <h1 class="animated rollOut <%= language === 'ar' ? 'captionHeader' : '' %>"><%=lang.CaptionHeader %></h1>
+                 <h1 class="bounce <%= language === 'ar' ? 'captionHeader' : '' %>"><%=lang.CaptionHeader %></h1>
                  <p style="font-size: 20px;"><%=lang.Captionparagraph %> <i class="fas fa-arrow-down"></i></p>
             </div>
             

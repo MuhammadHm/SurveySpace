@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"user_id":"4","id":4,"title":"feedback","welcomeMessage":"hello world","regDate":"2019-7-1 22:28:27","questionsArray":[{"id":1,"body":"weqew","isRequired":false,"answerType":"textbox"}]}
+=======
+{"user_id":"3","id":4,"title":"r","welcomeMessage":"qw","regDate":"2019-7-2 11:11:42","questionsArray":[{"id":1,"body":"","isRequired":false,"answerType":"checkbox","answers":[{"body":"as"}]}]}
+>>>>>>> 60c94b121d5fd656966a5dc87be0028c57493645
