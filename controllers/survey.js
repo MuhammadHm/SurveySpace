@@ -24,16 +24,17 @@ exports.addServeyInfo =async(req, res, next) => {
     let files=await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'))        
     let survey_id=files.length+1; 
 
+
     let user_id =await cookieUser.getUserID(req);
     User.addSurvey(user_id ,survey_id ,req.body.title , req.body.welcomeMessage);
 
     let survey = new Survey();
     await survey.addSurvey(survey_id , user_id , req.body.title , req.body.welcomeMessage,[]) ;
-     
+
+         
     res.redirect(`http://localhost:3000/createsurvey`);
 }
 exports.sendSurveyInfo =async (req, res, next) => {
-    console.log("info")
     let user_id=cryptr.decrypt(req.params.user_id);
     let Info =await User.getLastSurvey(user_id);
     let surveyInfo={
