@@ -15,7 +15,8 @@ module.exports=class Result{
             answerVisitor=JSON.parse(content);
             answerVisitor.answer.push(answers);
                 for (let i=0;i<answers.length;i++)
-                    {  if (answers[i].answer != undefined)
+                    {  if (answers[i] != null)
+                        if (answers[i].answer != "")
                         {   
                             answerVisitor.result[i].count++;
                             if (answers[i].questionType === "textbox" || answers[i].questionType == "essay" && answerVisitor.result[i].report !=undefined )
@@ -29,7 +30,7 @@ module.exports=class Result{
                                 }
                             }   
                             else if (answers[i].questionType ==="scale")
-                                    answerVisitor.result[i].scale+=parseInt(answers[i].answer.value);
+                                    answerVisitor.result[i].scale.push(parseInt(answers[i].answer.value));
                             else if (answers[i].questionType === "date")
                                     answerVisitor.result[i].date.push(answers[i].answer);       
                         }
