@@ -94,7 +94,7 @@ module.exports=class Survey{
                     });
                 }   
             else if (element.answerType ==="scale")
-                    oneresult.scale=0;
+                    oneresult.scale=[];
             else if (element.answerType === "date")
                     oneresult.date =[]; 
             result.push(oneresult); 

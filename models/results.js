@@ -62,6 +62,14 @@ module.exports=class Result{
         
         return report;
     }
+    static async getresult(survey_id){
+        let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
+        let data1= fs.readFileSync(path1)
+        let answerVisitor=JSON.parse(data1);
+        console.log(answerVisitor.result);
+        return answerVisitor.result;
+
+    }
 
 
 

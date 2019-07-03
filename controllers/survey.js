@@ -139,7 +139,16 @@ exports.report = async (req,res)=>{
     res.json(report);
 }
 
+exports.analyze = async (req,res)=>{
 
+    let survey_id=req.params.id; 
+    let result=await Results.getresult(survey_id)
+    console.log("result: "+result)
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.json(result);
+}
 
 
 
