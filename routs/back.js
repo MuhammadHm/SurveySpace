@@ -35,7 +35,6 @@ rout.use("/home/:id",async (req,res,next)=>{
     });
 });
 
-
 rout.use("/:id",async (req,res,next)=>{
 
     let id=req.params.id;
