@@ -79,8 +79,13 @@
 "DeleteAccount":"Delete Account",
 "Survey":"My Surveys",
 "SignIn":"Sign In",
-"SignOut":"Sign Out"
-
+"SignOut":"Sign Out",
+"MySurvey":" My Survey",
+"Template":"My Templates ",
+"CreatSurvey":"Creat Survey",
+"SurveyTitle":"SurveyTitle",
+"WelcomeMessage":"Welcome Message",
+"Creat":"Creat"
 
 
 
