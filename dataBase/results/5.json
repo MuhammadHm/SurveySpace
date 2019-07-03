@@ -1,0 +1,1 @@
+{"result":[{"questionbody":"welcome ? ","answerType":"scale","count":1,"scale":[60]},{"questionbody":"hi ? ","answerType":"textbox","count":0,"report":[]}],"answer":[[],[{"questionType":"scale","questionBody":"welcome ? ","answer":{"min":"10","max":"100","step":"10","value":"60"}}]]}
