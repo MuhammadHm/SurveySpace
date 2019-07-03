@@ -18,7 +18,7 @@
                 		                  
                   <!-- Item of navbar-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <a style="padding-right: 50px;" href="/home" class="navbar-brand">Logo</a>
+                  <a style="padding-right: 50px;" href="/home" class="navbar-brand">SS</a>
                   <input id="tab-1" type="radio" name="tab"  ><label for="tab-1" class="tab">	<a class="mySurvey" href="/mysurveys">My Surveys</a></label>
                   <input id="tab-2" type="radio" name="tab" checked > <label for="tab-2" class="tab"><a class="mySurvey" href="/mysurveys/mytemplates">My Templates</a></label>
                        <ul class="navbar-nav ml-auto">
@@ -54,8 +54,8 @@
                           <p>Responses Today 0 </p>  
                        </div>
                        <div class="card-footer">
-                          <a class="card-link" href="http://localhost:3000/edit/<%= templates[i].id %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
-                          <a class="card-link" href="/survey/delete/<%= templates[i].id %>"><i class="fa fa-trash" title="Delete survey"></i></a>
+                          <a class="card-link" href="http://localhost:3000/edittemplate/<%= cryptr.encrypt(templates[i].id) %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
+                          <a class="card-link" href="/survey/deletetemplate/<%= cryptr.encrypt(templates[i].id) %>"><i class="fa fa-trash" title="Delete survey"></i></a>
 
                         </div>
                        

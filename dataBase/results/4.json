@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"result":[{"questionbody":"weqew","answerType":"textbox","count":0,"report":[]}],"answer":[]}
-=======
-{"result":[{"questionbody":"","answerType":"checkbox","count":0,"check":[{"questionBody":"as","count":0}]}],"answer":[]}
->>>>>>> 60c94b121d5fd656966a5dc87be0028c57493645
+{"result":[{"questionbody":"welcome ? ","answerType":"mulchoice","count":2,"check":[{"questionBody":"a","count":1},{"questionBody":"b","count":1}]},{"questionbody":"no ? ","answerType":"checkbox","count":2,"check":[{"questionBody":"a","count":2},{"questionBody":"3","count":2}]}],"answer":[[{"questionType":"mulchoice","questionBody":"welcome ? ","answer":[{"body":"a","checked":true},{"body":"b","checked":false}]},{"questionType":"checkbox","questionBody":"no ? ","answer":[{"body":"a","checked":true},{"body":"3","checked":true}]}],[{"questionType":"mulchoice","questionBody":"welcome ? ","answer":[{"body":"a","checked":false},{"body":"b","checked":true}]},{"questionType":"checkbox","questionBody":"no ? ","answer":[{"body":"a","checked":true},{"body":"3","checked":true}]}]]}
