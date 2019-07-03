@@ -178,12 +178,12 @@ exports.report = async (req,res)=>{
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.json(report);
 }
-
 exports.analyze = async (req,res)=>{
 
-    let survey_id=req.params.id; 
+    let survey_id=cryptr.decrypt(req.params.id); 
+    console.log("survey ID " ,survey_id)
     let result=await Results.getresult(survey_id)
-    console.log("result: "+result)
+    console.log("result: "+ result)
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');

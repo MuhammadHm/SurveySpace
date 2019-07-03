@@ -27,7 +27,7 @@ rout.get('/mytemplates',async(req,res,next)=>{
         user: user,lang:lang ,
         cryptr : cryptr});
 })
-rout.get('/',async (req,res,next)=>{
+rout.get('/',async (req,res,next)=>{ 
 
     let user=await cookieUser.getUser(req);
     let language="en";
