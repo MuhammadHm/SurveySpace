@@ -92,7 +92,12 @@
 "Password":"Password",
 "Keep":"Keep me Signed in",
 "LogIn":"Log In",
-"haveAccount":"Don't have account yet?"
+"haveAccount":"Don't have account yet?",
+"Email":"Email",
+"ConfirmPassword":"Confirm Password",
+"SignUpButton":"Sign Up",
+"Account":"Account",
+"Logout":"Log Out"
 
 
 

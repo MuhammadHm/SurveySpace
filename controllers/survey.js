@@ -180,7 +180,7 @@ exports.report = async (req,res)=>{
 exports.analyze = async (req,res)=>{
 
     let survey_id=cryptr.decrypt(req.params.id); 
-    console.log("survey ID " ,survey_id)
+    console.log("survey ID " ,survey_id);
     let result=await Results.getresult(survey_id)
     console.log("result: "+ result)
     res.header('Access-Control-Allow-Origin', "*");

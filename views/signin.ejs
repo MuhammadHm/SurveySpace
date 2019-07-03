@@ -8,8 +8,8 @@
 	<body >	
 		<div class="login-wrap">
 		<div class="login-html">
-			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">	<a href="/signin">Sign In</a></label>
-			<input id="tab-2" type="radio" name="tab" class="sign-up" > <label for="tab-2" class="tab"><a href="/signin/signup">Sign Up</a></label>
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">	<a href="/signin"><%=lang.SignIn1%></a></label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up" > <label for="tab-2" class="tab"><a href="/signin/signup"><%=lang.SignUp%></a></label>
 			<!-- Log In Form -->
 			<div class="login-form">
 			<form action="/signin/login" method="POST">
@@ -18,23 +18,23 @@
 							<div><p style="color : #D1B385"><%= err.msg +'.'%></p></div>
 						<% } %>
 						<div class="group">
-							<label for="user" class="label"> Name </label>
+							<label for="user" class="label"> <%=lang.Name%></label>
 							<input id="user" type="text" class="input" name="email" placeholder="example@gmail.com" value="<%= oldInput.email %>">
 						</div>
 						<div class="group">
-							<label for="pass" class="label">Password</label>
+							<label for="pass" class="label"><%=lang.Password%></label>
 							<input id="pass" type="password" class="input" data-type="password" name="password" placeholder="At least 5 characters" value="<%= oldInput.password%>">
 						</div>
 						<div class="group">
 							<input id="check" type="checkbox" class="check" checked name="keepMe">
-							<label for="check"><span class="icon"></span>Keep me Signed in</label>
+							<label for="check"><span class="icon"></span><%=lang.Keep%></label>
 						</div>
 						<div class="group">
-							<input type="submit" class="button" value="Log In">
+							<input type="submit" class="button" value="<%=lang.LogIn%>">
 						</div>
 							<div class="hr"></div>
 							<div class="foot-lnk">
-								<a href="/signin/signup">Don't have account yet?</a>
+								<a href="/signin/signup"><%=lang.haveAccount%></a>
 							</div>
 					</div>
 			</form>

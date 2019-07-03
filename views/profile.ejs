@@ -102,6 +102,14 @@
                         display: flex;
                         justify-content: space-between;
                     }
+                    .profile-di{
+                      float: right;
+                      direction: rtl !important;
+                    }
+                    .profile-di1{
+                      direction: rtl !important;
+                      text-align: right  !important;
+                    }
         </style>
          
 
@@ -132,8 +140,8 @@
             </nav>
             <!-- End NavBar-->
           
-            <div class="side-bar">
-               <div class="side-bar-info">
+            <div class="side-bar <%= language === 'ar' ? 'profile-di' : '' %>">
+               <div class="side-bar-info ">
                       <h2><%= user.name %></h2>
                       <h3><%= user.email %></h3>
                   <div class="nav">
@@ -154,9 +162,9 @@
                   </div>
                </div>
             </div>
-            <div class="user-info">
+            <div class="user-info <%= language === 'ar' ? 'profile-di1' : '' %>">
                  <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
+                  <li class="nav-item <%= language === 'ar' ? 'profile-di' : '' %>">
                     <a class="nav-link active" id="Profile-tab" data-toggle="tab" href="#Profile" role="tab" aria-controls="Profile" aria-selected="true"><%=lang.Profile%></a>
                   </li>
                   <li class="nav-item">
