@@ -22,9 +22,13 @@ rout.get('/mytemplates',async(req,res,next)=>{
         language=cookie.parse(req.headers.cookie || '').Language;
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
-    res.render('mytemplates',{templates : user.templates ,user: user,lang:lang });
+    res.render('mytemplates',{
+        templates : user.templates ,
+        user: user,lang:lang ,
+        cryptr : cryptr});
 })
-rout.get('/',async (req,res,next)=>{
+rout.get('/',async (req,res,next)=>{ 
+
     let user=await cookieUser.getUser(req);
     let language="en";
     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
@@ -33,6 +37,7 @@ rout.get('/',async (req,res,next)=>{
      let lang=  JSON.parse(data);
     res.render('mysurveys',
     {   surveys : user.surveys,
+        cryptr : cryptr,
         user: user,
         lang:lang });
 });

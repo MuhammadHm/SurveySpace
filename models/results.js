@@ -11,7 +11,7 @@ module.exports=class Result{
         // readFileResult 
         let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);
         let answerVisitor=[];
-        fs.readFile(path1,(err,content)=>{
+        let content =await fs.readFileSync(path1)
             answerVisitor=JSON.parse(content);
             answerVisitor.answer.push(answers);
                 for (let i=0;i<answers.length;i++)
@@ -38,7 +38,7 @@ module.exports=class Result{
                     console.log(answerVisitor);
             answerVisitor=JSON.stringify(answerVisitor);
             fs.writeFileSync(path1,answerVisitor);
-            });
+           
     }   
     static async createReport(survey_id){
         let path1=path.join(__dirname,'..','dataBase','results',`${survey_id}.json`);

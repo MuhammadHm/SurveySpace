@@ -16,14 +16,15 @@ const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotalySecretKey');
 const cookieUser=require("./cookieUser");
 const Results=require("./../models/results")
+const cookie = require('cookie');
 
 //  handle '/survey'
-
 exports.addServeyInfo =async(req, res, next) => {
 
     let files=await fs.readdirSync(path.join(__dirname,'..','dataBase','survey'))        
     let survey_id=files.length+1; 
 
+    res.cookie("survey",cryptr.encrypt(survey_id)); 
 
     let user_id =await cookieUser.getUserID(req);
     User.addSurvey(user_id ,survey_id ,req.body.title , req.body.welcomeMessage);
@@ -35,11 +36,15 @@ exports.addServeyInfo =async(req, res, next) => {
     res.redirect(`http://localhost:3000/createsurvey`);
 }
 exports.sendSurveyInfo =async (req, res, next) => {
-    let user_id=cryptr.decrypt(req.params.user_id);
-    let Info =await User.getLastSurvey(user_id);
+    
+    let survey_id=cryptr.decrypt(req.params.user_id);
+    //let Info =await User.getLastSurvey(user_id);
+    let data=await read(path.join(__dirname, '..', 'dataBase', 'survey', `${survey_id}.json`));
+    let Info=JSON.parse(data);
+
     let surveyInfo={
           survey_id: Info.id,
-          user_id : user_id,
+          user_id : Info.user_id,
           title : Info.title,
           welcomeMessage : Info.welcomeMessage
     }
@@ -53,7 +58,7 @@ exports.saveSurvey =async (req,res,next)=>{
     let survey = new Survey();
 
     if(req.body.survey_id != undefined)
-         survey.addSurvey(req.body.survey_id ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
+         survey.addSurvey(cryptr.decrypt(req.body.survey_id) ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
     
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -63,14 +68,28 @@ exports.saveSurvey =async (req,res,next)=>{
 }
 exports.sendSurvey =async (req,res,next)=>{
     
-    let survey_id=req.params.id; 
+    let survey_id=cryptr.decrypt(req.params.id); 
     let data=await read(path.join(__dirname, '..', 'dataBase', 'survey', `${survey_id}.json`));
     let survey=JSON.parse(data);
-    console.log("send survey : ",survey)
+
+    //console.log("send survey : ",survey)
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.json(survey);
+    
+}
+exports.sendTemplate =async (req,res,next)=>{
+    
+    let template_id=cryptr.decrypt(req.params.id); 
+    let data=await read(path.join(__dirname, '..', 'dataBase', 'templates', `${template_id}.json`));
+    let template=JSON.parse(data);
+    
+    //console.log("send survey : ",survey)
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.json(template);
     
 }
 exports.publishSurvey =async ( req , res )=>{
@@ -88,7 +107,7 @@ exports.saveAsTemplate = async(req , res )=>{
     let survey = new Survey();
 
     if(req.body.survey_id != undefined)
-         survey.saveAsTemplate(req.body.survey_id ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
+         survey.saveAsTemplate(cryptr.decrypt(req.body.survey_id ),req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
     
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -98,7 +117,7 @@ exports.saveAsTemplate = async(req , res )=>{
 exports.editSurvey = async (req,res)=>{
     
     if(req.body.survey_id != undefined)
-         Survey.editSurvey(req.body.survey_id ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
+         Survey.editSurvey(cryptr.decrypt(req.body.survey_id) ,req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
     
 
     res.header('Access-Control-Allow-Origin', "*");
@@ -108,13 +127,14 @@ exports.editSurvey = async (req,res)=>{
 }
 exports.delete = async (req,res)=>{
 
-    let id = req.params.id;
+    let id = cryptr.decrypt(req.params.id);
     //deleting file
     let path1=path.join(__dirname,'..','dataBase','survey',`${id}.json`);
     fs.unlinkSync(path1);
     fs.unlinkSync(path.join(__dirname,'..','dataBase','results',`${id}.json`));
+
     //delete from user file
-    let user_id = req.session.user.id;
+    let user_id =await cookieUser.getUserID(req);
     let user = await read(path.join(__dirname,'..','dataBase','users',`${user_id}.json`));
     user = JSON.parse(user);
     for( let i = 0; i < user.surveys.length; i++){ 
@@ -122,15 +142,35 @@ exports.delete = async (req,res)=>{
             user.surveys.splice(i, 1); 
         }
     }
-    req.session.user = user;
     let json=JSON.stringify(user);
     await fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${user_id}.json`),json); 
    
     res.redirect("/mysurveys")
 }
+exports.deleteTemplate = async (req,res)=>{
+
+    let id = cryptr.decrypt(req.params.id);
+    //deleting file
+    let path1=path.join(__dirname,'..','dataBase','templates',`${id}.json`);
+    fs.unlinkSync(path1);
+    //delete from user file
+    let user_id =await cookieUser.getUserID(req);
+
+    let user = await read(path.join(__dirname,'..','dataBase','users',`${user_id}.json`));
+    user = JSON.parse(user);
+    for( let i = 0; i < user.templates.length; i++){ 
+        if ( user.templates[i].id == id) {
+            user.templates.splice(i, 1); 
+        }
+    }
+    let json=JSON.stringify(user);
+    await fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${user_id}.json`),json); 
+   
+    res.redirect("/mytemplates")
+}
 exports.report = async (req,res)=>{
 
-    let survey_id=req.params.id; 
+    let survey_id=cryptr.decrypt(req.params.id); 
     let report=await Results.createReport(survey_id)
     console.log(report)
     res.header('Access-Control-Allow-Origin', "*");
@@ -138,12 +178,12 @@ exports.report = async (req,res)=>{
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.json(report);
 }
-
 exports.analyze = async (req,res)=>{
 
-    let survey_id=req.params.id; 
+    let survey_id=cryptr.decrypt(req.params.id); 
+    console.log("survey ID " ,survey_id)
     let result=await Results.getresult(survey_id)
-    console.log("result: "+result)
+    console.log("result: "+ result)
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');

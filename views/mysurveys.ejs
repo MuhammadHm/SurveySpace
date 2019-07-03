@@ -18,10 +18,10 @@
                 		                  
                   <!-- Item of navbar-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <a style="padding-right: 50px;" href="/home" class="navbar-brand">Logo</a>
-                  <ul class="navbar-nav mr-auto ">
-                  <input id="tab-1" type="radio" name="tab"  checked><label for="tab-1" class="tab">	<a class="mySurvey" href="/mysurveys">My Survey</a></label>
-                  <input id="tab-2" type="radio" name="tab"  > <label for="tab-2" class="tab"><a class="mySurvey" href="/mysurveys/mytemplates">My Template</a></label>
+                  <a style="padding-right: 50px;" href="/home" class="navbar-brand">SS</a>
+                  <ul class="navbar-nav mr-auto">
+                  <input id="tab-1" type="radio" name="tab"  checked><label for="tab-1" class="tab">	<a class="mySurvey" href="/mysurveys"><%=lang.MySurvey%></a></label>
+                  <input id="tab-2" type="radio" name="tab"  > <label for="tab-2" class="tab"><a class="mySurvey" href="/mysurveys/mytemplates"><%=lang.Template%></a></label>
                   </ul>
                        <ul class="navbar-nav ml-auto">
                        
@@ -31,9 +31,9 @@
                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= user.name%></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" href="/home/account"> <i class="fas fa-user-alt"></i> Account</a>
+                                   <a class="dropdown-item" href="/home/account"> <i class="fas fa-user-alt"></i> <%=lang.Account%></a>
                                    <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="/logout"> <i class="fas fa-sign-in-alt"></i> Log out</a>
+                                      <a class="dropdown-item" href="/logout"> <i class="fas fa-sign-in-alt"></i> <%=lang.Logout%></a>
                             </div>
                           </li>
                     </ul>
@@ -56,8 +56,8 @@
                           <p>Responses Today 0 </p>  
                        </div>
                        <div class="card-footer">
-                          <a class="card-link" href="http://localhost:3000/edit/<%= surveys[i].id %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
-                          <a class="card-link" href="/survey/delete/<%= surveys[i].id %>"><i class="fa fa-trash" title="Delete survey"></i></a>
+                          <a class="card-link" href="http://localhost:3000/edit/<%= cryptr.encrypt(surveys[i].id) %>"><i class="fas fa-user-cog" title="Edit survey"></i></a>
+                          <a class="card-link" href="/survey/delete/<%= cryptr.encrypt(surveys[i].id) %>"><i class="fa fa-trash" title="Delete survey"></i></a>
 
                         </div>
                        
