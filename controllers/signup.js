@@ -1,12 +1,12 @@
-const User = require('./../models/user');
 const { validationResult } = require('express-validator/check');
 const parser=require('body-parser');
 const { check,body }=require('express-validator/check');
 const userInfo=require('./../models/usersInfo');
 const fs = require('fs');
-const path = require('path');
 const util=require('util');
-const  read = util.promisify(fs.readFile);
+const read = util.promisify(fs.readFile);
+const User = require('./../models/user');
+const path = require('path');
 const cookie = require('cookie');
 
 
@@ -35,7 +35,6 @@ exports.getSignup=async(req,res,next)=>{
         language=cookie.parse(req.headers.cookie || '').Language;
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
-     console.log(lang);
     res.render('signup',{
         err : false,
         lang :lang,

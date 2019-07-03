@@ -28,6 +28,7 @@ rout.use('/saveastemplate',survey.saveAsTemplate)
 rout.use('/editsurvey',survey.editSurvey)   // saving the edited survey
 rout.use('/delete/:id',survey.delete)
 rout.use('/report/:id',survey.report) 
+rout.use('/Analzye/:id',survey.analyze) 
 
 
 module.exports=rout;
