@@ -86,9 +86,9 @@ z-index: 2;
 font-size:20px;
  letter-spacing: 4;
 }
-@media(max-width:600px  ){
+@media(max-width:600px ){
     .caption h1{
-        font-size: 60px;
+        font-size: 50px;
         font-weight: 350px;
     }
     .caption h3{
@@ -100,6 +100,10 @@ font-size:20px;
     .button-efect.from-left span:last-child{
         font-size: 15px;
     }
+    .fea-image{
+        margin-right: 500px !important;
+    }
+   
 }
 /* End  Home Page*/
 
@@ -108,10 +112,12 @@ font-size:20px;
     background-color:#A49AB8;
     padding-top:90px;
     padding-bottom: 130px;
+  
 }
 .fea-image{
     float: left;
-    padding-right: 100px;
+    padding-right: 10px;
+   
 }
 .fea-text h1{
     margin-top: 50px;
