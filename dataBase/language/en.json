@@ -85,7 +85,14 @@
 "CreatSurvey":"Creat Survey",
 "SurveyTitle":"SurveyTitle",
 "WelcomeMessage":"Welcome Message",
-"Creat":"Creat"
+"Creat":"Creat",
+"SignIn1":"Sign In",
+"SignUp":"Sign Up",
+"Name":"Name",
+"Password":"Password",
+"Keep":"Keep me Signed in",
+"LogIn":"Log In",
+"haveAccount":"Don't have account yet?"
 
 
 

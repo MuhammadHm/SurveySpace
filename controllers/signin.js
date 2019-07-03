@@ -19,8 +19,14 @@ exports.postLogin =async (req, res, next) => {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        let language="en";
+    if (cookie.parse(req.headers.cookie || '').Language === "ar" )
+        language=cookie.parse(req.headers.cookie || '').Language;
+     let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
+     let lang=  JSON.parse(data);
         return res.status(422).render('signin', {
             err: errors.array()[0],
+            lang :lang,
             oldInput: {
                 email: req.body.email,
                 password: req.body.password
