@@ -10,10 +10,10 @@ module.exports=class Desgin{
 
     static editeDesgin(object){
 
-
+ 
     }
     static removeDesgin(object){
 
     }
-
+ 
 };

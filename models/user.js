@@ -101,6 +101,25 @@ module.exports=class User{
                 user.templates.push(template);
                 user=JSON.stringify(user);
                 fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
+                console.log("added template " ,user)
+
+            })
+            .catch(err=>{console.log(err);});
+    }
+    static deleteSurvey(id_admin,survey_id,titleSurvey,welcomeMessage){
+        let path1=path.join(__dirname,'..','dataBase','users',`${id_admin}.json`);
+        let user;
+        read(path1)
+            .then((data)=>{
+                user=JSON.parse(data);          
+                for( let i = 0; i < user.surveys.length; i++){ 
+                    if ( user.surveys[i].id == survey_id) {
+                        user.surveys.splice(i, 1); 
+                        console.log("deleted" ,survey_id)
+                    }
+                }
+                user=JSON.stringify(user);
+                fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${id_admin}.json`),user);
             })
             .catch(err=>{console.log(err);});
     }

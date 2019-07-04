@@ -18,14 +18,16 @@ rout.use(parser.json());
 rout.get('/mytemplates',async(req,res,next)=>{
     let user=await cookieUser.getUser(req);
     let language="en";
+    
     if (cookie.parse(req.headers.cookie || '').Language === "ar" )
         language=cookie.parse(req.headers.cookie || '').Language;
      let data=await read(path.join(__dirname, '..', 'dataBase', 'language', `${language}.json`));
      let lang=  JSON.parse(data);
     res.render('mytemplates',{
-        templates : user.templates ,
+        templates : user.templates,
         user: user,lang:lang ,
         cryptr : cryptr});
+        
 })
 rout.get('/',async (req,res,next)=>{ 
 

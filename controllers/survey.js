@@ -106,7 +106,7 @@ exports.saveAsTemplate = async(req , res )=>{
     let survey = new Survey();
 
     if(req.body.survey_id != undefined)
-         survey.saveAsTemplate(cryptr.decrypt(req.body.survey_id ),req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
+         survey.saveAsTemplate(cryptr.decrypt(req.body.survey_id),req.body.user_id ,req.body.title ,req.body.welcomeMessage,req.body.questionsArray);
     
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -165,7 +165,7 @@ exports.deleteTemplate = async (req,res)=>{
     let json=JSON.stringify(user);
     await fs.writeFileSync(path.join(__dirname,'..','dataBase','users',`${user_id}.json`),json); 
    
-    res.redirect("/mytemplates")
+    res.redirect("/mysurveys/mytemplates")
 }
 exports.report = async (req,res)=>{
 

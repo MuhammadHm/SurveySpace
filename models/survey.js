@@ -29,11 +29,14 @@ module.exports=class Survey{
         let files =await fs.readdirSync(path.join(__dirname,'..','dataBase','templates'))
         let id=files.length+1; 
         this.id=id;
-
+        
         user.addTemplate(user_id,this.id,this.title,this.welcomeMessage);
-        
+        user.deleteSurvey(user_id,survey_id,this.title,this.welcomeMessage);
         let jsonSurvey=JSON.stringify(this);
+
         
+
+
         await fs.writeFileSync(path.join(__dirname,'..','dataBase','templates',`${this.id}.json`),jsonSurvey);
       
     }
