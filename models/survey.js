@@ -31,7 +31,7 @@ module.exports=class Survey{
         this.id=id;
         
         user.addTemplate(user_id,this.id,this.title,this.welcomeMessage);
-        user.deleteSurvey(user_id,survey_id,this.title,this.welcomeMessage);
+       // user.deleteSurvey(user_id,survey_id,this.title,this.welcomeMessage);
         let jsonSurvey=JSON.stringify(this);
 
         
